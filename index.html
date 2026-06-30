@@ -2,25 +2,75 @@
 <html lang="ar" dir="rtl">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>❤️  زهرتي | أحبك</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0">
+    <meta name="description" content="موقع رومانسي مخصص لزهرتي - أجمل ما حدث في حياتي">
+    <meta name="theme-color" content="#c25a73">
+    <meta name="author" content="لعيونها">
+    <meta property="og:title" content="زهرتي | أحبك">
+    <meta property="og:description" content="موقع رومانسي مخصص لأجمل قلب في الدنيا">
+    <meta property="og:type" content="website">
+    <title>❤️ زهرتي | أحبك</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@400;500;700;800;900&display=swap" rel="stylesheet">
     <style>
+        /* ═══════════════════════════════════════════════
+           CSS Custom Properties (Design Tokens)
+           ═══════════════════════════════════════════════ */
         :root {
-            --rose: #e8a0b4;
-            --rose-dark: #d4788f;
-            --deep-rose: #c25a73;
-            --burgundy: #8b3a4a;
-            --cream: #fff5f5;
+            /* Colors */
+            --rose-50: #fff5f5;
+            --rose-100: #fce4ec;
+            --rose-200: #f8d0da;
+            --rose-300: #e8a0b4;
+            --rose-400: #d4788f;
+            --rose-500: #c25a73;
+            --rose-600: #8b3a4a;
+            --rose-700: #5a2530;
             --gold: #d4a574;
-            --soft-pink: #fce4ec;
             --white: #ffffff;
-            --dark: #3d1f26;
             --shadow-soft: 0 10px 40px rgba(180, 100, 120, 0.25);
             --shadow-card: 0 20px 60px rgba(140, 60, 80, 0.2);
-            --transition: 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+            --shadow-button: 0 8px 30px rgba(200, 90, 120, 0.35);
+            --shadow-button-hover: 0 14px 40px rgba(190, 80, 110, 0.5);
+            
+            /* Typography */
+            --font-base: 'Tajawal', 'Segoe UI', system-ui, -apple-system, sans-serif;
+            --text-xs: clamp(0.75rem, 0.7rem + 0.25vw, 0.875rem);
+            --text-sm: clamp(0.875rem, 0.8rem + 0.35vw, 1rem);
+            --text-base: clamp(1rem, 0.9rem + 0.5vw, 1.15rem);
+            --text-lg: clamp(1.15rem, 1rem + 0.75vw, 1.35rem);
+            --text-xl: clamp(1.5rem, 1.2rem + 1.5vw, 2.6rem);
+            --text-2xl: clamp(2.5rem, 1.8rem + 3.5vw, 5.5rem);
+            
+            /* Spacing */
+            --space-1: 0.25rem;
+            --space-2: 0.5rem;
+            --space-3: 0.75rem;
+            --space-4: 1rem;
+            --space-6: 1.5rem;
+            --space-8: 2rem;
+            --space-12: 3rem;
+            --space-16: 4rem;
+            --space-20: 5rem;
+            
+            /* Transitions */
+            --transition-fast: 0.2s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+            --transition-base: 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+            --transition-slow: 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+            
+            /* Z-index layers */
+            --z-particles: 0;
+            --z-content: 1;
+            --z-navbar: 1000;
+            --z-back-to-top: 999;
+            --z-modal: 2000;
         }
 
-        * {
+        /* ═══════════════════════════════════════════════
+           Reset & Base Styles
+           ═══════════════════════════════════════════════ */
+        *, *::before, *::after {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
@@ -29,195 +79,249 @@
         html {
             scroll-behavior: smooth;
             scrollbar-width: thin;
-            scrollbar-color: var(--rose) var(--cream);
+            scrollbar-color: var(--rose-300) var(--rose-50);
+            -webkit-text-size-adjust: 100%;
         }
+
         ::-webkit-scrollbar {
             width: 8px;
         }
+
         ::-webkit-scrollbar-track {
-            background: var(--cream);
-        }
-        ::-webkit-scrollbar-thumb {
-            background: var(--rose);
+            background: var(--rose-50);
             border-radius: 10px;
         }
 
+        ::-webkit-scrollbar-thumb {
+            background: var(--rose-300);
+            border-radius: 10px;
+            transition: background var(--transition-fast);
+        }
+
+        ::-webkit-scrollbar-thumb:hover {
+            background: var(--rose-500);
+        }
+
+        ::selection {
+            background: var(--rose-300);
+            color: var(--white);
+        }
+
         body {
-            font-family: 'Tajawal', 'Segoe UI', 'Arial', sans-serif;
+            font-family: var(--font-base);
             background: linear-gradient(170deg, #fdf2f5 0%, #fce8ee 25%, #fff0f3 50%, #fbe5ea 75%, #fef5f7 100%);
             background-attachment: fixed;
-            color: var(--dark);
+            color: var(--rose-700);
             overflow-x: hidden;
             min-height: 100vh;
             position: relative;
+            line-height: 1.6;
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
         }
 
-        /* ============ جسيمات الخلفية ============ */
-        #particles-container {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            pointer-events: none;
-            z-index: 0;
+        /* ═══════════════════════════════════════════════
+           Utility Classes
+           ═══════════════════════════════════════════════ */
+        .visually-hidden {
+            position: absolute;
+            width: 1px;
+            height: 1px;
+            padding: 0;
+            margin: -1px;
             overflow: hidden;
+            clip: rect(0, 0, 0, 0);
+            white-space: nowrap;
+            border: 0;
         }
+
+        .container {
+            width: 100%;
+            max-width: 1200px;
+            margin-inline: auto;
+            padding-inline: var(--space-4);
+        }
+
+        /* ═══════════════════════════════════════════════
+           Background Particles
+           ═══════════════════════════════════════════════ */
+        .particles-container {
+            position: fixed;
+            inset: 0;
+            pointer-events: none;
+            z-index: var(--z-particles);
+            overflow: hidden;
+            contain: strict;
+        }
+
         .particle {
             position: absolute;
             pointer-events: none;
             animation: floatUp linear infinite;
             opacity: 0;
-            font-size: 1.5rem;
-            filter: blur(0px);
             will-change: transform, opacity;
+            contain: layout style;
         }
+
         @keyframes floatUp {
             0% {
                 transform: translateY(105vh) rotate(0deg) scale(0.3);
                 opacity: 0;
             }
-            5% {
-                opacity: 0.85;
-            }
-            30% {
-                opacity: 0.7;
-            }
-            70% {
-                opacity: 0.5;
-            }
-            95% {
-                opacity: 0.15;
-            }
+            5% { opacity: 0.85; }
+            30% { opacity: 0.7; }
+            70% { opacity: 0.5; }
+            95% { opacity: 0.15; }
             100% {
                 transform: translateY(-15vh) rotate(720deg) scale(1.6);
                 opacity: 0;
             }
         }
-        .particle.heart {
-            font-size: 1.2rem;
-            animation-duration: 9s;
-        }
-        .particle.petal {
-            font-size: 0.9rem;
-            animation-duration: 13s;
-        }
-        .particle.sparkle {
-            font-size: 0.7rem;
-            animation-duration: 7s;
-        }
 
-        /* ============ شريط التنقل ============ */
+        .particle--heart { font-size: 1.2rem; animation-duration: 9s; }
+        .particle--petal { font-size: 0.9rem; animation-duration: 13s; }
+        .particle--sparkle { font-size: 0.7rem; animation-duration: 7s; }
+
+        /* ═══════════════════════════════════════════════
+           Navigation
+           ═══════════════════════════════════════════════ */
         .navbar {
             position: fixed;
             top: 0;
             left: 0;
             right: 0;
-            z-index: 1000;
+            z-index: var(--z-navbar);
             background: rgba(255, 245, 245, 0.75);
             backdrop-filter: blur(25px);
             -webkit-backdrop-filter: blur(25px);
             border-bottom: 1px solid rgba(200, 140, 155, 0.25);
-            padding: 0.7rem 2rem;
+            padding: var(--space-3) var(--space-8);
             display: flex;
             align-items: center;
             justify-content: space-between;
-            transition: var(--transition);
+            transition: var(--transition-base);
             box-shadow: 0 2px 25px rgba(180, 120, 140, 0.08);
         }
-        .navbar.scrolled {
-            background: rgba(255, 242, 245, 0.9);
+
+        .navbar--scrolled {
+            background: rgba(255, 242, 245, 0.92);
             box-shadow: 0 4px 30px rgba(160, 100, 120, 0.18);
-            padding: 0.5rem 2rem;
+            padding: var(--space-2) var(--space-8);
         }
-        .nav-logo {
+
+        .navbar__logo {
             font-size: 1.7rem;
             font-weight: 800;
-            color: var(--deep-rose);
+            color: var(--rose-500);
             text-decoration: none;
             display: flex;
             align-items: center;
-            gap: 0.5rem;
+            gap: var(--space-2);
             letter-spacing: -0.5px;
-            transition: var(--transition);
+            transition: var(--transition-base);
         }
-        .nav-logo:hover {
-            color: var(--burgundy);
+
+        .navbar__logo:hover,
+        .navbar__logo:focus-visible {
+            color: var(--rose-600);
             transform: scale(1.04);
+            outline: none;
         }
-        .nav-logo .logo-heart {
+
+        .navbar__logo-heart {
             display: inline-block;
-            animation: heartbeatLogo 1.2s ease-in-out infinite;
+            animation: heartbeat 1.2s ease-in-out infinite;
             font-size: 1.5rem;
         }
-        @keyframes heartbeatLogo {
-            0%,
-            100% {
-                transform: scale(1);
-            }
-            14% {
-                transform: scale(1.35);
-            }
-            28% {
-                transform: scale(1);
-            }
-            42% {
-                transform: scale(1.25);
-            }
-            56% {
-                transform: scale(1);
-            }
+
+        @keyframes heartbeat {
+            0%, 100% { transform: scale(1); }
+            14% { transform: scale(1.35); }
+            28% { transform: scale(1); }
+            42% { transform: scale(1.25); }
+            56% { transform: scale(1); }
         }
-        .nav-links {
+
+        .navbar__links {
             display: flex;
             list-style: none;
-            gap: 2.2rem;
+            gap: var(--space-8);
             align-items: center;
         }
-        .nav-links a {
+
+        .navbar__link {
             text-decoration: none;
-            color: var(--burgundy);
+            color: var(--rose-600);
             font-weight: 600;
-            font-size: 1rem;
+            font-size: var(--text-sm);
             position: relative;
-            transition: var(--transition);
-            padding: 0.35rem 0;
+            transition: var(--transition-base);
+            padding: var(--space-1) 0;
             letter-spacing: 0.3px;
         }
-        .nav-links a::after {
+
+        .navbar__link::after {
             content: '';
             position: absolute;
             bottom: -2px;
             right: 0;
             width: 0;
             height: 2.5px;
-            background: var(--deep-rose);
+            background: var(--rose-500);
             border-radius: 5px;
             transition: width 0.35s ease;
         }
-        .nav-links a:hover {
-            color: var(--deep-rose);
+
+        .navbar__link:hover,
+        .navbar__link:focus-visible {
+            color: var(--rose-500);
+            outline: none;
         }
-        .nav-links a:hover::after {
+
+        .navbar__link:hover::after,
+        .navbar__link:focus-visible::after {
             width: 100%;
-            right: 0;
         }
-        .nav-toggle {
+
+        .navbar__toggle {
             display: none;
             background: none;
             border: none;
             font-size: 1.8rem;
             cursor: pointer;
-            color: var(--deep-rose);
-            padding: 0.3rem;
-            transition: var(--transition);
-        }
-        .nav-toggle:hover {
-            color: var(--burgundy);
-            transform: rotate(90deg);
+            color: var(--rose-500);
+            padding: var(--space-1);
+            transition: var(--transition-base);
+            border-radius: var(--space-2);
         }
 
-        /* ============ القسم الرئيسي (Hero) ============ */
+        .navbar__toggle:hover,
+        .navbar__toggle:focus-visible {
+            color: var(--rose-600);
+            transform: rotate(90deg);
+            background: rgba(200, 100, 130, 0.1);
+            outline: none;
+        }
+
+        .navbar__overlay {
+            position: fixed;
+            inset: 0;
+            background: rgba(0, 0, 0, 0.35);
+            z-index: calc(var(--z-navbar) - 1);
+            opacity: 0;
+            pointer-events: none;
+            transition: opacity var(--transition-base);
+            backdrop-filter: blur(2px);
+        }
+
+        .navbar__overlay--active {
+            opacity: 1;
+            pointer-events: auto;
+        }
+
+        /* ═══════════════════════════════════════════════
+           Hero Section
+           ═══════════════════════════════════════════════ */
         .hero {
             min-height: 100vh;
             display: flex;
@@ -225,166 +329,165 @@
             justify-content: center;
             text-align: center;
             position: relative;
-            z-index: 1;
-            padding: 7rem 2rem 4rem;
+            z-index: var(--z-content);
+            padding: 7rem var(--space-4) var(--space-16);
             flex-direction: column;
-            gap: 1.5rem;
+            gap: var(--space-6);
         }
-        .hero-badge {
+
+        .hero__badge {
             display: inline-block;
             background: rgba(255, 255, 255, 0.65);
             backdrop-filter: blur(15px);
             border: 1.5px solid rgba(220, 150, 165, 0.4);
-            padding: 0.6rem 1.8rem;
+            padding: var(--space-2) var(--space-6);
             border-radius: 50px;
             font-weight: 600;
-            color: var(--deep-rose);
-            font-size: 0.95rem;
+            color: var(--rose-500);
+            font-size: var(--text-sm);
             letter-spacing: 1px;
             animation: fadeInDown 1s ease forwards;
             opacity: 0;
             animation-delay: 0.1s;
-            animation-fill-mode: forwards;
         }
+
         @keyframes fadeInDown {
-            from {
-                opacity: 0;
-                transform: translateY(-30px);
-            }
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
+            from { opacity: 0; transform: translateY(-30px); }
+            to { opacity: 1; transform: translateY(0); }
         }
-        .hero-title {
-            font-size: clamp(3rem, 7vw, 5.5rem);
+
+        .hero__title {
+            font-size: var(--text-2xl);
             font-weight: 900;
-            color: var(--burgundy);
+            color: var(--rose-600);
             line-height: 1.2;
             animation: fadeInUp 1s ease forwards;
             opacity: 0;
             animation-delay: 0.25s;
-            animation-fill-mode: forwards;
             text-shadow: 2px 3px 15px rgba(180, 90, 110, 0.2);
         }
+
         @keyframes fadeInUp {
-            from {
-                opacity: 0;
-                transform: translateY(40px);
-            }
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
+            from { opacity: 0; transform: translateY(40px); }
+            to { opacity: 1; transform: translateY(0); }
         }
-        .hero-title .highlight {
-            background: linear-gradient(135deg, var(--deep-rose), var(--rose-dark), var(--burgundy));
+
+        .hero__title-highlight {
+            background: linear-gradient(135deg, var(--rose-500), var(--rose-400), var(--rose-600));
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
             background-clip: text;
-            position: relative;
         }
-        .hero-subtitle {
-            font-size: 1.3rem;
+
+        .hero__subtitle {
+            font-size: var(--text-lg);
             color: #7a4a55;
             max-width: 600px;
             line-height: 1.8;
             animation: fadeInUp 1s ease forwards;
             opacity: 0;
             animation-delay: 0.4s;
-            animation-fill-mode: forwards;
             font-weight: 500;
         }
-        .hero-buttons {
+
+        .hero__buttons {
             display: flex;
-            gap: 1.2rem;
+            gap: var(--space-4);
             flex-wrap: wrap;
             justify-content: center;
             animation: fadeInUp 1s ease forwards;
             opacity: 0;
             animation-delay: 0.55s;
-            animation-fill-mode: forwards;
         }
+
         .btn {
             padding: 0.9rem 2.2rem;
             border-radius: 50px;
             font-weight: 700;
-            font-size: 1rem;
+            font-size: var(--text-sm);
             cursor: pointer;
             text-decoration: none;
-            transition: var(--transition);
+            transition: var(--transition-base);
             border: none;
             letter-spacing: 0.4px;
             display: inline-flex;
             align-items: center;
-            gap: 0.5rem;
+            gap: var(--space-2);
             font-family: inherit;
+            position: relative;
+            overflow: hidden;
         }
-        .btn-primary {
-            background: linear-gradient(135deg, var(--deep-rose), var(--rose-dark));
-            color: #fff;
-            box-shadow: 0 8px 30px rgba(200, 90, 120, 0.35);
+
+        .btn:focus-visible {
+            outline: 3px solid var(--rose-400);
+            outline-offset: 3px;
         }
-        .btn-primary:hover {
+
+        .btn--primary {
+            background: linear-gradient(135deg, var(--rose-500), var(--rose-400));
+            color: var(--white);
+            box-shadow: var(--shadow-button);
+        }
+
+        .btn--primary:hover {
             transform: translateY(-4px);
-            box-shadow: 0 14px 40px rgba(190, 80, 110, 0.5);
-            background: linear-gradient(135deg, var(--burgundy), var(--deep-rose));
+            box-shadow: var(--shadow-button-hover);
+            background: linear-gradient(135deg, var(--rose-600), var(--rose-500));
         }
-        .btn-outline {
+
+        .btn--outline {
             background: rgba(255, 255, 255, 0.5);
             backdrop-filter: blur(10px);
-            border: 2px solid var(--rose-dark);
-            color: var(--deep-rose);
+            border: 2px solid var(--rose-400);
+            color: var(--rose-500);
         }
-        .btn-outline:hover {
+
+        .btn--outline:hover {
             background: rgba(255, 240, 243, 0.8);
             transform: translateY(-4px);
             box-shadow: 0 10px 30px rgba(180, 100, 120, 0.25);
         }
-        .hero-floating-heart {
+
+        .hero__floating-heart {
             position: absolute;
             font-size: 3rem;
             animation: heroHeartFloat 5s ease-in-out infinite;
             opacity: 0.6;
             pointer-events: none;
-        }
-        @keyframes heroHeartFloat {
-            0%,
-            100% {
-                transform: translateY(0) rotate(-5deg);
-            }
-            25% {
-                transform: translateY(-25px) rotate(5deg);
-            }
-            50% {
-                transform: translateY(-10px) rotate(-3deg);
-            }
-            75% {
-                transform: translateY(-30px) rotate(4deg);
-            }
+            user-select: none;
         }
 
-        /* ============ قسم الاقتباسات ============ */
+        @keyframes heroHeartFloat {
+            0%, 100% { transform: translateY(0) rotate(-5deg); }
+            25% { transform: translateY(-25px) rotate(5deg); }
+            50% { transform: translateY(-10px) rotate(-3deg); }
+            75% { transform: translateY(-30px) rotate(4deg); }
+        }
+
+        /* ═══════════════════════════════════════════════
+           Section Base
+           ═══════════════════════════════════════════════ */
         .section {
-            padding: 5rem 2rem;
+            padding: var(--space-20) var(--space-4);
             position: relative;
-            z-index: 1;
-            max-width: 1200px;
-            margin: 0 auto;
+            z-index: var(--z-content);
         }
-        .section-header {
+
+        .section__header {
             text-align: center;
-            margin-bottom: 3.5rem;
+            margin-bottom: var(--space-12);
         }
-        .section-header h2 {
-            font-size: 2.6rem;
+
+        .section__title {
+            font-size: var(--text-xl);
             font-weight: 800;
-            color: var(--burgundy);
-            margin-bottom: 0.8rem;
+            color: var(--rose-600);
+            margin-bottom: var(--space-3);
             position: relative;
             display: inline-block;
         }
-        .section-header h2::after {
+
+        .section__title::after {
             content: '';
             position: absolute;
             bottom: -10px;
@@ -392,37 +495,53 @@
             transform: translateX(-50%);
             width: 70px;
             height: 4px;
-            background: linear-gradient(90deg, var(--rose), var(--deep-rose));
+            background: linear-gradient(90deg, var(--rose-300), var(--rose-500));
             border-radius: 5px;
         }
-        .section-header p {
+
+        .section__subtitle {
             color: #8a5a65;
-            font-size: 1.1rem;
+            font-size: var(--text-base);
+            margin-top: var(--space-4);
         }
+
+        /* ═══════════════════════════════════════════════
+           Quotes Section
+           ═══════════════════════════════════════════════ */
         .quotes-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-            gap: 2rem;
+            gap: var(--space-6);
         }
+
         .quote-card {
             background: rgba(255, 255, 255, 0.6);
             backdrop-filter: blur(20px);
             border: 1.5px solid rgba(220, 160, 175, 0.3);
             border-radius: 24px;
-            padding: 2.2rem 1.8rem;
+            padding: var(--space-8) var(--space-6);
             text-align: center;
-            transition: var(--transition);
+            transition: var(--transition-base);
             cursor: default;
             position: relative;
             overflow: hidden;
             box-shadow: 0 8px 32px rgba(160, 90, 110, 0.08);
+            opacity: 0;
+            transform: translateY(40px);
         }
+
+        .quote-card--visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
         .quote-card:hover {
             transform: translateY(-8px);
             box-shadow: var(--shadow-card);
             border-color: rgba(210, 130, 150, 0.6);
             background: rgba(255, 255, 255, 0.8);
         }
+
         .quote-card::before {
             content: '❝';
             position: absolute;
@@ -431,234 +550,267 @@
             font-size: 3rem;
             color: rgba(200, 120, 140, 0.2);
             font-weight: bold;
-            transition: var(--transition);
+            transition: var(--transition-base);
         }
+
         .quote-card:hover::before {
             color: rgba(200, 120, 140, 0.4);
             transform: scale(1.2);
         }
-        .quote-card .quote-icon {
+
+        .quote-card__icon {
             font-size: 2.5rem;
-            margin-bottom: 1rem;
+            margin-bottom: var(--space-4);
             display: block;
-            transition: var(--transition);
+            transition: var(--transition-base);
         }
-        .quote-card:hover .quote-icon {
+
+        .quote-card:hover .quote-card__icon {
             transform: scale(1.15) rotate(-5deg);
         }
-        .quote-card p {
-            font-size: 1.05rem;
+
+        .quote-card__text {
+            font-size: var(--text-sm);
             color: #5a3540;
             line-height: 1.9;
             font-weight: 500;
         }
-        .quote-card .author {
+
+        .quote-card__author {
             display: block;
-            margin-top: 1rem;
+            margin-top: var(--space-4);
             font-weight: 700;
-            color: var(--deep-rose);
-            font-size: 0.9rem;
+            color: var(--rose-500);
+            font-size: var(--text-xs);
         }
 
-        /* ============ قسم عداد الحب ============ */
+        /* ═══════════════════════════════════════════════
+           Love Counter Section
+           ═══════════════════════════════════════════════ */
         .counter-section {
             background: rgba(255, 240, 243, 0.5);
             backdrop-filter: blur(15px);
             border-radius: 30px;
-            padding: 3rem 2rem;
-            margin: 2rem auto;
+            padding: var(--space-12) var(--space-8);
+            margin: var(--space-4) auto;
             max-width: 900px;
             text-align: center;
             border: 1.5px solid rgba(210, 150, 165, 0.35);
             box-shadow: var(--shadow-soft);
         }
+
         .counter-grid {
             display: grid;
             grid-template-columns: repeat(4, 1fr);
-            gap: 1.5rem;
-            margin-top: 2rem;
+            gap: var(--space-6);
+            margin-top: var(--space-8);
         }
+
         .counter-item {
             background: rgba(255, 255, 255, 0.7);
             border-radius: 20px;
-            padding: 1.5rem 1rem;
-            transition: var(--transition);
+            padding: var(--space-6) var(--space-4);
+            transition: var(--transition-base);
             border: 1px solid rgba(200, 140, 155, 0.25);
         }
+
         .counter-item:hover {
             transform: translateY(-5px);
             box-shadow: var(--shadow-soft);
-            background: #fff;
-        }
-        .counter-number {
-            font-size: 2.8rem;
-            font-weight: 900;
-            color: var(--deep-rose);
-            display: block;
-            line-height: 1;
-        }
-        .counter-label {
-            font-size: 0.9rem;
-            color: #8a5a65;
-            font-weight: 600;
-            margin-top: 0.5rem;
+            background: var(--white);
         }
 
-        /* ============ قسم الرسالة ============ */
+        .counter-item__number {
+            font-size: clamp(2rem, 1.5rem + 2vw, 2.8rem);
+            font-weight: 900;
+            color: var(--rose-500);
+            display: block;
+            line-height: 1;
+            font-variant-numeric: tabular-nums;
+        }
+
+        .counter-item__label {
+            font-size: var(--text-xs);
+            color: #8a5a65;
+            font-weight: 600;
+            margin-top: var(--space-2);
+        }
+
+        .counter-section__footer {
+            margin-top: var(--space-6);
+            color: #8a5a65;
+            font-weight: 500;
+            font-size: var(--text-sm);
+        }
+
+        /* ═══════════════════════════════════════════════
+           Message Section
+           ═══════════════════════════════════════════════ */
         .message-box {
             background: rgba(255, 255, 255, 0.6);
             backdrop-filter: blur(20px);
             border-radius: 28px;
-            padding: 3rem 2.5rem;
+            padding: var(--space-12) var(--space-8);
             max-width: 750px;
             margin: 0 auto;
             text-align: center;
             border: 1.5px solid rgba(210, 150, 165, 0.35);
             box-shadow: var(--shadow-soft);
-            transition: var(--transition);
+            transition: var(--transition-base);
             cursor: pointer;
             position: relative;
             overflow: hidden;
         }
+
         .message-box:hover {
             box-shadow: var(--shadow-card);
             transform: translateY(-4px);
         }
-        .message-box .envelope-icon {
+
+        .message-box__icon {
             font-size: 4rem;
             display: block;
-            margin-bottom: 1rem;
+            margin-bottom: var(--space-4);
             animation: bounceEnvelope 2s ease-in-out infinite;
         }
+
         @keyframes bounceEnvelope {
-            0%,
-            100% {
-                transform: translateY(0);
-            }
-            30% {
-                transform: translateY(-20px);
-            }
-            50% {
-                transform: translateY(0);
-            }
-            70% {
-                transform: translateY(-10px);
-            }
+            0%, 100% { transform: translateY(0); }
+            30% { transform: translateY(-20px); }
+            50% { transform: translateY(0); }
+            70% { transform: translateY(-10px); }
         }
-        .message-box h3 {
-            color: var(--burgundy);
-            font-size: 1.6rem;
-            margin-bottom: 1rem;
+
+        .message-box__title {
+            color: var(--rose-600);
+            font-size: var(--text-lg);
+            margin-bottom: var(--space-4);
         }
-        .message-box .hidden-message {
-            max-height: 0;
-            overflow: hidden;
-            transition: max-height 0.8s ease, opacity 0.6s ease, margin 0.5s ease;
-            opacity: 0;
-            color: #5a3540;
-            line-height: 2;
-            font-size: 1.05rem;
-        }
-        .message-box.revealed .hidden-message {
-            max-height: 500px;
-            opacity: 1;
-            margin-top: 1.2rem;
-        }
-        .message-box .click-hint {
-            font-size: 0.85rem;
+
+        .message-box__hint {
+            font-size: var(--text-xs);
             color: #b0808d;
-            margin-top: 0.6rem;
+            margin-top: var(--space-2);
             font-weight: 500;
             animation: pulseHint 2s ease-in-out infinite;
         }
+
         @keyframes pulseHint {
-            0%,
-            100% {
-                opacity: 0.5;
-            }
-            50% {
-                opacity: 1;
-            }
+            0%, 100% { opacity: 0.5; }
+            50% { opacity: 1; }
         }
 
-        /* ============ نافذة كلمة السر ============ */
+        .message-box__content {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height var(--transition-slow) ease, 
+                        opacity 0.6s ease, 
+                        margin var(--transition-base) ease;
+            opacity: 0;
+            color: #5a3540;
+            line-height: 2;
+            font-size: var(--text-sm);
+        }
+
+        .message-box--revealed .message-box__content {
+            max-height: 500px;
+            opacity: 1;
+            margin-top: var(--space-6);
+        }
+
+        /* ═══════════════════════════════════════════════
+           Secret Modal
+           ═══════════════════════════════════════════════ */
         .modal-overlay {
             position: fixed;
             inset: 0;
-            background: rgba(0,0,0,0.5);
+            background: rgba(0, 0, 0, 0.5);
             backdrop-filter: blur(8px);
-            z-index: 2000;
+            z-index: var(--z-modal);
             display: flex;
             align-items: center;
             justify-content: center;
             opacity: 0;
             pointer-events: none;
-            transition: opacity 0.4s ease;
+            transition: opacity var(--transition-base);
+            padding: var(--space-4);
         }
-        .modal-overlay.active {
+
+        .modal-overlay--active {
             opacity: 1;
             pointer-events: auto;
         }
+
         .modal-box {
-            background: rgba(255, 245, 245, 0.9);
+            background: rgba(255, 245, 245, 0.95);
             backdrop-filter: blur(25px);
             border-radius: 30px;
-            padding: 2.5rem 2rem;
+            padding: var(--space-8) var(--space-6);
             max-width: 400px;
-            width: 90%;
+            width: 100%;
             text-align: center;
-            border: 2px solid var(--rose-dark);
+            border: 2px solid var(--rose-400);
             box-shadow: 0 30px 60px rgba(140, 60, 80, 0.4);
             transform: scale(0.9);
-            transition: transform 0.4s ease;
+            transition: transform var(--transition-base);
         }
-        .modal-overlay.active .modal-box {
+
+        .modal-overlay--active .modal-box {
             transform: scale(1);
         }
-        .modal-box h3 {
-            color: var(--burgundy);
-            margin-bottom: 1.5rem;
-            font-size: 1.5rem;
+
+        .modal-box__title {
+            color: var(--rose-600);
+            margin-bottom: var(--space-6);
+            font-size: var(--text-lg);
         }
-        .modal-box input {
+
+        .modal-box__input {
             width: 100%;
-            padding: 1rem 1.2rem;
-            border: 2px solid var(--rose);
+            padding: var(--space-4) var(--space-6);
+            border: 2px solid var(--rose-300);
             border-radius: 50px;
-            font-size: 1rem;
+            font-size: var(--text-base);
             font-family: inherit;
             text-align: center;
             outline: none;
-            transition: var(--transition);
-            background: rgba(255,255,255,0.7);
-            margin-bottom: 1rem;
+            transition: var(--transition-base);
+            background: rgba(255, 255, 255, 0.7);
+            margin-bottom: var(--space-4);
+            color: var(--rose-700);
         }
-        .modal-box input:focus {
-            border-color: var(--deep-rose);
-            box-shadow: 0 0 0 4px rgba(200,100,130,0.2);
+
+        .modal-box__input:focus {
+            border-color: var(--rose-500);
+            box-shadow: 0 0 0 4px rgba(200, 100, 130, 0.2);
         }
-        .modal-box .error-msg {
+
+        .modal-box__error {
             color: #c0392b;
-            font-size: 0.85rem;
-            margin-bottom: 0.5rem;
+            font-size: var(--text-xs);
+            margin-bottom: var(--space-2);
             min-height: 1.2rem;
             font-weight: 600;
         }
-        .modal-buttons {
+
+        .modal-box__buttons {
             display: flex;
-            gap: 1rem;
+            gap: var(--space-4);
             justify-content: center;
             flex-wrap: wrap;
         }
 
-        /* ============ قسم الصور (معرض) ============ */
+        /* ═══════════════════════════════════════════════
+           Gallery Section
+           ═══════════════════════════════════════════════ */
         .gallery-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-            gap: 1.5rem;
+            gap: var(--space-6);
             max-width: 1000px;
             margin: 0 auto;
         }
+
         .gallery-item {
             aspect-ratio: 1 / 1;
             border-radius: 22px;
@@ -668,63 +820,90 @@
             justify-content: center;
             font-size: 3.5rem;
             cursor: pointer;
-            transition: var(--transition);
+            transition: var(--transition-base);
             border: 2px solid rgba(200, 140, 155, 0.3);
             position: relative;
             overflow: hidden;
             box-shadow: 0 5px 20px rgba(160, 90, 110, 0.1);
+            user-select: none;
+            opacity: 0;
+            transform: scale(0.85);
         }
+
+        .gallery-item--visible {
+            opacity: 1;
+            transform: scale(1);
+        }
+
         .gallery-item:hover {
             transform: scale(1.06) rotate(-1deg);
             box-shadow: 0 18px 45px rgba(170, 80, 110, 0.3);
-            border-color: var(--rose-dark);
+            border-color: var(--rose-400);
         }
+
         .gallery-item::after {
             content: '';
             position: absolute;
             inset: 0;
             background: radial-gradient(circle at center, rgba(255, 255, 255, 0.5) 0%, transparent 70%);
             opacity: 0;
-            transition: var(--transition);
+            transition: var(--transition-base);
         }
+
         .gallery-item:hover::after {
             opacity: 1;
         }
 
-        /* ============ تذييل ============ */
+        /* ═══════════════════════════════════════════════
+           Footer
+           ═══════════════════════════════════════════════ */
         .footer {
             text-align: center;
-            padding: 3rem 2rem;
+            padding: var(--space-12) var(--space-4);
             color: #8a5a65;
             font-weight: 500;
             position: relative;
-            z-index: 1;
+            z-index: var(--z-content);
             border-top: 1px solid rgba(200, 150, 160, 0.2);
-            margin-top: 2rem;
+            margin-top: var(--space-8);
             background: rgba(255, 242, 245, 0.4);
         }
-        .footer .big-heart {
+
+        .footer__heart {
             font-size: 2.5rem;
-            animation: heartbeatLogo 1.2s ease-in-out infinite;
+            animation: heartbeat 1.2s ease-in-out infinite;
             display: inline-block;
         }
 
-        /* ============ زر العودة للأعلى ============ */
+        .footer__text {
+            margin-top: var(--space-2);
+            font-size: var(--text-sm);
+        }
+
+        .footer__copyright {
+            margin-top: var(--space-3);
+            font-size: var(--text-xs);
+            opacity: 0.7;
+        }
+
+        /* ═══════════════════════════════════════════════
+           Back to Top Button
+           ═══════════════════════════════════════════════ */
         .back-to-top {
             position: fixed;
             bottom: 30px;
             left: 30px;
-            z-index: 999;
+            z-index: var(--z-back-to-top);
             width: 50px;
             height: 50px;
             border-radius: 50%;
-            background: var(--deep-rose);
-            color: #fff;
+            background: var(--rose-500);
+            color: var(--white);
             border: none;
             cursor: pointer;
             font-size: 1.3rem;
             box-shadow: 0 8px 25px rgba(180, 80, 110, 0.4);
-            transition: var(--transition);
+            transition: var(--transition-base);
             opacity: 0;
             transform: translateY(20px);
             pointer-events: none;
@@ -732,20 +911,41 @@
             align-items: center;
             justify-content: center;
         }
-        .back-to-top.visible {
+
+        .back-to-top--visible {
             opacity: 1;
             transform: translateY(0);
             pointer-events: auto;
         }
-        .back-to-top:hover {
-            background: var(--burgundy);
+
+        .back-to-top:hover,
+        .back-to-top:focus-visible {
+            background: var(--rose-600);
             transform: translateY(-5px);
             box-shadow: 0 14px 35px rgba(160, 60, 90, 0.5);
+            outline: none;
         }
 
-        /* ============ تجاوب الموقع ============ */
+        /* ═══════════════════════════════════════════════
+           Shake Animation (for error states)
+           ═══════════════════════════════════════════════ */
+        @keyframes shake {
+            0%, 100% { transform: translateX(0); }
+            20% { transform: translateX(-8px); }
+            40% { transform: translateX(8px); }
+            60% { transform: translateX(-5px); }
+            80% { transform: translateX(5px); }
+        }
+
+        .shake {
+            animation: shake 0.4s ease;
+        }
+
+        /* ═══════════════════════════════════════════════
+           Responsive Design
+           ═══════════════════════════════════════════════ */
         @media (max-width: 768px) {
-            .nav-links {
+            .navbar__links {
                 position: fixed;
                 top: 0;
                 right: -100%;
@@ -756,495 +956,741 @@
                 backdrop-filter: blur(30px);
                 flex-direction: column;
                 justify-content: center;
-                gap: 2.5rem;
+                gap: var(--space-8);
                 transition: right 0.5s ease;
                 box-shadow: -10px 0 40px rgba(140, 60, 80, 0.2);
-                z-index: 1001;
+                z-index: calc(var(--z-navbar) + 1);
+                padding: var(--space-8);
             }
-            .nav-links.active {
+
+            .navbar__links--active {
                 right: 0;
             }
-            .nav-toggle {
+
+            .navbar__toggle {
                 display: block;
-                z-index: 1002;
+                z-index: calc(var(--z-navbar) + 2);
             }
-            .nav-overlay {
-                position: fixed;
-                inset: 0;
-                background: rgba(0, 0, 0, 0.35);
-                z-index: 1000;
-                opacity: 0;
-                pointer-events: none;
-                transition: opacity 0.4s ease;
-            }
-            .nav-overlay.active {
-                opacity: 1;
-                pointer-events: auto;
-            }
+
             .counter-grid {
                 grid-template-columns: repeat(2, 1fr);
             }
-            .hero-title {
-                font-size: 2.5rem;
-            }
-            .section-header h2 {
-                font-size: 2rem;
-            }
+
             .gallery-grid {
                 grid-template-columns: repeat(2, 1fr);
+            }
+
+            .hero__floating-heart {
+                display: none;
             }
         }
+
         @media (max-width: 400px) {
             .counter-grid {
-                grid-template-columns: 1fr 1fr;
-                gap: 0.8rem;
+                gap: var(--space-3);
             }
-            .counter-number {
+
+            .counter-item__number {
                 font-size: 2rem;
             }
-            .gallery-grid {
-                grid-template-columns: 1fr 1fr;
-            }
+
             .btn {
                 padding: 0.7rem 1.4rem;
-                font-size: 0.9rem;
+                font-size: var(--text-xs);
+            }
+        }
+
+        @media (prefers-reduced-motion: reduce) {
+            *, *::before, *::after {
+                animation-duration: 0.01ms !important;
+                animation-iteration-count: 1 !important;
+                transition-duration: 0.01ms !important;
+            }
+
+            html {
+                scroll-behavior: auto;
             }
         }
     </style>
-    <link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@400;500;700;800;900&display=swap" rel="stylesheet">
 </head>
 <body>
 
-    <div id="particles-container"></div>
+    <!-- ═══════════════════════════════════════════════
+         Background Particles
+         ═══════════════════════════════════════════════ -->
+    <div class="particles-container" id="particlesContainer" aria-hidden="true"></div>
 
-    <nav class="navbar" id="navbar">
-        <a href="#" class="nav-logo">
-            <span class="logo-heart">❤️</span> عصفورتي
+    <!-- ═══════════════════════════════════════════════
+         Navigation
+         ═══════════════════════════════════════════════ -->
+    <nav class="navbar" id="navbar" role="navigation" aria-label="التنقل الرئيسي">
+        <a href="#home" class="navbar__logo" aria-label="العودة للرئيسية">
+            <span class="navbar__logo-heart" aria-hidden="true">❤️</span>
+            <span>عصفورتي</span>
         </a>
-        <button class="nav-toggle" id="navToggle" aria-label="القائمة">☰</button>
-        <ul class="nav-links" id="navLinks">
-            <li><a href="#home">الرئيسية</a></li>
-            <li><a href="#quotes">اقتباسات</a></li>
-            <li><a href="#counter">عداد الحب</a></li>
-            <li><a href="#message">رسالة</a></li>
-            <li><a href="#gallery">معرض</a></li>
+        <button class="navbar__toggle" id="navToggle" aria-label="فتح القائمة" aria-expanded="false" aria-controls="navLinks">
+            ☰
+        </button>
+        <ul class="navbar__links" id="navLinks" role="menubar">
+            <li role="none"><a href="#home" class="navbar__link" role="menuitem">الرئيسية</a></li>
+            <li role="none"><a href="#quotes" class="navbar__link" role="menuitem">اقتباسات</a></li>
+            <li role="none"><a href="#counter" class="navbar__link" role="menuitem">عداد الحب</a></li>
+            <li role="none"><a href="#message" class="navbar__link" role="menuitem">رسالة</a></li>
+            <li role="none"><a href="#gallery" class="navbar__link" role="menuitem">معرض</a></li>
         </ul>
     </nav>
-    <div class="nav-overlay" id="navOverlay"></div>
+    <div class="navbar__overlay" id="navOverlay" aria-hidden="true"></div>
 
-    <section class="hero" id="home">
-        <span class="hero-badge">💕 مرحباً بك في عالم الحب</span>
-        <h1 class="hero-title">
-            أنتِ <span class="highlight">أجمل</span> ما حدث لي
+    <!-- ═══════════════════════════════════════════════
+         Hero Section
+         ═══════════════════════════════════════════════ -->
+    <section class="hero" id="home" aria-label="الصفحة الرئيسية">
+        <span class="hero__badge">💕 مرحباً بك في عالم الحب</span>
+        <h1 class="hero__title">
+            أنتِ <span class="hero__title-highlight">أجمل</span> ما حدث لي
         </h1>
-        <p class="hero-subtitle">
+        <p class="hero__subtitle">
             في هذا العالم المليء بالتفاصيل، وجودك هو التفصيلة الوحيدة التي تجعل كل شيءٍ جميلاً ومكتملاً... أحبك بكل لغات الصمت والكلام.
         </p>
-        <div class="hero-buttons">
-            <a href="#message" class="btn btn-primary">💌 اقرأ الرسالة</a>
-            <a href="#quotes" class="btn btn-outline">✨ تصفح الاقتباسات</a>
+        <div class="hero__buttons">
+            <a href="#message" class="btn btn--primary">💌 اقرأ الرسالة</a>
+            <a href="#quotes" class="btn btn--outline">✨ تصفح الاقتباسات</a>
         </div>
-        <span class="hero-floating-heart" style="top:15%;right:8%;animation-delay:0s;">💖</span>
-        <span class="hero-floating-heart" style="top:25%;left:10%;animation-delay:1.5s;font-size:2rem;">💗</span>
-        <span class="hero-floating-heart" style="bottom:20%;right:12%;animation-delay:3s;font-size:2.5rem;">💝</span>
+        <span class="hero__floating-heart" style="top:15%; right:8%; animation-delay:0s;" aria-hidden="true">💖</span>
+        <span class="hero__floating-heart" style="top:25%; left:10%; animation-delay:1.5s; font-size:2rem;" aria-hidden="true">💗</span>
+        <span class="hero__floating-heart" style="bottom:20%; right:12%; animation-delay:3s; font-size:2.5rem;" aria-hidden="true">💝</span>
     </section>
 
-    <section class="section" id="quotes">
-        <div class="section-header">
-            <h2>اقتباسات رومانسية</h2>
-            <p>كلمات تلامس القلب وتعبر عن أعمق المشاعر</p>
-        </div>
-        <div class="quotes-grid">
-            <div class="quote-card"><span class="quote-icon">🌹</span><p>"الحب ليس مجرد نظرة، بل هو إحساس عميق يجعل القلب ينبض باسم من نحب في كل لحظة."</p><span class="author">— من القلب</span></div>
-            <div class="quote-card"><span class="quote-icon">💫</span><p>"عيناكِ وطنٌ لا أريد مغادرته، وصوتكِ موسيقى لا أملّ من سماعها."</p><span class="author">— إليكِ</span></div>
-            <div class="quote-card"><span class="quote-icon">🕊️</span><p>"في زحمة هذا العالم، وجودك هو ملاذي الآمن، وابتسامتك هي نوري في العتمة."</p><span class="author">— دائماً</span></div>
-            <div class="quote-card"><span class="quote-icon">🌸</span><p>"أحبك ليس لأنك مثالية، بل لأنك أنتِ بكل تفاصيلك، بضحكتك، بصمتك، بكل شيء فيك."</p><span class="author">— للأبد</span></div>
-            <div class="quote-card"><span class="quote-icon">💎</span><p>"كل يوم معك هو صفحة جديدة في كتاب أجمل قصة حب، وأنا متشوق لقراءة كل الصفحات القادمة."</p><span class="author">— معك</span></div>
-            <div class="quote-card"><span class="quote-icon">🌙</span><p>"حين أنظر إليك، أرى كل الأحلام التي لم أحلم بها بعد، وكل الأمنيات التي تحققت."</p><span class="author">— حبيبتي</span></div>
-        </div>
-    </section>
-
-    <section class="section" id="counter">
-        <div class="section-header">
-            <h2>⏳ عداد الحب</h2>
-            <p>كم مضى منذ أن بدأت أجمل قصة في حياتي</p>
-        </div>
-        <div class="counter-section">
-            <div class="counter-grid" id="counterGrid">
-                <div class="counter-item"><span class="counter-number" id="days">0</span><span class="counter-label">يوم</span></div>
-                <div class="counter-item"><span class="counter-number" id="hours">0</span><span class="counter-label">ساعة</span></div>
-                <div class="counter-item"><span class="counter-number" id="minutes">0</span><span class="counter-label">دقيقة</span></div>
-                <div class="counter-item"><span class="counter-number" id="seconds">0</span><span class="counter-label">ثانية</span></div>
+    <!-- ═══════════════════════════════════════════════
+         Quotes Section
+         ═══════════════════════════════════════════════ -->
+    <section class="section" id="quotes" aria-labelledby="quotes-title">
+        <div class="container">
+            <div class="section__header">
+                <h2 class="section__title" id="quotes-title">اقتباسات رومانسية</h2>
+                <p class="section__subtitle">كلمات تلامس القلب وتعبر عن أعمق المشاعر</p>
             </div>
-            <p style="margin-top:1.5rem;color:#8a5a65;font-weight:500;">💕 وكل لحظة تزداد فيها محبتي لكِ</p>
-        </div>
-    </section>
-
-    <section class="section" id="message">
-        <div class="section-header">
-            <h2>💌 رسالة خاصة</h2>
-            <p>انقر على الظرف لفتح الرسالة</p>
-        </div>
-        <div class="message-box" id="messageBox">
-            <span class="envelope-icon">💌</span>
-            <h3>رسالة من القلب</h3>
-            <p class="click-hint">👆 انقر هنا لفتح الرسالة</p>
-            <div class="hidden-message" id="hiddenMessage">
-                <p>
-                    حبيبتي الغالية...<br><br>
-                    كل يوم يمر وأنا بجانبك أشعر أن الحياة أصبحت أجمل وأكثر إشراقاً. وجودك في حياتي
-                    نعمة لا أستطيع وصفها بالكلمات. أحب الطريقة التي تضحكين بها، أحب نظرات عينيكِ،
-                    أحب كل لحظة أقضيها معك. أنتِ الحلم الذي أصبح حقيقة، وأنتِ أجمل فصل في قصة
-                    حياتي. شكراً لأنك أنتِ... شكراً لأنك اخترتِني.<br><br>
-                    <strong>أحبك أكثر مما تتخيلين ❤️</strong>
-                </p>
+            <div class="quotes-grid" role="list">
+                <article class="quote-card" role="listitem">
+                    <span class="quote-card__icon" aria-hidden="true">🌹</span>
+                    <p class="quote-card__text">"الحب ليس مجرد نظرة، بل هو إحساس عميق يجعل القلب ينبض باسم من نحب في كل لحظة."</p>
+                    <span class="quote-card__author">— من القلب</span>
+                </article>
+                <article class="quote-card" role="listitem">
+                    <span class="quote-card__icon" aria-hidden="true">💫</span>
+                    <p class="quote-card__text">"عيناكِ وطنٌ لا أريد مغادرته، وصوتكِ موسيقى لا أملّ من سماعها."</p>
+                    <span class="quote-card__author">— إليكِ</span>
+                </article>
+                <article class="quote-card" role="listitem">
+                    <span class="quote-card__icon" aria-hidden="true">🕊️</span>
+                    <p class="quote-card__text">"في زحمة هذا العالم، وجودك هو ملاذي الآمن، وابتسامتك هي نوري في العتمة."</p>
+                    <span class="quote-card__author">— دائماً</span>
+                </article>
+                <article class="quote-card" role="listitem">
+                    <span class="quote-card__icon" aria-hidden="true">🌸</span>
+                    <p class="quote-card__text">"أحبك ليس لأنك مثالية، بل لأنك أنتِ بكل تفاصيلك، بضحكتك، بصمتك، بكل شيء فيك."</p>
+                    <span class="quote-card__author">— للأبد</span>
+                </article>
+                <article class="quote-card" role="listitem">
+                    <span class="quote-card__icon" aria-hidden="true">💎</span>
+                    <p class="quote-card__text">"كل يوم معك هو صفحة جديدة في كتاب أجمل قصة حب، وأنا متشوق لقراءة كل الصفحات القادمة."</p>
+                    <span class="quote-card__author">— معك</span>
+                </article>
+                <article class="quote-card" role="listitem">
+                    <span class="quote-card__icon" aria-hidden="true">🌙</span>
+                    <p class="quote-card__text">"حين أنظر إليك، أرى كل الأحلام التي لم أحلم بها بعد، وكل الأمنيات التي تحققت."</p>
+                    <span class="quote-card__author">— حبيبتي</span>
+                </article>
             </div>
         </div>
     </section>
 
-    <!-- ========== نافذة كلمة السر ========== -->
-    <div class="modal-overlay" id="secretModal">
+    <!-- ═══════════════════════════════════════════════
+         Love Counter Section
+         ═══════════════════════════════════════════════ -->
+    <section class="section" id="counter" aria-labelledby="counter-title">
+        <div class="container">
+            <div class="section__header">
+                <h2 class="section__title" id="counter-title">⏳ عداد الحب</h2>
+                <p class="section__subtitle">كم مضى منذ أن بدأت أجمل قصة في حياتي</p>
+            </div>
+            <div class="counter-section" role="region" aria-label="عداد الوقت">
+                <div class="counter-grid" id="counterGrid">
+                    <div class="counter-item">
+                        <span class="counter-item__number" id="days" aria-live="polite">0</span>
+                        <span class="counter-item__label">يوم</span>
+                    </div>
+                    <div class="counter-item">
+                        <span class="counter-item__number" id="hours" aria-live="polite">0</span>
+                        <span class="counter-item__label">ساعة</span>
+                    </div>
+                    <div class="counter-item">
+                        <span class="counter-item__number" id="minutes" aria-live="polite">0</span>
+                        <span class="counter-item__label">دقيقة</span>
+                    </div>
+                    <div class="counter-item">
+                        <span class="counter-item__number" id="seconds" aria-live="polite">0</span>
+                        <span class="counter-item__label">ثانية</span>
+                    </div>
+                </div>
+                <p class="counter-section__footer">💕 وكل لحظة تزداد فيها محبتي لكِ</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- ═══════════════════════════════════════════════
+         Message Section
+         ═══════════════════════════════════════════════ -->
+    <section class="section" id="message" aria-labelledby="message-title">
+        <div class="container">
+            <div class="section__header">
+                <h2 class="section__title" id="message-title">💌 رسالة خاصة</h2>
+                <p class="section__subtitle">انقر على الظرف لفتح الرسالة</p>
+            </div>
+            <div class="message-box" id="messageBox" role="button" tabindex="0" aria-label="فتح الرسالة الخاصة">
+                <span class="message-box__icon" id="messageIcon" aria-hidden="true">💌</span>
+                <h3 class="message-box__title">رسالة من القلب</h3>
+                <p class="message-box__hint" id="messageHint">👆 انقر هنا لفتح الرسالة</p>
+                <div class="message-box__content" id="hiddenMessage" aria-hidden="true">
+                    <br><br>
+                   إلى زهرتي الجميلة💚🌸
+ <br>
+​حبيبتي زهرة،
+​يقولون إن لكل شخص من اسمه نصيب، وأنتِ أخذتِ من اسمكِ كل الجمال، والرقة، والعطر الذي يملأ كوني. وجودكِ في حياتي يحوّل أيامي العادية إلى ربيع دائم.
+​كلما نظرتُ إليكِ، أشعر أن العالم بخير، وأن قلبي اختار أجمل وردة في هذه الدنيا ليحميها ويحبها للأبد.
+​أحبكِ جداً يا زهرة قلبي ونبضي. 💚✨
+                    <br><br>
+                        <strong>أحبك أكثر مما تتخيلين ❤️</strong>
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ═══════════════════════════════════════════════
+         Secret Modal
+         ═══════════════════════════════════════════════ -->
+    <div class="modal-overlay" id="secretModal" role="dialog" aria-modal="true" aria-labelledby="modal-title" aria-hidden="true">
         <div class="modal-box">
-            <h3>🔐 أدخل كلمة السر</h3>
-            <input type="password" id="secretInput" placeholder="اكتبي الرمز السري..." autocomplete="off">
-            <div class="error-msg" id="secretError"></div>
-            <div class="modal-buttons">
-                <button class="btn btn-primary" id="submitSecret">💝 فتح الرسالة</button>
-                <button class="btn btn-outline" id="closeModal">إلغاء</button>
+            <h3 class="modal-box__title" id="modal-title">🔐 أدخل كلمة السر</h3>
+            <input 
+                type="password" 
+                id="secretInput" 
+                class="modal-box__input" 
+                placeholder="اكتبي الرمز السري..." 
+                autocomplete="off"
+                aria-label="كلمة السر"
+                aria-describedby="secretError"
+            >
+            <div class="modal-box__error" id="secretError" role="alert" aria-live="assertive"></div>
+            <div class="modal-box__buttons">
+                <button class="btn btn--primary" id="submitSecret">💝 فتح الرسالة</button>
+                <button class="btn btn--outline" id="closeModal">إلغاء</button>
             </div>
         </div>
     </div>
 
-    <section class="section" id="gallery">
-        <div class="section-header">
-            <h2>🖼️ معرض الحب</h2>
-            <p>لحظات جميلة وذكريات خالدة</p>
-        </div>
-        <div class="gallery-grid">
-            <div class="gallery-item">🌅</div>
-            <div class="gallery-item">💑</div>
-            <div class="gallery-item">🌹</div>
-            <div class="gallery-item">💍</div>
-            <div class="gallery-item">🎵</div>
-            <div class="gallery-item">🌟</div>
-            <div class="gallery-item">🕯️</div>
-            <div class="gallery-item">💖</div>
+    <!-- ═══════════════════════════════════════════════
+         Gallery Section
+         ═══════════════════════════════════════════════ -->
+<!-- 
+   <section class="section" id="gallery" aria-labelledby="gallery-title">
+        <div class="container">
+            <div class="section__header">
+                <h2 class="section__title" id="gallery-title">🖼️ معرض الحب</h2>
+                <p class="section__subtitle">لحظات جميلة وذكريات خالدة</p>
+            </div>
+            <div class="gallery-grid" role="list" aria-label="معرض الصور التفاعلي">
+                <div class="gallery-item" role="listitem" tabindex="0" aria-label="غروب الشمس">🌅</div>
+                <div class="gallery-item" role="listitem" tabindex="0" aria-label="عاشقان">💑</div>
+                <div class="gallery-item" role="listitem" tabindex="0" aria-label="وردة">🌹</div>
+                <div class="gallery-item" role="listitem" tabindex="0" aria-label="خاتم">💍</div>
+                <div class="gallery-item" role="listitem" tabindex="0" aria-label="موسيقى">🎵</div>
+                <div class="gallery-item" role="listitem" tabindex="0" aria-label="نجمة">🌟</div>
+                <div class="gallery-item" role="listitem" tabindex="0" aria-label="شمعة">🕯️</div>
+                <div class="gallery-item" role="listitem" tabindex="0" aria-label="قلب">💖</div>
+            </div>
         </div>
     </section>
-
-    <footer class="footer">
-        <p>صُنع بكل <span class="big-heart">❤️</span> لعيونها</p>
-        <p style="margin-top:0.5rem;font-size:0.9rem;">لأن زهرتي تستحق أجمل شيء ✨</p>
-        <p style="margin-top:0.8rem;font-size:0.8rem;opacity:0.7;">© 2026 - موقع عصفورتي |  كل حقوق القلب لها محفوظة </p>
+-->
+    <!-- ═══════════════════════════════════════════════
+         Footer
+         ═══════════════════════════════════════════════ -->
+    <footer class="footer" role="contentinfo">
+        <p>صُنع بكل <span class="footer__heart" aria-hidden="true">💚 </span> لعيونها</p>
+        <p class="footer__text"> 🌹  زهرتي تستحق أجمل شيء   🌹 </p>
+        <p class="footer__copyright">© 2026 - موقع عصفورتي | كل حقوق القلب لها محفوظة</p>
     </footer>
 
-    <button class="back-to-top" id="backToTop" aria-label="العودة للأعلى">↑</button>
+    <!-- ═══════════════════════════════════════════════
+         Back to Top Button
+         ═══════════════════════════════════════════════ -->
+    <button class="back-to-top" id="backToTop" aria-label="العودة للأعلى" title="العودة للأعلى">
+        ↑
+    </button>
 
+    <!-- ═══════════════════════════════════════════════
+         JavaScript
+         ═══════════════════════════════════════════════ -->
     <script>
-        // ============ DOM Elements ============
-        const navbar = document.getElementById('navbar');
-        const navToggle = document.getElementById('navToggle');
-        const navLinks = document.getElementById('navLinks');
-        const navOverlay = document.getElementById('navOverlay');
-        const backToTop = document.getElementById('backToTop');
-        const messageBox = document.getElementById('messageBox');
-        const particlesContainer = document.getElementById('particles-container');
-        const daysEl = document.getElementById('days');
-        const hoursEl = document.getElementById('hours');
-        const minutesEl = document.getElementById('minutes');
-        const secondsEl = document.getElementById('seconds');
+        (function() {
+            'use strict';
 
-        // ============ عناصر النافذة السرية ============
-        const secretModal = document.getElementById('secretModal');
-        const secretInput = document.getElementById('secretInput');
-        const secretError = document.getElementById('secretError');
-        const submitSecret = document.getElementById('submitSecret');
-        const closeModalBtn = document.getElementById('closeModal');
+            // ═══════════════════════════════════════════════
+            // Configuration
+            // ═══════════════════════════════════════════════
+            const CONFIG = {
+                secretCode: 'زهرة',
+                loveStartDate: new Date('2024-01-01T00:00:00'),
+                particleCount: 35,
+                maxParticles: 40,
+                particleInterval: 900,
+                spawnDelay: 180
+            };
 
-        // ============ كلمة السر (يمكنك تغييرها هنا) ============
-        const secretCode = 'زهرة';
-
-        // ============ تاريخ بداية الحب ============
-        const loveStartDate = new Date('2024-01-01T00:00:00'); // عصفورتي
-
-        // ============ القائمة الجانبية ============
-        function toggleMenu() {
-            navLinks.classList.toggle('active');
-            navOverlay.classList.toggle('active');
-            document.body.style.overflow = navLinks.classList.contains('active') ? 'hidden' : '';
-            navToggle.textContent = navLinks.classList.contains('active') ? '✕' : '☰';
-        }
-        function closeMenu() {
-            navLinks.classList.remove('active');
-            navOverlay.classList.remove('active');
-            document.body.style.overflow = '';
-            navToggle.textContent = '☰';
-        }
-        navToggle.addEventListener('click', toggleMenu);
-        navOverlay.addEventListener('click', closeMenu);
-        document.querySelectorAll('.nav-links a').forEach(link => link.addEventListener('click', closeMenu));
-
-        // ============ تأثير التمرير ============
-        function handleScroll() {
-            const scrollY = window.scrollY;
-            if (scrollY > 60) navbar.classList.add('scrolled');
-            else navbar.classList.remove('scrolled');
-            if (scrollY > 500) backToTop.classList.add('visible');
-            else backToTop.classList.remove('visible');
-        }
-        window.addEventListener('scroll', handleScroll, { passive: true });
-        backToTop.addEventListener('click', () => window.scrollTo({ top: 0, behavior: 'smooth' }));
-
-        // ============ نظام كلمة السر للرسالة ============
-        function openModal() {
-            secretModal.classList.add('active');
-            secretInput.value = '';
-            secretError.textContent = '';
-            setTimeout(() => secretInput.focus(), 100);
-        }
-        function closeModal() {
-            secretModal.classList.remove('active');
-        }
-        function checkSecret() {
-            const entered = secretInput.value.trim();
-            if (entered === secretCode) {
-                // صحيح -> افتح الرسالة وأغلق النافذة
-                messageBox.classList.add('revealed');
-                const icon = messageBox.querySelector('.envelope-icon');
-                const hint = messageBox.querySelector('.click-hint');
-                if (icon) icon.textContent = '📖';
-                if (hint) hint.textContent = '👆 انقر مرة أخرى لإغلاق الرسالة';
-                spawnHeartsAtElement(messageBox);
-                closeModal();
-            } else {
-                secretError.textContent = '❌ كلمة السر غير صحيحة، حاولي مجدداً';
-                secretInput.classList.add('shake');
-                setTimeout(() => secretInput.classList.remove('shake'), 500);
-            }
-        }
-
-        // إضافة تأثير اهتزاز خفيف
-        const shakeStyle = document.createElement('style');
-        shakeStyle.textContent = `
-            .shake { animation: shake 0.4s ease; }
-            @keyframes shake {
-                0%,100% { transform: translateX(0); }
-                20% { transform: translateX(-8px); }
-                40% { transform: translateX(8px); }
-                60% { transform: translateX(-5px); }
-                80% { transform: translateX(5px); }
-            }
-        `;
-        document.head.appendChild(shakeStyle);
-
-        // عند النقر على صندوق الرسالة يظهر المودال بدلاً من الفتح المباشر
-        messageBox.addEventListener('click', function(e) {
-            // إذا كانت الرسالة مفتوحة بالفعل، نغلقها بشكل طبيعي
-            if (this.classList.contains('revealed')) {
-                this.classList.remove('revealed');
-                const icon = this.querySelector('.envelope-icon');
-                const hint = this.querySelector('.click-hint');
-                if (icon) icon.textContent = '💌';
-                if (hint) hint.textContent = '👆 انقر هنا لفتح الرسالة';
-            } else {
-                // لم تفتح بعد -> نافذة كلمة السر
-                openModal();
-            }
-        });
-
-        submitSecret.addEventListener('click', checkSecret);
-        closeModalBtn.addEventListener('click', closeModal);
-        secretInput.addEventListener('keypress', (e) => {
-            if (e.key === 'Enter') checkSecret();
-        });
-        // إغلاق النافذة عند النقر خارج الصندوق
-        secretModal.addEventListener('click', function(e) {
-            if (e.target === secretModal) closeModal();
-        });
-
-        // ============ تأثير القلوب ============
-        function spawnHeartsAtElement(element) {
-            const rect = element.getBoundingClientRect();
-            const centerX = rect.left + rect.width / 2;
-            const centerY = rect.top + rect.height / 2;
-            const emojis = ['💕', '💖', '💗', '💝', '✨', '💘', '🌹', '💓'];
-            for (let i = 0; i < 18; i++) {
-                const particle = document.createElement('span');
-                particle.textContent = emojis[Math.floor(Math.random() * emojis.length)];
-                particle.style.cssText = `
-                    position: fixed;
-                    left: ${centerX}px;
-                    top: ${centerY}px;
-                    font-size: ${1 + Math.random() * 2}rem;
-                    pointer-events: none;
-                    z-index: 2000;
-                    transition: all ${1 + Math.random() * 1.5}s cubic-bezier(0.25, 0.46, 0.45, 0.94);
-                    opacity: 1;
-                `;
-                document.body.appendChild(particle);
-                requestAnimationFrame(() => {
-                    particle.style.transform = `translate(${(Math.random()-0.5)*300}px, ${-100 - Math.random()*250}px) rotate(${(Math.random()-0.5)*400}deg) scale(${0.5 + Math.random()*1.5})`;
-                    particle.style.opacity = '0';
-                });
-                setTimeout(() => { if (particle.parentNode) particle.parentNode.removeChild(particle); }, 1800);
-            }
-        }
-
-        // ============ عداد الحب ============
-        function updateCounter() {
-            const now = new Date();
-            const diff = now - loveStartDate;
-            const totalSeconds = Math.floor(diff / 1000);
-            const totalMinutes = Math.floor(totalSeconds / 60);
-            const totalHours = Math.floor(totalMinutes / 60);
-            const totalDays = Math.floor(totalHours / 24);
-            const remainingHours = totalHours % 24;
-            const remainingMinutes = totalMinutes % 60;
-            const remainingSeconds = totalSeconds % 60;
-            animateNumber(daysEl, totalDays);
-            animateNumber(hoursEl, remainingHours);
-            animateNumber(minutesEl, remainingMinutes);
-            animateNumber(secondsEl, remainingSeconds);
-        }
-        function animateNumber(element, newValue) {
-            const currentValue = parseInt(element.textContent) || 0;
-            if (currentValue === newValue) return;
-            const duration = 400;
-            const startTime = performance.now();
-            const startValue = currentValue;
-            function step(timestamp) {
-                const elapsed = timestamp - startTime;
-                const progress = Math.min(elapsed / duration, 1);
-                const eased = 1 - Math.pow(1 - progress, 3);
-                const current = Math.round(startValue + (newValue - startValue) * eased);
-                element.textContent = current.toLocaleString('ar-SA');
-                if (progress < 1) requestAnimationFrame(step);
-                else element.textContent = newValue.toLocaleString('ar-SA');
-            }
-            requestAnimationFrame(step);
-        }
-        updateCounter();
-        setInterval(updateCounter, 1000);
-
-        // ============ جسيمات الخلفية ============
-        const particleTypes = [
-            { emoji: '💕', class: 'heart', weight: 5 },
-            { emoji: '🌸', class: 'petal', weight: 4 },
-            { emoji: '✨', class: 'sparkle', weight: 3 },
-            { emoji: '💖', class: 'heart', weight: 3 },
-            { emoji: '🕊️', class: 'petal', weight: 2 },
-            { emoji: '🌟', class: 'sparkle', weight: 2 },
-            { emoji: '💗', class: 'heart', weight: 4 },
-            { emoji: '🌷', class: 'petal', weight: 3 },
-            { emoji: '💝', class: 'heart', weight: 3 },
-            { emoji: '🦋', class: 'petal', weight: 1 },
-        ];
-        const weightedPool = [];
-        particleTypes.forEach(pt => { for (let i = 0; i < pt.weight; i++) weightedPool.push(pt); });
-        function createParticle() {
-            const type = weightedPool[Math.floor(Math.random() * weightedPool.length)];
-            const particle = document.createElement('span');
-            particle.textContent = type.emoji;
-            particle.className = `particle ${type.class}`;
-            particle.style.left = Math.random() * 95 + '%';
-            particle.style.animationDelay = Math.random() * 14 + 's';
-            particle.style.animationDuration = (6 + Math.random() * 14) + 's';
-            particle.style.fontSize = (0.6 + Math.random() * 2.2) + 'rem';
-            particlesContainer.appendChild(particle);
-            const duration = parseFloat(particle.style.animationDuration) + parseFloat(particle.style.animationDelay);
-            setTimeout(() => { if (particle.parentNode) particle.parentNode.removeChild(particle); }, duration * 1000 + 500);
-        }
-        for (let i = 0; i < 35; i++) setTimeout(() => createParticle(), i * 180);
-        setInterval(() => { if (particlesContainer.children.length < 40) createParticle(); }, 900);
-
-        // ============ نقر عام للقلوب ============
-        document.addEventListener('click', function(e) {
-            if (e.target.closest('button') || e.target.closest('a') || e.target.closest('#messageBox') ||
-                e.target.closest('.nav-links') || e.target.closest('.nav-toggle') || e.target.closest('#secretModal')) return;
-            const heart = document.createElement('span');
-            heart.textContent = '💕';
-            heart.style.cssText = `
-                position: fixed;
-                left: ${e.clientX}px;
-                top: ${e.clientY}px;
-                font-size: 1.8rem;
-                pointer-events: none;
-                z-index: 1500;
-                transition: all 1.2s cubic-bezier(0.25, 0.46, 0.45, 0.94);
-                opacity: 1;
-                transform: translate(-50%, -50%) scale(0.5);
-            `;
-            document.body.appendChild(heart);
-            requestAnimationFrame(() => {
-                heart.style.transform = `translate(-50%, -50%) translateY(-120px) scale(1.4) rotate(${(Math.random()-0.5)*40}deg)`;
-                heart.style.opacity = '0';
-            });
-            setTimeout(() => { if (heart.parentNode) heart.parentNode.removeChild(heart); }, 1300);
-        });
-
-        // ============ تأثيرات الظهور ============
-        const observerOptions = { threshold: 0.15, rootMargin: '0px 0px -60px 0px' };
-        const observer = new IntersectionObserver((entries) => {
-            entries.forEach(entry => { if (entry.isIntersecting) { entry.target.style.animationPlayState = 'running'; entry.target.style.opacity = '1'; } });
-        }, observerOptions);
-        document.querySelectorAll('.quote-card').forEach((card, index) => {
-            card.style.opacity = '0';
-            card.style.transform = 'translateY(40px)';
-            card.style.transition = 'opacity 0.7s ease, transform 0.7s ease';
-            card.style.transitionDelay = `${index * 0.1}s`;
-            observer.observe(card);
-            const revealOnIntersect = new IntersectionObserver((entries) => {
-                entries.forEach(entry => { if (entry.isIntersecting) { entry.target.style.opacity = '1'; entry.target.style.transform = 'translateY(0)'; } });
-            }, { threshold: 0.2 });
-            revealOnIntersect.observe(card);
-        });
-        document.querySelectorAll('.gallery-item').forEach((item, index) => {
-            item.style.opacity = '0';
-            item.style.transform = 'scale(0.85)';
-            item.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
-            item.style.transitionDelay = `${index * 0.08}s`;
-            const revealGallery = new IntersectionObserver((entries) => {
-                entries.forEach(entry => { if (entry.isIntersecting) { entry.target.style.opacity = '1'; entry.target.style.transform = 'scale(1)'; } });
-            }, { threshold: 0.15 });
-            revealGallery.observe(item);
-        });
-
-        // ============ معرض التفاعل ============
-        document.querySelectorAll('.gallery-item').forEach(item => {
-            const originalEmoji = item.textContent.trim();
-            const loveEmojis = ['💖', '💕', '💗', '💝', '💘', '🌹', '💓', '💞', '🥰', '😍'];
-            item.addEventListener('click', function(e) {
-                e.stopPropagation();
-                const tempEmoji = loveEmojis[Math.floor(Math.random() * loveEmojis.length)];
-                this.textContent = tempEmoji;
-                this.style.transform = 'scale(1.2) rotate(5deg)';
-                this.style.boxShadow = '0 20px 50px rgba(200,80,110,0.5)';
-                this.style.borderColor = 'var(--deep-rose)';
-                const rect = this.getBoundingClientRect();
-                const cx = rect.left + rect.width / 2;
-                const cy = rect.top + rect.height / 2;
-                for (let i = 0; i < 8; i++) {
-                    const spark = document.createElement('span');
-                    spark.textContent = '✨';
-                    spark.style.cssText = `position: fixed; left: ${cx}px; top: ${cy}px; pointer-events: none; z-index: 1500; font-size: 1.2rem; transition: all 0.9s ease-out; opacity: 1;`;
-                    document.body.appendChild(spark);
-                    requestAnimationFrame(() => {
-                        spark.style.transform = `translate(${(Math.random()-0.5)*180}px, ${-60 - Math.random()*140}px) scale(0)`;
-                        spark.style.opacity = '0';
-                    });
-                    setTimeout(() => spark.remove(), 1000);
+            // ═══════════════════════════════════════════════
+            // DOM Elements Cache
+            // ═══════════════════════════════════════════════
+            const DOM = {
+                navbar: document.getElementById('navbar'),
+                navToggle: document.getElementById('navToggle'),
+                navLinks: document.getElementById('navLinks'),
+                navOverlay: document.getElementById('navOverlay'),
+                backToTop: document.getElementById('backToTop'),
+                messageBox: document.getElementById('messageBox'),
+                messageIcon: document.getElementById('messageIcon'),
+                messageHint: document.getElementById('messageHint'),
+                hiddenMessage: document.getElementById('hiddenMessage'),
+                particlesContainer: document.getElementById('particlesContainer'),
+                secretModal: document.getElementById('secretModal'),
+                secretInput: document.getElementById('secretInput'),
+                secretError: document.getElementById('secretError'),
+                submitSecret: document.getElementById('submitSecret'),
+                closeModal: document.getElementById('closeModal'),
+                counters: {
+                    days: document.getElementById('days'),
+                    hours: document.getElementById('hours'),
+                    minutes: document.getElementById('minutes'),
+                    seconds: document.getElementById('seconds')
                 }
-                setTimeout(() => {
-                    this.textContent = originalEmoji;
-                    this.style.transform = '';
-                    this.style.boxShadow = '';
-                    this.style.borderColor = '';
-                }, 700);
-            });
-        });
+            };
 
-        console.log('%c❤️ موقع رومانسي احترافي لعيونها❤️', 'font-size:1.5rem;color:#c25a73;font-weight:bold;');
-        console.log('%cصُنع بكل حب | كل الحقوق محفوظة لزهرتي %c💕', 'font-size:1rem;color:#8b3a4a;', 'font-size:1.3rem;');
+            // ═══════════════════════════════════════════════
+            // Navigation Module
+            // ═══════════════════════════════════════════════
+            const Navigation = {
+                init() {
+                    DOM.navToggle.addEventListener('click', this.toggle.bind(this));
+                    DOM.navOverlay.addEventListener('click', this.close.bind(this));
+                    DOM.navLinks.querySelectorAll('a').forEach(link => {
+                        link.addEventListener('click', this.close.bind(this));
+                    });
+                },
+
+                toggle() {
+                    const isActive = DOM.navLinks.classList.toggle('navbar__links--active');
+                    DOM.navOverlay.classList.toggle('navbar__overlay--active', isActive);
+                    document.body.style.overflow = isActive ? 'hidden' : '';
+                    DOM.navToggle.textContent = isActive ? '✕' : '☰';
+                    DOM.navToggle.setAttribute('aria-expanded', isActive);
+                },
+
+                close() {
+                    DOM.navLinks.classList.remove('navbar__links--active');
+                    DOM.navOverlay.classList.remove('navbar__overlay--active');
+                    document.body.style.overflow = '';
+                    DOM.navToggle.textContent = '☰';
+                    DOM.navToggle.setAttribute('aria-expanded', 'false');
+                }
+            };
+
+            // ═══════════════════════════════════════════════
+            // Scroll Effects Module
+            // ═══════════════════════════════════════════════
+            const ScrollEffects = {
+                init() {
+                    window.addEventListener('scroll', this.handleScroll.bind(this), { passive: true });
+                    DOM.backToTop.addEventListener('click', () => {
+                        window.scrollTo({ top: 0, behavior: 'smooth' });
+                    });
+                },
+
+                handleScroll() {
+                    const scrollY = window.scrollY;
+                    DOM.navbar.classList.toggle('navbar--scrolled', scrollY > 60);
+                    DOM.backToTop.classList.toggle('back-to-top--visible', scrollY > 500);
+                }
+            };
+
+            // ═══════════════════════════════════════════════
+            // Secret Message Module
+            // ═══════════════════════════════════════════════
+            const SecretMessage = {
+                init() {
+                    DOM.messageBox.addEventListener('click', this.handleClick.bind(this));
+                    DOM.messageBox.addEventListener('keydown', (e) => {
+                        if (e.key === 'Enter' || e.key === ' ') {
+                            e.preventDefault();
+                            this.handleClick();
+                        }
+                    });
+                    DOM.submitSecret.addEventListener('click', this.checkSecret.bind(this));
+                    DOM.closeModal.addEventListener('click', this.closeModal.bind(this));
+                    DOM.secretInput.addEventListener('keypress', (e) => {
+                        if (e.key === 'Enter') this.checkSecret();
+                    });
+                    DOM.secretModal.addEventListener('click', (e) => {
+                        if (e.target === DOM.secretModal) this.closeModal();
+                    });
+                    document.addEventListener('keydown', (e) => {
+                        if (e.key === 'Escape' && DOM.secretModal.classList.contains('modal-overlay--active')) {
+                            this.closeModal();
+                        }
+                    });
+                },
+
+                handleClick() {
+                    if (DOM.messageBox.classList.contains('message-box--revealed')) {
+                        this.closeMessage();
+                    } else {
+                        this.openModal();
+                    }
+                },
+
+                openModal() {
+                    DOM.secretModal.classList.add('modal-overlay--active');
+                    DOM.secretModal.setAttribute('aria-hidden', 'false');
+                    DOM.secretInput.value = '';
+                    DOM.secretError.textContent = '';
+                    setTimeout(() => DOM.secretInput.focus(), 100);
+                },
+
+                closeModal() {
+                    DOM.secretModal.classList.remove('modal-overlay--active');
+                    DOM.secretModal.setAttribute('aria-hidden', 'true');
+                },
+
+                checkSecret() {
+                    const entered = DOM.secretInput.value.trim();
+                    if (entered === CONFIG.secretCode) {
+                        this.revealMessage();
+                        this.closeModal();
+                    } else {
+                        DOM.secretError.textContent = '❌ كلمة السر غير صحيحة، حاولي مجدداً';
+                        DOM.secretInput.classList.add('shake');
+                        setTimeout(() => DOM.secretInput.classList.remove('shake'), 500);
+                    }
+                },
+
+                revealMessage() {
+                    DOM.messageBox.classList.add('message-box--revealed');
+                    DOM.hiddenMessage.setAttribute('aria-hidden', 'false');
+                    DOM.messageIcon.textContent = '📖';
+                    DOM.messageHint.textContent = '👆 انقر مرة أخرى لإغلاق الرسالة';
+                    Effects.spawnHeartsAtElement(DOM.messageBox);
+                },
+
+                closeMessage() {
+                    DOM.messageBox.classList.remove('message-box--revealed');
+                    DOM.hiddenMessage.setAttribute('aria-hidden', 'true');
+                    DOM.messageIcon.textContent = '💌';
+                    DOM.messageHint.textContent = '👆 انقر هنا لفتح الرسالة';
+                }
+            };
+
+            // ═══════════════════════════════════════════════
+            // Love Counter Module
+            // ═══════════════════════════════════════════════
+            const LoveCounter = {
+                init() {
+                    this.update();
+                    setInterval(() => this.update(), 1000);
+                },
+
+                update() {
+                    const now = new Date();
+                    const diff = now - CONFIG.loveStartDate;
+                    const totalSeconds = Math.floor(diff / 1000);
+                    const totalMinutes = Math.floor(totalSeconds / 60);
+                    const totalHours = Math.floor(totalMinutes / 60);
+                    const totalDays = Math.floor(totalHours / 24);
+
+                    this.animateNumber(DOM.counters.days, totalDays);
+                    this.animateNumber(DOM.counters.hours, totalHours % 24);
+                    this.animateNumber(DOM.counters.minutes, totalMinutes % 60);
+                    this.animateNumber(DOM.counters.seconds, totalSeconds % 60);
+                },
+
+                animateNumber(element, newValue) {
+                    const currentValue = parseInt(element.textContent.replace(/,/g, '')) || 0;
+                    if (currentValue === newValue) return;
+
+                    const duration = 400;
+                    const startTime = performance.now();
+                    const startValue = currentValue;
+
+                    const step = (timestamp) => {
+                        const elapsed = timestamp - startTime;
+                        const progress = Math.min(elapsed / duration, 1);
+                        const eased = 1 - Math.pow(1 - progress, 3);
+                        const current = Math.round(startValue + (newValue - startValue) * eased);
+                        element.textContent = current.toLocaleString('ar-SA');
+                        if (progress < 1) requestAnimationFrame(step);
+                    };
+
+                    requestAnimationFrame(step);
+                }
+            };
+
+            // ═══════════════════════════════════════════════
+            // Background Particles Module
+            // ═══════════════════════════════════════════════
+            const Particles = {
+                types: [
+                    { emoji: '💕', class: 'particle--heart', weight: 5 },
+                    { emoji: '🌸', class: 'particle--petal', weight: 4 },
+                    { emoji: '✨', class: 'particle--sparkle', weight: 3 },
+                    { emoji: '💚 ', class: 'particle--heart', weight: 3 },
+                    { emoji: '🕊️', class: 'particle--petal', weight: 2 },
+                    { emoji: '🦋 ', class: 'particle--sparkle', weight: 2 },
+                    { emoji: '💚 ', class: 'particle--heart', weight: 4 },
+                    { emoji: '🌷', class: 'particle--petal', weight: 3 },
+                    { emoji: '💚 ', class: 'particle--heart', weight: 3 },
+                    { emoji: '🦋', class: 'particle--petal', weight: 1 }
+                ],
+
+                pool: [],
+
+                init() {
+                    this.buildPool();
+                    for (let i = 0; i < CONFIG.particleCount; i++) {
+                        setTimeout(() => this.create(), i * CONFIG.spawnDelay);
+                    }
+                    setInterval(() => {
+                        if (DOM.particlesContainer.children.length < CONFIG.maxParticles) {
+                            this.create();
+                        }
+                    }, CONFIG.particleInterval);
+                },
+
+                buildPool() {
+                    this.types.forEach(type => {
+                        for (let i = 0; i < type.weight; i++) {
+                            this.pool.push(type);
+                        }
+                    });
+                },
+
+                create() {
+                    const type = this.pool[Math.floor(Math.random() * this.pool.length)];
+                    const particle = document.createElement('span');
+                    particle.textContent = type.emoji;
+                    particle.className = `particle ${type.class}`;
+                    particle.style.left = Math.random() * 95 + '%';
+                    particle.style.animationDelay = Math.random() * 14 + 's';
+                    particle.style.animationDuration = (6 + Math.random() * 14) + 's';
+                    particle.style.fontSize = (0.6 + Math.random() * 2.2) + 'rem';
+                    DOM.particlesContainer.appendChild(particle);
+
+                    const duration = parseFloat(particle.style.animationDuration) + parseFloat(particle.style.animationDelay);
+                    setTimeout(() => {
+                        if (particle.parentNode) particle.remove();
+                    }, duration * 1000 + 500);
+                }
+            };
+
+            // ═══════════════════════════════════════════════
+            // Visual Effects Module
+            // ═══════════════════════════════════════════════
+            const Effects = {
+                init() {
+                    this.initClickHearts();
+                    this.initGalleryEffects();
+                    this.initScrollReveal();
+                },
+
+                spawnHeartsAtElement(element) {
+                    const rect = element.getBoundingClientRect();
+                    const centerX = rect.left + rect.width / 2;
+                    const centerY = rect.top + rect.height / 2;
+                    const emojis = ['💚 ', '💕', '🌸 ', '🌺 ', '💘', '🌹', '💚 ', '💚 ', '🦋 ', '🦋'];
+
+                    for (let i = 0; i < 18; i++) {
+                        const particle = document.createElement('span');
+                        particle.textContent = emojis[Math.floor(Math.random() * emojis.length)];
+                        particle.style.cssText = `
+                            position: fixed;
+                            left: ${centerX}px;
+                            top: ${centerY}px;
+                            font-size: ${1 + Math.random() * 2}rem;
+                            pointer-events: none;
+                            z-index: 2000;
+                            transition: all ${1 + Math.random() * 1.5}s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+                            opacity: 1;
+                        `;
+                        document.body.appendChild(particle);
+
+                        requestAnimationFrame(() => {
+                            particle.style.transform = `translate(${(Math.random() - 0.5) * 300}px, ${-100 - Math.random() * 250}px) rotate(${(Math.random() - 0.5) * 400}deg) scale(${0.5 + Math.random() * 1.5})`;
+                            particle.style.opacity = '0';
+                        });
+
+                        setTimeout(() => particle.remove(), 1800);
+                    }
+                },
+
+                initClickHearts() {
+                    document.addEventListener('click', (e) => {
+                        if (e.target.closest('button') || 
+                            e.target.closest('a') || 
+                            e.target.closest('#messageBox') ||
+                            e.target.closest('.navbar__links') || 
+                            e.target.closest('.navbar__toggle') || 
+                            e.target.closest('#secretModal')) {
+                            return;
+                        }
+
+                        const heart = document.createElement('span');
+                        heart.textContent = '💋 ';
+                        heart.style.cssText = `
+                            position: fixed;
+                            left: ${e.clientX}px;
+                            top: ${e.clientY}px;
+                            font-size: 1.8rem;
+                            pointer-events: none;
+                            z-index: 1500;
+                            transition: all 1.2s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+                            opacity: 1;
+                            transform: translate(-50%, -50%) scale(0.5);
+                        `;
+                        document.body.appendChild(heart);
+
+                        requestAnimationFrame(() => {
+                            heart.style.transform = `translate(-50%, -50%) translateY(-120px) scale(1.4) rotate(${(Math.random() - 0.5) * 40}deg)`;
+                            heart.style.opacity = '0';
+                        });
+
+                        setTimeout(() => heart.remove(), 1300);
+                    });
+                },
+
+                initGalleryEffects() {
+                    const loveEmojis = ['💚 ', '💕', '🌸 ', '🌺 ', '💘', '🌹', '💚 ', '💚 ', '🦋 ', '🦋 '];
+
+                    document.querySelectorAll('.gallery-item').forEach(item => {
+                        const originalEmoji = item.textContent.trim();
+
+                        const activate = () => {
+                            const tempEmoji = loveEmojis[Math.floor(Math.random() * loveEmojis.length)];
+                            item.textContent = tempEmoji;
+                            item.style.transform = 'scale(1.2) rotate(5deg)';
+                            item.style.boxShadow = '0 20px 50px rgba(200,80,110,0.5)';
+                            item.style.borderColor = 'var(--rose-500)';
+
+                            const rect = item.getBoundingClientRect();
+                            const cx = rect.left + rect.width / 2;
+                            const cy = rect.top + rect.height / 2;
+
+                            for (let i = 0; i < 8; i++) {
+                                const spark = document.createElement('span');
+                                spark.textContent = '💚 ';
+                                spark.style.cssText = `
+                                    position: fixed;
+                                    left: ${cx}px;
+                                    top: ${cy}px;
+                                    pointer-events: none;
+                                    z-index: 1500;
+                                    font-size: 1.2rem;
+                                    transition: all 0.9s ease-out;
+                                    opacity: 1;
+                                `;
+                                document.body.appendChild(spark);
+
+                                requestAnimationFrame(() => {
+                                    spark.style.transform = `translate(${(Math.random() - 0.5) * 180}px, ${-60 - Math.random() * 140}px) scale(0)`;
+                                    spark.style.opacity = '0';
+                                });
+
+                                setTimeout(() => spark.remove(), 1000);
+                            }
+
+                            setTimeout(() => {
+                                item.textContent = originalEmoji;
+                                item.style.transform = '';
+                                item.style.boxShadow = '';
+                                item.style.borderColor = '';
+                            }, 700);
+                        };
+
+                        item.addEventListener('click', (e) => {
+                            e.stopPropagation();
+                            activate();
+                        });
+
+                        item.addEventListener('keydown', (e) => {
+                            if (e.key === 'Enter' || e.key === ' ') {
+                                e.preventDefault();
+                                activate();
+                            }
+                        });
+                    });
+                },
+
+                initScrollReveal() {
+                    const observerOptions = {
+                        threshold: 0.15,
+                        rootMargin: '0px 0px -60px 0px'
+                    };
+
+                    const observer = new IntersectionObserver((entries) => {
+                        entries.forEach(entry => {
+                            if (entry.isIntersecting) {
+                                entry.target.classList.add('quote-card--visible');
+                            }
+                        });
+                    }, observerOptions);
+
+                    document.querySelectorAll('.quote-card').forEach((card, index) => {
+                        card.style.transitionDelay = `${index * 0.1}s`;
+                        observer.observe(card);
+                    });
+
+                    const galleryObserver = new IntersectionObserver((entries) => {
+                        entries.forEach(entry => {
+                            if (entry.isIntersecting) {
+                                entry.target.classList.add('gallery-item--visible');
+                            }
+                        });
+                    }, { threshold: 0.15 });
+
+                    document.querySelectorAll('.gallery-item').forEach((item, index) => {
+                        item.style.transitionDelay = `${index * 0.08}s`;
+                        galleryObserver.observe(item);
+                    });
+                }
+            };
+
+            // ═══════════════════════════════════════════════
+            // Initialization
+            // ═══════════════════════════════════════════════
+            function init() {
+                Navigation.init();
+                ScrollEffects.init();
+                SecretMessage.init();
+                LoveCounter.init();
+                Particles.init();
+                Effects.init();
+
+                console.log('%c❤️ فراشتي  ❤️', 'font-size:1.5rem;color:#c25a73;font-weight:bold;');
+                console.log('%cصُنع بكل حب | كل الحقوق محفوظة لزهرتي %c💕', 'font-size:1rem;color:#8b3a4a;', 'font-size:1.3rem;');
+            }
+
+            if (document.readyState === 'loading') {
+                document.addEventListener('DOMContentLoaded', init);
+            } else {
+                init();
+            }
+        })();
     </script>
 </body>
 </html>
