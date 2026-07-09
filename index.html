@@ -1001,7 +1001,7 @@
         }
 
         /* ═══════════════════════════════════════════════
-           Promises Section (جديد)
+           Promises Section
            ═══════════════════════════════════════════════ */
         .promises-timeline {
             max-width: 650px;
@@ -1076,81 +1076,57 @@
         }
 
         /* ═══════════════════════════════════════════════
-           Gallery Section
+           Whispers Section (جديد - بديل المعرض)
            ═══════════════════════════════════════════════ */
-        .gallery-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
-            gap: var(--space-5);
-            max-width: 1000px;
+        .whisper-card {
+            background: rgba(255, 255, 255, 0.55);
+            backdrop-filter: blur(20px);
+            border: 1.5px solid rgba(220, 160, 175, 0.35);
+            border-radius: 24px;
+            padding: var(--space-8) var(--space-6);
+            max-width: 600px;
             margin: 0 auto;
+            text-align: center;
+            box-shadow: var(--shadow-soft);
+            transition: var(--transition-base);
+            opacity: 0;
+            transform: translateY(40px);
         }
 
-        .gallery-item {
-            aspect-ratio: 1 / 1;
-            border-radius: 22px;
+        .whisper-card--visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .whisper-card:hover {
+            box-shadow: var(--shadow-card);
+            transform: translateY(-4px);
+            background: rgba(255, 255, 255, 0.75);
+        }
+
+        .whisper-card__box {
+            min-height: 120px;
             display: flex;
             align-items: center;
             justify-content: center;
-            font-size: 3.5rem;
-            cursor: pointer;
-            transition: var(--transition-base);
-            border: 2px solid rgba(200,140,155,0.25);
-            position: relative;
-            overflow: hidden;
-            box-shadow: 0 5px 20px rgba(160,90,110,0.08);
-            user-select: none;
+            margin-bottom: var(--space-6);
+        }
+
+        .whisper-card__text {
+            font-size: var(--text-base);
+            color: var(--rose-600);
+            font-weight: 700;
+            line-height: 1.8;
+            transition: opacity 0.3s ease, transform 0.3s ease;
+        }
+
+        .whisper-card__text.fade-out {
             opacity: 0;
-            transform: scale(0.85) rotate(3deg);
-        }
-
-        .gallery-item:nth-child(odd) { transform: scale(0.85) rotate(-3deg); }
-
-        .gallery-item--visible {
-            opacity: 1;
-            transform: scale(1) rotate(0deg);
-            transition: opacity 0.5s ease, transform 0.5s ease, box-shadow var(--transition-base);
-        }
-
-        .gallery-item::before {
-            content: '';
-            position: absolute;
-            inset: 0;
-            border-radius: 20px;
-            opacity: 0;
-            transition: opacity 0.4s ease;
-        }
-
-        .gallery-item:nth-child(1)::before { background: linear-gradient(135deg, #fce4ec, #f8bbd0); }
-        .gallery-item:nth-child(2)::before { background: linear-gradient(135deg, #f3e5f5, #e1bee7); }
-        .gallery-item:nth-child(3)::before { background: linear-gradient(135deg, #fce4ec, #f8d0da); }
-        .gallery-item:nth-child(4)::before { background: linear-gradient(135deg, #fff3e0, #ffe0b2); }
-        .gallery-item:nth-child(5)::before { background: linear-gradient(135deg, #e8f5e9, #c8e6c9); }
-        .gallery-item:nth-child(6)::before { background: linear-gradient(135deg, #fce4ec, #f8bbd0); }
-        .gallery-item:nth-child(7)::before { background: linear-gradient(135deg, #fff8e1, #ffecb3); }
-        .gallery-item:nth-child(8)::before { background: linear-gradient(135deg, #f3e5f5, #e1bee7); }
-
-        .gallery-item:hover::before { opacity: 1; }
-
-        .gallery-item:hover {
-            transform: scale(1.08) rotate(0deg);
-            box-shadow: 0 18px 45px rgba(170,80,110,0.25);
-            border-color: var(--rose-400);
-        }
-
-        .gallery-item__emoji {
-            position: relative;
-            z-index: 1;
-            transition: var(--transition-base);
-        }
-
-        .gallery-item:hover .gallery-item__emoji {
-            transform: scale(1.2);
-            filter: drop-shadow(0 4px 8px rgba(0,0,0,0.15));
+            transform: scale(0.95);
         }
 
         /* ═══════════════════════════════════════════════
-           Floating Music Toggle (تأثير بصري)
+           Floating Music Toggle
            ═══════════════════════════════════════════════ */
         .music-toggle {
             position: fixed;
@@ -1332,7 +1308,6 @@
             .navbar__toggle { display: block; z-index: calc(var(--z-navbar) + 2); }
 
             .counter-grid { grid-template-columns: repeat(2, 1fr); }
-            .gallery-grid { grid-template-columns: repeat(2, 1fr); }
             .hero__floating-heart { display: none; }
             .promises-timeline { padding-right: 20px; }
             .promises-timeline::before { right: 5px; }
@@ -1347,7 +1322,6 @@
             .counter-grid { gap: var(--space-3); }
             .counter-item__number { font-size: 2rem; }
             .btn { padding: 0.7rem 1.4rem; font-size: var(--text-xs); }
-            .gallery-grid { grid-template-columns: repeat(2, 1fr); gap: var(--space-3); }
         }
 
         @media (prefers-reduced-motion: reduce) {
@@ -1408,7 +1382,7 @@
             <li role="none"><a href="#counter" class="navbar__link" role="menuitem">عداد الحب</a></li>
             <li role="none"><a href="#promises" class="navbar__link" role="menuitem">وعود</a></li>
             <li role="none"><a href="#message" class="navbar__link" role="menuitem">رسالة</a></li>
-            <li role="none"><a href="#gallery" class="navbar__link" role="menuitem">معرض</a></li>
+            <li role="none"><a href="#whispers" class="navbar__link" role="menuitem">همسات</a></li>
         </ul>
     </nav>
     <div class="navbar__overlay" id="navOverlay" aria-hidden="true"></div>
@@ -1524,7 +1498,7 @@
     <div class="section-divider" aria-hidden="true"><span>💚</span></div>
 
     <!-- ═══════════════════════════════════════════════
-         Promises Section (جديد)
+         Promises Section
          ═══════════════════════════════════════════════ -->
     <section class="section" id="promises" aria-labelledby="promises-title">
         <div class="container">
@@ -1579,24 +1553,24 @@
                 <p class="message-box__hint" id="messageHint">👆 انقر هنا لفتح الرسالة</p>
                 <div class="message-box__content" id="hiddenMessage" aria-hidden="true">
                     <br>
-                    إلى زهرتي الجميلة 💚🌸
+                    إلى عصفورتي وزهرتي النادرة 💚🌸
                     <br><br>
                     حبيبتي زهرة،
                     <br>
-                    يقولون إن لكل شخص من اسمه نصيب، وأنتِ أخذتِ من اسمكِ كل الجمال، والرقة، والعطر الذي يملأ كوني. وجودكِ في حياتي يحوّل أيامي العادية إلى ربيع دائم.
+                    كلما حاولتُ صياغة مشاعري في كلمات، أجد أن لغة البشر أضيق من أن تتسع لما ينبض به صدري لكِ. أنتِ لستِ مجرد شخص عابر في حياتي، بل أنتِ الحياة نفسها وقد أُعيد ترتيب فصولها لتصبح أكثر رقة وجمالاً.
                     <br><br>
-                    كلما نظرتُ إليكِ، أشعر أن العالم بخير، وأن قلبي اختار أجمل وردة في هذه الدنيا ليحميها ويحبها للأبد.
+                    في عيونكِ أرى سلاماً فقدته طويلاً، وفي صوتكِ أسمع طمأنينة تجعل كل مخاوف الدنيا تتبخر. أشكر الأقدار في كل صباح ومساء لأنها قادت خطاي إليكِ، وجعلتكِ رفيقة قلبي ونبض روحي.
                     <br><br>
-                    أحبكِ جداً يا زهرة قلبي ونبضي. 💚✨
+                    أعدكِ أن أحافظ على هذه الابتسامة التي تنير وجهكِ، وأن أظل دائماً السند الذي لا يميل، والقلب الذي يرى في سعادتكِ غايته الكبرى في هذه الدنيا.
                     <br><br>
-                    <strong>أحبك أكثر مما تتخيلين ❤️</strong>
+                    <strong>أحبكِ اليوم، وغداً، وإلى نهاية العمر ❤️🌹</strong>
                 </div>
             </div>
         </div>
     </section>
 
     <!-- فاصل -->
-    <div class="section-divider" aria-hidden="true"><span>🖼️</span></div>
+    <div class="section-divider" aria-hidden="true"><span>🌸</span></div>
 
     <!-- ═══════════════════════════════════════════════
          Secret Modal
@@ -1614,39 +1588,19 @@
     </div>
 
     <!-- ═══════════════════════════════════════════════
-         Gallery Section
+         Whispers Section (بديل المعرض)
          ═══════════════════════════════════════════════ -->
-    <section class="section" id="gallery" aria-labelledby="gallery-title">
+    <section class="section" id="whispers" aria-labelledby="whispers-title">
         <div class="container">
             <div class="section__header">
-                <h2 class="section__title" id="gallery-title">معرض الحب</h2>
-                <p class="section__subtitle">لحظات جميلة وذكريات خالدة</p>
+                <h2 class="section__title" id="whispers-title">همسات لقلبكِ</h2>
+                <p class="section__subtitle">انقري لتقطفي زهرة حب رقيقة</p>
             </div>
-            <div class="gallery-grid" role="list" aria-label="معرض الصور التفاعلي">
-                <div class="gallery-item" role="listitem" tabindex="0" aria-label="غروب الشمس">
-                    <span class="gallery-item__emoji">🌅</span>
+            <div class="whisper-card" id="whisperCard">
+                <div class="whisper-card__box">
+                    <p class="whisper-card__text" id="whisperText">"اضغطي على الزر بالأسفل لقراءة أول همسة..."</p>
                 </div>
-                <div class="gallery-item" role="listitem" tabindex="0" aria-label="عاشقان">
-                    <span class="gallery-item__emoji">💑</span>
-                </div>
-                <div class="gallery-item" role="listitem" tabindex="0" aria-label="وردة">
-                    <span class="gallery-item__emoji">🌹</span>
-                </div>
-                <div class="gallery-item" role="listitem" tabindex="0" aria-label="خاتم">
-                    <span class="gallery-item__emoji">💍</span>
-                </div>
-                <div class="gallery-item" role="listitem" tabindex="0" aria-label="موسيقى">
-                    <span class="gallery-item__emoji">🎵</span>
-                </div>
-                <div class="gallery-item" role="listitem" tabindex="0" aria-label="نجمة">
-                    <span class="gallery-item__emoji">🌟</span>
-                </div>
-                <div class="gallery-item" role="listitem" tabindex="0" aria-label="شمعة">
-                    <span class="gallery-item__emoji">🕯️</span>
-                </div>
-                <div class="gallery-item" role="listitem" tabindex="0" aria-label="قلب">
-                    <span class="gallery-item__emoji">💖</span>
-                </div>
+                <button class="btn btn--primary" id="nextWhisperBtn">🌹 اقطفي زهرة</button>
             </div>
         </div>
     </section>
@@ -1677,6 +1631,9 @@
             <span class="music-bar"></span>
         </span>
     </button>
+
+    <!-- Real Background Audio -->
+    <audio id="bgMusic" loop src="https://upload.wikimedia.org/wikipedia/commons/e/e1/Chopin_Nocturne_Op._9_No._2_in_E-flat_major_performed_by_Donald_Betts.mp3"></audio>
 
     <!-- ═══════════════════════════════════════════════
          JavaScript
@@ -1718,6 +1675,10 @@
                 heroSubtitle: document.getElementById('heroSubtitle'),
                 musicToggle: document.getElementById('musicToggle'),
                 musicIcon: document.getElementById('musicIcon'),
+                bgMusic: document.getElementById('bgMusic'),
+                whisperCard: document.getElementById('whisperCard'),
+                whisperText: document.getElementById('whisperText'),
+                nextWhisperBtn: document.getElementById('nextWhisperBtn'),
                 counters: {
                     days: document.getElementById('days'),
                     hours: document.getElementById('hours'),
@@ -1753,7 +1714,7 @@
                Typewriter Effect
                ═══════════════════════════════════════════ */
             const Typewriter = {
-                text: 'في هذا العالم المليء بالتفاصيل، وجودك هو التفصيلة الوحيدة التي تجعل كل شيءٍ جميلاً ومكتملاً... أحبك بكل لغات الصمت والكلام.',
+                text: 'في هذا العالم المليء بالتفاصيل، وجودك هو التفصيلة الوحيدة التي تجعل كل شيءٍ جميلاً ومكتملاً... أحبكِ بكل لغات الصمت والكلام.',
                 index: 0,
 
                 start() {
@@ -1791,7 +1752,6 @@
                 isTouch: false,
 
                 init() {
-                    // تعطيل على الأجهزة اللمسية
                     window.addEventListener('touchstart', () => { this.isTouch = true; }, { once: true });
                     if (this.isTouch) return;
 
@@ -1954,7 +1914,6 @@
                     DOM.hiddenMessage.setAttribute('aria-hidden', 'false');
                     DOM.messageIcon.textContent = '📖';
                     DOM.messageHint.textContent = '👆 انقر مرة أخرى لإغلاق الرسالة';
-                    // انفجار درامي من القلوب
                     Effects.confettiBurst(DOM.messageBox);
                 },
                 closeMessage() {
@@ -2047,12 +2006,52 @@
             };
 
             /* ═══════════════════════════════════════════
+               Whispers Generator (جديد بديل المعرض)
+               ═══════════════════════════════════════════ */
+            const Whispers = {
+                messages: [
+                    "أنتِ النجمة الوحيدة التي تضيء عتمة أيامي... 🌟",
+                    "ضحكتكِ هي اللحن المفضل لقلبي في هذا الكون الصاخب... 🎵",
+                    "كل يوم يمر وأنتِ بجانبي، أعتبره ربيعاً حقيقياً في عمري... 🌸",
+                    "دمتِ لي حباً لا يزول، وأماناً دافئاً لا ينتهي... 💚",
+                    "لو كان الأمر بيدي، لجمعتُ نجوم المجرة بأكملها ووضعتها في كفيكِ... 🌌",
+                    "سأبقى دائماً السند الذي لا يميل، والقلب الذي لا يتوقف عن حمايتكِ... 🛡️",
+                    "أنتِ ربيعي الدائم وسط خريف هذا العالم وصخبه العابر... 🌺",
+                    "في قلبي حكاية واحدة، أنتِ بدايتها ونهايتها وأجمل فصولها... 📖",
+                    "حتى في صمتكِ أرى لغة حب نادرة لا يتقنها أحد سواكِ... 🕊️",
+                    "مكانكِ في قلبي محميٌّ بالوعود والإخلاص الذي لا يتزعزع أبداً... 🤝"
+                ],
+                currentIndex: -1,
+
+                init() {
+                    if (!DOM.nextWhisperBtn || !DOM.whisperText) return;
+
+                    DOM.nextWhisperBtn.addEventListener('click', () => {
+                        DOM.whisperText.classList.add('fade-out');
+
+                        setTimeout(() => {
+                            let nextIndex;
+                            do {
+                                nextIndex = Math.floor(Math.random() * this.messages.length);
+                            } while (nextIndex === this.currentIndex && this.messages.length > 1);
+
+                            this.currentIndex = nextIndex;
+                            DOM.whisperText.textContent = this.messages[this.currentIndex];
+                            DOM.whisperText.classList.remove('fade-out');
+
+                            // تأثير الاحتفال البصري على الكرت
+                            Effects.confettiBurst(DOM.whisperCard);
+                        }, 300);
+                    });
+                }
+            };
+
+            /* ═══════════════════════════════════════════
                Visual Effects
                ═══════════════════════════════════════════ */
             const Effects = {
                 init() {
                     this.initClickHearts();
-                    this.initGalleryEffects();
                     this.initScrollReveal();
                     this.initMusicToggle();
                 },
@@ -2064,43 +2063,25 @@
                     const cy = rect.top + rect.height / 2;
                     const emojis = ['💚', '💕', '🌸', '🌺', '💘', '🌹', '🦋', '✨', '💛', '💚'];
 
-                    // موجة أولى: انفجار من المركز
-                    for (let i = 0; i < 30; i++) {
+                    for (let i = 0; i < 20; i++) {
                         const p = document.createElement('span');
                         p.className = 'confetti-heart';
                         p.textContent = emojis[Math.floor(Math.random() * emojis.length)];
-                        const angle = (Math.PI * 2 * i) / 30;
-                        const distance = 120 + Math.random() * 200;
+                        const angle = (Math.PI * 2 * i) / 20;
+                        const distance = 80 + Math.random() * 150;
                         const tx = Math.cos(angle) * distance;
-                        const ty = Math.sin(angle) * distance - 80;
-                        const tr = (Math.random() - 0.5) * 720;
+                        const ty = Math.sin(angle) * distance - 40;
+                        const tr = (Math.random() - 0.5) * 540;
                         p.style.cssText = `
+                            position: fixed;
                             left: ${cx}px; top: ${cy}px;
-                            font-size: ${0.8 + Math.random() * 1.8}rem;
+                            font-size: ${0.8 + Math.random() * 1.5}rem;
                             --tx: ${tx}px; --ty: ${ty}px; --tr: ${tr}deg;
-                            animation: confettiBurst ${1 + Math.random() * 0.8}s cubic-bezier(0.25, 0.46, 0.45, 0.94) forwards;
+                            animation: confettiBurst ${0.8 + Math.random() * 0.6}s cubic-bezier(0.25, 0.46, 0.45, 0.94) forwards;
                         `;
                         document.body.appendChild(p);
-                        setTimeout(() => p.remove(), 2000);
+                        setTimeout(() => p.remove(), 1500);
                     }
-
-                    // موجة ثانية: مطر من الأعلى بعد تأخير
-                    setTimeout(() => {
-                        for (let i = 0; i < 20; i++) {
-                            const p = document.createElement('span');
-                            p.className = 'confetti-heart';
-                            p.textContent = emojis[Math.floor(Math.random() * emojis.length)];
-                            p.style.cssText = `
-                                left: ${Math.random() * window.innerWidth}px;
-                                top: -20px;
-                                font-size: ${0.8 + Math.random() * 1.5}rem;
-                                animation: confettiFall ${2 + Math.random() * 2}s linear forwards;
-                                animation-delay: ${Math.random() * 0.5}s;
-                            `;
-                            document.body.appendChild(p);
-                            setTimeout(() => p.remove(), 4500);
-                        }
-                    }, 400);
                 },
 
                 /* قلوب عند النقر */
@@ -2111,7 +2092,7 @@
                             e.target.closest('.navbar__toggle') || e.target.closest('#secretModal') ||
                             e.target.closest('.music-toggle')) return;
 
-                        const emojis = ['💋', '💚', '💋'];
+                        const emojis = ['💚', '✨', '💚'];
                         const heart = document.createElement('span');
                         heart.textContent = emojis[Math.floor(Math.random() * emojis.length)];
                         heart.style.cssText = `
@@ -2130,56 +2111,6 @@
                     });
                 },
 
-                /* تأثيرات المعرض */
-                initGalleryEffects() {
-                    const reactionEmojis = ['💚', '💕', '🌸', '🌺', '💘', '🌹', '🦋', '✨'];
-
-                    document.querySelectorAll('.gallery-item').forEach(item => {
-                        const emojiEl = item.querySelector('.gallery-item__emoji');
-                        const originalEmoji = emojiEl ? emojiEl.textContent.trim() : item.textContent.trim();
-
-                        const activate = () => {
-                            const tempEmoji = reactionEmojis[Math.floor(Math.random() * reactionEmojis.length)];
-                            if (emojiEl) emojiEl.textContent = tempEmoji;
-                            item.style.transform = 'scale(1.15) rotate(0deg)';
-                            item.style.boxShadow = '0 20px 50px rgba(200,80,110,0.4)';
-                            item.style.borderColor = 'var(--rose-500)';
-
-                            const rect = item.getBoundingClientRect();
-                            const cx = rect.left + rect.width / 2;
-                            const cy = rect.top + rect.height / 2;
-
-                            for (let i = 0; i < 10; i++) {
-                                const spark = document.createElement('span');
-                                spark.textContent = '💚';
-                                spark.style.cssText = `
-                                    position: fixed; left: ${cx}px; top: ${cy}px;
-                                    pointer-events: none; z-index: 1500; font-size: 1.2rem;
-                                    transition: all 0.9s ease-out; opacity: 1;
-                                `;
-                                document.body.appendChild(spark);
-                                requestAnimationFrame(() => {
-                                    spark.style.transform = `translate(${(Math.random() - 0.5) * 200}px, ${-60 - Math.random() * 160}px) scale(0)`;
-                                    spark.style.opacity = '0';
-                                });
-                                setTimeout(() => spark.remove(), 1000);
-                            }
-
-                            setTimeout(() => {
-                                if (emojiEl) emojiEl.textContent = originalEmoji;
-                                item.style.transform = '';
-                                item.style.boxShadow = '';
-                                item.style.borderColor = '';
-                            }, 800);
-                        };
-
-                        item.addEventListener('click', (e) => { e.stopPropagation(); activate(); });
-                        item.addEventListener('keydown', (e) => {
-                            if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); activate(); }
-                        });
-                    });
-                },
-
                 /* Scroll Reveal */
                 initScrollReveal() {
                     const observerOptions = { threshold: 0.15, rootMargin: '0px 0px -60px 0px' };
@@ -2195,17 +2126,6 @@
                         quoteObserver.observe(card);
                     });
 
-                    const galleryObserver = new IntersectionObserver((entries) => {
-                        entries.forEach(entry => {
-                            if (entry.isIntersecting) entry.target.classList.add('gallery-item--visible');
-                        });
-                    }, { threshold: 0.15 });
-
-                    document.querySelectorAll('.gallery-item').forEach((item, i) => {
-                        item.style.transitionDelay = (i * 0.08) + 's';
-                        galleryObserver.observe(item);
-                    });
-
                     const promiseObserver = new IntersectionObserver((entries) => {
                         entries.forEach(entry => {
                             if (entry.isIntersecting) entry.target.classList.add('promise-item--visible');
@@ -2216,22 +2136,44 @@
                         item.style.transitionDelay = (i * 0.12) + 's';
                         promiseObserver.observe(item);
                     });
+
+                    const whispersObserver = new IntersectionObserver((entries) => {
+                        entries.forEach(entry => {
+                            if (entry.isIntersecting) entry.target.classList.add('whisper-card--visible');
+                        });
+                    }, { threshold: 0.15 });
+
+                    if (DOM.whisperCard) whispersObserver.observe(DOM.whisperCard);
                 },
 
-                /* زر الموسيقى (تأثير بصري فقط) */
+                /* زر الموسيقى بشكل حقيقي */
                 initMusicToggle() {
                     let playing = false;
+
+                    if (!DOM.bgMusic) return;
+
                     DOM.musicToggle.addEventListener('click', () => {
                         playing = !playing;
                         DOM.musicToggle.classList.toggle('music-toggle--playing', playing);
                         DOM.musicIcon.style.display = playing ? 'none' : 'inline';
                         DOM.musicToggle.setAttribute('aria-label', playing ? 'إيقاف الموسيقى' : 'تشغيل الموسيقى');
+
+                        if (playing) {
+                            DOM.bgMusic.play().catch(err => {
+                                console.log("حماية المتصفح من التشغيل التلقائي مفعلة:", err);
+                                playing = false;
+                                DOM.musicToggle.classList.remove('music-toggle--playing');
+                                DOM.musicIcon.style.display = 'inline';
+                            });
+                        } else {
+                            DOM.bgMusic.pause();
+                        }
                     });
                 }
             };
 
             /* ═══════════════════════════════════════════
-               Hero Parallax (خفيف)
+               Hero Parallax
                ═══════════════════════════════════════════ */
             const HeroParallax = {
                 init() {
@@ -2260,6 +2202,7 @@
                 SecretMessage.init();
                 LoveCounter.init();
                 Particles.init();
+                Whispers.init();
                 Effects.init();
                 CursorTrail.init();
                 HeroParallax.init();
@@ -2276,4 +2219,4 @@
         })();
     </script>
 </body>
-    </html> 
+</html>
