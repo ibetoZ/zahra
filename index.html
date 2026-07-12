@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="ar" dir="rtl">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0">
@@ -12,7 +13,8 @@
     <title> ❤️ زهرتي | ميكاتو </title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@400;500;700;800;900&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@400;500;700;800;900&display=swap"
+        rel="stylesheet">
     <style>
         /* ═══════════════════════════════════════════════
            CSS Custom Properties
@@ -63,8 +65,12 @@
         /* ═══════════════════════════════════════════════
            Reset & Base
            ═══════════════════════════════════════════════ */
-        *, *::before, *::after {
-            margin: 0; padding: 0; box-sizing: border-box;
+        *,
+        *::before,
+        *::after {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
         }
 
         html {
@@ -73,11 +79,29 @@
             scrollbar-color: var(--rose-300) var(--rose-50);
         }
 
-        ::-webkit-scrollbar { width: 8px; }
-        ::-webkit-scrollbar-track { background: var(--rose-50); border-radius: 10px; }
-        ::-webkit-scrollbar-thumb { background: var(--rose-300); border-radius: 10px; transition: background var(--transition-fast); }
-        ::-webkit-scrollbar-thumb:hover { background: var(--rose-500); }
-        ::selection { background: var(--rose-300); color: var(--white); }
+        ::-webkit-scrollbar {
+            width: 8px;
+        }
+
+        ::-webkit-scrollbar-track {
+            background: var(--rose-50);
+            border-radius: 10px;
+        }
+
+        ::-webkit-scrollbar-thumb {
+            background: var(--rose-300);
+            border-radius: 10px;
+            transition: background var(--transition-fast);
+        }
+
+        ::-webkit-scrollbar-thumb:hover {
+            background: var(--rose-500);
+        }
+
+        ::selection {
+            background: var(--rose-300);
+            color: var(--white);
+        }
 
         body {
             font-family: var(--font-base);
@@ -119,8 +143,17 @@
         }
 
         @keyframes loadingPulse {
-            0%, 100% { transform: scale(1); filter: drop-shadow(0 0 10px rgba(194, 90, 115, 0.3)); }
-            50% { transform: scale(1.3); filter: drop-shadow(0 0 25px rgba(194, 90, 115, 0.6)); }
+
+            0%,
+            100% {
+                transform: scale(1);
+                filter: drop-shadow(0 0 10px rgba(194, 90, 115, 0.3));
+            }
+
+            50% {
+                transform: scale(1.3);
+                filter: drop-shadow(0 0 25px rgba(194, 90, 115, 0.6));
+            }
         }
 
         .loading-bar-track {
@@ -164,8 +197,13 @@
         }
 
         @keyframes shimmerProgress {
-            0% { background-position: 100% 0; }
-            100% { background-position: -100% 0; }
+            0% {
+                background-position: 100% 0;
+            }
+
+            100% {
+                background-position: -100% 0;
+            }
         }
 
         /* ═══════════════════════════════════════════════
@@ -201,43 +239,64 @@
         }
 
         .bg-orb:nth-child(1) {
-            width: 400px; height: 400px;
+            width: 400px;
+            height: 400px;
             background: radial-gradient(circle, #f8d0da, transparent 70%);
-            top: -10%; right: -5%;
+            top: -10%;
+            right: -5%;
             animation-duration: 22s;
         }
 
         .bg-orb:nth-child(2) {
-            width: 350px; height: 350px;
+            width: 350px;
+            height: 350px;
             background: radial-gradient(circle, #e8a0b4, transparent 70%);
-            bottom: 10%; left: -8%;
+            bottom: 10%;
+            left: -8%;
             animation-duration: 18s;
             animation-delay: -5s;
         }
 
         .bg-orb:nth-child(3) {
-            width: 300px; height: 300px;
+            width: 300px;
+            height: 300px;
             background: radial-gradient(circle, #d4a574, transparent 70%);
-            top: 40%; right: 20%;
+            top: 40%;
+            right: 20%;
             animation-duration: 25s;
             animation-delay: -10s;
             opacity: 0.15;
         }
 
         .bg-orb:nth-child(4) {
-            width: 250px; height: 250px;
+            width: 250px;
+            height: 250px;
             background: radial-gradient(circle, #fce4ec, transparent 70%);
-            top: 70%; left: 30%;
+            top: 70%;
+            left: 30%;
             animation-duration: 20s;
             animation-delay: -3s;
             opacity: 0.2;
         }
 
         @keyframes orbFloat {
-            0%, 100% { transform: translate(0, 0) scale(1); }
-            25% { transform: translate(40px, -30px) scale(1.1); }
-            50% { transform: translate(-20px, 40px) scale(0.95); }
-            75% { transform: translate(30px, 20px) scale(1.05); }
+
+            0%,
+            100% {
+                transform: translate(0, 0) scale(1);
+            }
+
+            25% {
+                transform: translate(40px, -30px) scale(1.1);
+            }
+
+            50% {
+                transform: translate(-20px, 40px) scale(0.95);
+            }
+
+            75% {
+                transform: translate(30px, 20px) scale(1.05);
+            }
         }
 
         /* ═══════════════════════════════════════════════
@@ -260,24 +319,56 @@
         }
 
         @keyframes floatUp {
-            0% { transform: translateY(105vh) rotate(0deg) scale(0.3); opacity: 0; }
-            5% { opacity: 0.8; }
-            30% { opacity: 0.6; }
-            70% { opacity: 0.4; }
-            95% { opacity: 0.1; }
-            100% { transform: translateY(-15vh) rotate(720deg) scale(1.5); opacity: 0; }
+            0% {
+                transform: translateY(105vh) rotate(0deg) scale(0.3);
+                opacity: 0;
+            }
+
+            5% {
+                opacity: 0.8;
+            }
+
+            30% {
+                opacity: 0.6;
+            }
+
+            70% {
+                opacity: 0.4;
+            }
+
+            95% {
+                opacity: 0.1;
+            }
+
+            100% {
+                transform: translateY(-15vh) rotate(720deg) scale(1.5);
+                opacity: 0;
+            }
         }
 
-        .particle--heart { font-size: 1.2rem; animation-duration: 9s; }
-        .particle--petal { font-size: 0.9rem; animation-duration: 13s; }
-        .particle--sparkle { font-size: 0.7rem; animation-duration: 7s; }
+        .particle--heart {
+            font-size: 1.2rem;
+            animation-duration: 9s;
+        }
+
+        .particle--petal {
+            font-size: 0.9rem;
+            animation-duration: 13s;
+        }
+
+        .particle--sparkle {
+            font-size: 0.7rem;
+            animation-duration: 7s;
+        }
 
         /* ═══════════════════════════════════════════════
            Navigation
            ═══════════════════════════════════════════════ */
         .navbar {
             position: fixed;
-            top: 0; left: 0; right: 0;
+            top: 0;
+            left: 0;
+            right: 0;
             z-index: var(--z-navbar);
             background: rgba(255, 245, 245, 0.7);
             backdrop-filter: blur(25px);
@@ -307,8 +398,14 @@
             transition: var(--transition-base);
         }
 
-        .navbar__logo:hover { color: var(--rose-600); transform: scale(1.04); }
-        .navbar__logo:focus-visible { outline: none; }
+        .navbar__logo:hover {
+            color: var(--rose-600);
+            transform: scale(1.04);
+        }
+
+        .navbar__logo:focus-visible {
+            outline: none;
+        }
 
         .navbar__logo-heart {
             display: inline-block;
@@ -317,17 +414,33 @@
         }
 
         @keyframes heartbeat {
-            0%, 100% { transform: scale(1); }
-            14% { transform: scale(1.35); }
-            28% { transform: scale(1); }
-            42% { transform: scale(1.25); }
-            56% { transform: scale(1); }
+
+            0%,
+            100% {
+                transform: scale(1);
+            }
+
+            14% {
+                transform: scale(1.35);
+            }
+
+            28% {
+                transform: scale(1);
+            }
+
+            42% {
+                transform: scale(1.25);
+            }
+
+            56% {
+                transform: scale(1);
+            }
         }
 
         .navbar__links {
             display: flex;
             list-style: none;
-            gap: var(--space-8);
+            gap: var(--space-6);
             align-items: center;
         }
 
@@ -344,17 +457,31 @@
         .navbar__link::after {
             content: '';
             position: absolute;
-            bottom: -2px; right: 0;
-            width: 0; height: 2.5px;
+            bottom: -2px;
+            right: 0;
+            width: 0;
+            height: 2.5px;
             background: linear-gradient(90deg, var(--rose-500), var(--rose-400));
             border-radius: 5px;
             transition: width 0.35s ease;
         }
 
-        .navbar__link:hover { color: var(--rose-500); }
-        .navbar__link:hover::after { width: 100%; }
-        .navbar__link:focus-visible { outline: none; color: var(--rose-500); }
-        .navbar__link:focus-visible::after { width: 100%; }
+        .navbar__link:hover {
+            color: var(--rose-500);
+        }
+
+        .navbar__link:hover::after {
+            width: 100%;
+        }
+
+        .navbar__link:focus-visible {
+            outline: none;
+            color: var(--rose-500);
+        }
+
+        .navbar__link:focus-visible::after {
+            width: 100%;
+        }
 
         .navbar__toggle {
             display: none;
@@ -368,19 +495,31 @@
             border-radius: var(--space-2);
         }
 
-        .navbar__toggle:hover { color: var(--rose-600); transform: rotate(90deg); background: rgba(200,100,130,0.1); }
-        .navbar__toggle:focus-visible { outline: none; }
+        .navbar__toggle:hover {
+            color: var(--rose-600);
+            transform: rotate(90deg);
+            background: rgba(200, 100, 130, 0.1);
+        }
+
+        .navbar__toggle:focus-visible {
+            outline: none;
+        }
 
         .navbar__overlay {
-            position: fixed; inset: 0;
-            background: rgba(0,0,0,0.35);
+            position: fixed;
+            inset: 0;
+            background: rgba(0, 0, 0, 0.35);
             z-index: calc(var(--z-navbar) - 1);
-            opacity: 0; pointer-events: none;
+            opacity: 0;
+            pointer-events: none;
             transition: opacity var(--transition-base);
             backdrop-filter: blur(2px);
         }
 
-        .navbar__overlay--active { opacity: 1; pointer-events: auto; }
+        .navbar__overlay--active {
+            opacity: 1;
+            pointer-events: auto;
+        }
 
         /* ═══════════════════════════════════════════════
            Hero Section
@@ -400,9 +539,9 @@
 
         .hero__badge {
             display: inline-block;
-            background: rgba(255,255,255,0.6);
+            background: rgba(255, 255, 255, 0.6);
             backdrop-filter: blur(15px);
-            border: 1.5px solid rgba(220,150,165,0.4);
+            border: 1.5px solid rgba(220, 150, 165, 0.4);
             padding: var(--space-2) var(--space-6);
             border-radius: 50px;
             font-weight: 600;
@@ -412,12 +551,19 @@
             animation: fadeInDown 1s ease forwards;
             opacity: 0;
             animation-delay: 0.3s;
-            box-shadow: 0 4px 20px rgba(194,90,115,0.1);
+            box-shadow: 0 4px 20px rgba(194, 90, 115, 0.1);
         }
 
         @keyframes fadeInDown {
-            from { opacity: 0; transform: translateY(-30px); }
-            to { opacity: 1; transform: translateY(0); }
+            from {
+                opacity: 0;
+                transform: translateY(-30px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
         }
 
         .hero__title {
@@ -431,8 +577,15 @@
         }
 
         @keyframes fadeInUp {
-            from { opacity: 0; transform: translateY(40px); }
-            to { opacity: 1; transform: translateY(0); }
+            from {
+                opacity: 0;
+                transform: translateY(40px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
         }
 
         .hero__title-highlight {
@@ -445,8 +598,15 @@
         }
 
         @keyframes gradientShift {
-            0%, 100% { background-position: 0% 50%; }
-            50% { background-position: 100% 50%; }
+
+            0%,
+            100% {
+                background-position: 0% 50%;
+            }
+
+            50% {
+                background-position: 100% 50%;
+            }
         }
 
         .hero__subtitle {
@@ -472,8 +632,15 @@
         }
 
         @keyframes cursorBlink {
-            0%, 100% { opacity: 1; }
-            50% { opacity: 0; }
+
+            0%,
+            100% {
+                opacity: 1;
+            }
+
+            50% {
+                opacity: 0;
+            }
         }
 
         .hero__buttons {
@@ -507,19 +674,25 @@
             overflow: hidden;
         }
 
-        .btn:focus-visible { outline: 3px solid var(--rose-400); outline-offset: 3px; }
+        .btn:focus-visible {
+            outline: 3px solid var(--rose-400);
+            outline-offset: 3px;
+        }
 
         .btn .ripple {
             position: absolute;
             border-radius: 50%;
-            background: rgba(255,255,255,0.4);
+            background: rgba(255, 255, 255, 0.4);
             transform: scale(0);
             animation: rippleAnim 0.6s ease-out forwards;
             pointer-events: none;
         }
 
         @keyframes rippleAnim {
-            to { transform: scale(4); opacity: 0; }
+            to {
+                transform: scale(4);
+                opacity: 0;
+            }
         }
 
         .btn--primary {
@@ -535,16 +708,16 @@
         }
 
         .btn--outline {
-            background: rgba(255,255,255,0.5);
+            background: rgba(255, 255, 255, 0.5);
             backdrop-filter: blur(10px);
             border: 2px solid var(--rose-400);
             color: var(--rose-500);
         }
 
         .btn--outline:hover {
-            background: rgba(255,240,243,0.8);
+            background: rgba(255, 240, 243, 0.8);
             transform: translateY(-4px);
-            box-shadow: 0 10px 30px rgba(180,100,120,0.25);
+            box-shadow: 0 10px 30px rgba(180, 100, 120, 0.25);
         }
 
         .hero__floating-heart {
@@ -558,10 +731,23 @@
         }
 
         @keyframes heroHeartFloat {
-            0%, 100% { transform: translateY(0) rotate(-5deg) scale(1); }
-            25% { transform: translateY(-25px) rotate(5deg) scale(1.1); }
-            50% { transform: translateY(-10px) rotate(-3deg) scale(0.95); }
-            75% { transform: translateY(-30px) rotate(4deg) scale(1.05); }
+
+            0%,
+            100% {
+                transform: translateY(0) rotate(-5deg) scale(1);
+            }
+
+            25% {
+                transform: translateY(-25px) rotate(5deg) scale(1.1);
+            }
+
+            50% {
+                transform: translateY(-10px) rotate(-3deg) scale(0.95);
+            }
+
+            75% {
+                transform: translateY(-30px) rotate(4deg) scale(1.05);
+            }
         }
 
         /* ═══════════════════════════════════════════════
@@ -573,7 +759,10 @@
             z-index: var(--z-content);
         }
 
-        .section__header { text-align: center; margin-bottom: var(--space-12); }
+        .section__header {
+            text-align: center;
+            margin-bottom: var(--space-12);
+        }
 
         .section__title {
             font-size: var(--text-xl);
@@ -587,9 +776,11 @@
         .section__title::after {
             content: '';
             position: absolute;
-            bottom: -10px; left: 50%;
+            bottom: -10px;
+            left: 50%;
             transform: translateX(-50%);
-            width: 70px; height: 4px;
+            width: 70px;
+            height: 4px;
             background: linear-gradient(90deg, var(--rose-300), var(--rose-500), var(--rose-300));
             border-radius: 5px;
             background-size: 200% 100%;
@@ -597,8 +788,15 @@
         }
 
         @keyframes shimmerLine {
-            0%, 100% { background-position: 0% 0; }
-            50% { background-position: 100% 0; }
+
+            0%,
+            100% {
+                background-position: 0% 0;
+            }
+
+            50% {
+                background-position: 100% 0;
+            }
         }
 
         .section__subtitle {
@@ -618,9 +816,11 @@
         .section-divider::before {
             content: '';
             position: absolute;
-            top: 50%; left: 10%; right: 10%;
+            top: 50%;
+            left: 10%;
+            right: 10%;
             height: 1px;
-            background: linear-gradient(90deg, transparent, rgba(200,140,155,0.4), transparent);
+            background: linear-gradient(90deg, transparent, rgba(200, 140, 155, 0.4), transparent);
         }
 
         .section-divider span {
@@ -628,7 +828,7 @@
             background: linear-gradient(170deg, #fdf2f5, #fce8ee, #fff0f3);
             padding: 0 var(--space-4);
             font-size: 1.5rem;
-            filter: drop-shadow(0 0 6px rgba(194,90,115,0.2));
+            filter: drop-shadow(0 0 6px rgba(194, 90, 115, 0.2));
         }
 
         /* ═══════════════════════════════════════════════
@@ -641,9 +841,9 @@
         }
 
         .quote-card {
-            background: rgba(255,255,255,0.55);
+            background: rgba(255, 255, 255, 0.55);
             backdrop-filter: blur(20px);
-            border: 1.5px solid rgba(220,160,175,0.3);
+            border: 1.5px solid rgba(220, 160, 175, 0.3);
             border-radius: 24px;
             padding: var(--space-8) var(--space-6);
             text-align: center;
@@ -651,7 +851,7 @@
             cursor: default;
             position: relative;
             overflow: hidden;
-            box-shadow: 0 8px 32px rgba(160,90,110,0.06);
+            box-shadow: 0 8px 32px rgba(160, 90, 110, 0.06);
             opacity: 0;
             transform: translateY(40px);
         }
@@ -680,24 +880,32 @@
         }
 
         @keyframes borderGlow {
-            0% { background-position: 0% 50%; }
-            100% { background-position: 300% 50%; }
+            0% {
+                background-position: 0% 50%;
+            }
+
+            100% {
+                background-position: 300% 50%;
+            }
         }
 
-        .quote-card:hover::before { opacity: 1; }
+        .quote-card:hover::before {
+            opacity: 1;
+        }
 
         .quote-card:hover {
             transform: translateY(-8px);
-            box-shadow: var(--shadow-card), 0 0 40px rgba(194,90,115,0.1);
+            box-shadow: var(--shadow-card), 0 0 40px rgba(194, 90, 115, 0.1);
             border-color: transparent;
-            background: rgba(255,255,255,0.75);
+            background: rgba(255, 255, 255, 0.75);
         }
 
         .quote-card__quote-mark {
             position: absolute;
-            top: 12px; right: 18px;
+            top: 12px;
+            right: 18px;
             font-size: 3.5rem;
-            color: rgba(200,120,140,0.15);
+            color: rgba(200, 120, 140, 0.15);
             font-weight: 900;
             line-height: 1;
             transition: var(--transition-base);
@@ -705,7 +913,7 @@
         }
 
         .quote-card:hover .quote-card__quote-mark {
-            color: rgba(200,120,140,0.35);
+            color: rgba(200, 120, 140, 0.35);
             transform: scale(1.15) rotate(-5deg);
         }
 
@@ -718,7 +926,7 @@
 
         .quote-card:hover .quote-card__icon {
             transform: scale(1.2) rotate(-8deg);
-            filter: drop-shadow(0 4px 12px rgba(194,90,115,0.3));
+            filter: drop-shadow(0 4px 12px rgba(194, 90, 115, 0.3));
         }
 
         .quote-card__text {
@@ -741,14 +949,14 @@
            Love Counter
            ═══════════════════════════════════════════════ */
         .counter-section {
-            background: rgba(255,240,243,0.45);
+            background: rgba(255, 240, 243, 0.45);
             backdrop-filter: blur(15px);
             border-radius: 30px;
             padding: var(--space-12) var(--space-8);
             margin: 0 auto;
             max-width: 900px;
             text-align: center;
-            border: 1.5px solid rgba(210,150,165,0.3);
+            border: 1.5px solid rgba(210, 150, 165, 0.3);
             box-shadow: var(--shadow-soft);
             position: relative;
             overflow: hidden;
@@ -757,14 +965,18 @@
         .counter-section::before {
             content: '';
             position: absolute;
-            top: -50%; left: -50%;
-            width: 200%; height: 200%;
-            background: conic-gradient(from 0deg, transparent, rgba(194,90,115,0.05), transparent, rgba(212,165,116,0.05), transparent);
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: conic-gradient(from 0deg, transparent, rgba(194, 90, 115, 0.05), transparent, rgba(212, 165, 116, 0.05), transparent);
             animation: rotateBg 20s linear infinite;
         }
 
         @keyframes rotateBg {
-            to { transform: rotate(360deg); }
+            to {
+                transform: rotate(360deg);
+            }
         }
 
         .counter-grid {
@@ -776,11 +988,11 @@
         }
 
         .counter-item {
-            background: rgba(255,255,255,0.7);
+            background: rgba(255, 255, 255, 0.7);
             border-radius: 20px;
             padding: var(--space-6) var(--space-4);
             transition: var(--transition-base);
-            border: 1px solid rgba(200,140,155,0.2);
+            border: 1px solid rgba(200, 140, 155, 0.2);
             position: relative;
             overflow: hidden;
         }
@@ -788,14 +1000,18 @@
         .counter-item::after {
             content: '';
             position: absolute;
-            bottom: 0; left: 0; right: 0;
+            bottom: 0;
+            left: 0;
+            right: 0;
             height: 3px;
             background: linear-gradient(90deg, var(--rose-400), var(--rose-500));
             transform: scaleX(0);
             transition: transform 0.4s ease;
         }
 
-        .counter-item:hover::after { transform: scaleX(1); }
+        .counter-item:hover::after {
+            transform: scaleX(1);
+        }
 
         .counter-item:hover {
             transform: translateY(-5px);
@@ -830,17 +1046,315 @@
         }
 
         /* ═══════════════════════════════════════════════
-           Message Section
+           Open When Section (افتحي عندما...)
+           ═══════════════════════════════════════════════ */
+        .open-when-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: var(--space-6);
+            max-width: 900px;
+            margin: 0 auto;
+        }
+
+        .open-when-card {
+            background: rgba(255, 255, 255, 0.55);
+            backdrop-filter: blur(20px);
+            border: 1.5px solid rgba(220, 160, 175, 0.3);
+            border-radius: 24px;
+            padding: var(--space-8) var(--space-4);
+            text-align: center;
+            cursor: pointer;
+            transition: var(--transition-base);
+            box-shadow: 0 8px 32px rgba(160, 90, 110, 0.06);
+            position: relative;
+            overflow: hidden;
+            opacity: 0;
+            transform: translateY(40px);
+        }
+
+        .open-when-card--visible {
+            opacity: 1;
+            transform: translateY(0);
+            transition: opacity 0.6s ease, transform 0.6s ease, box-shadow var(--transition-base), border-color var(--transition-base), background var(--transition-base);
+        }
+
+        .open-when-card:hover {
+            transform: translateY(-8px);
+            box-shadow: var(--shadow-card);
+            border-color: var(--rose-400);
+            background: rgba(255, 255, 255, 0.75);
+        }
+
+        .open-when-card__icon {
+            font-size: 3rem;
+            display: block;
+            margin-bottom: var(--space-3);
+            transition: var(--transition-base);
+        }
+
+        .open-when-card:hover .open-when-card__icon {
+            transform: scale(1.2) rotate(-10deg);
+        }
+
+        .open-when-card__title {
+            font-size: var(--text-base);
+            font-weight: 700;
+            color: var(--rose-600);
+            display: block;
+        }
+
+        /* نافذة رسائل افتحي عندما المخصصة */
+        .open-when-modal {
+            position: fixed;
+            inset: 0;
+            background: rgba(0, 0, 0, 0.5);
+            backdrop-filter: blur(8px);
+            z-index: var(--z-modal);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            opacity: 0;
+            pointer-events: none;
+            transition: opacity var(--transition-base);
+            padding: var(--space-4);
+        }
+
+        .open-when-modal--active {
+            opacity: 1;
+            pointer-events: auto;
+        }
+
+        .open-when-modal-box {
+            background: rgba(255, 245, 245, 0.97);
+            backdrop-filter: blur(25px);
+            border-radius: 30px;
+            padding: var(--space-8) var(--space-6);
+            max-width: 500px;
+            width: 100%;
+            text-align: center;
+            border: 2px solid var(--rose-400);
+            box-shadow: 0 30px 60px rgba(140, 60, 80, 0.4);
+            transform: scale(0.85) translateY(20px);
+            transition: transform 0.5s cubic-bezier(0.34, 1.56, 0.64, 1);
+        }
+
+        .open-when-modal--active .open-when-modal-box {
+            transform: scale(1) translateY(0);
+        }
+
+        .open-when-modal-title {
+            color: var(--rose-600);
+            margin-bottom: var(--space-4);
+            font-size: var(--text-lg);
+            font-weight: 800;
+        }
+
+        .open-when-modal-body {
+            color: #5a3540;
+            font-size: var(--text-sm);
+            line-height: 1.8;
+            margin-bottom: var(--space-6);
+            white-space: pre-line;
+            max-height: 280px;
+            overflow-y: auto;
+            padding-left: var(--space-2);
+        }
+
+        /* ═══════════════════════════════════════════════
+           Birthday Countdown & Celebration Section
+           ═══════════════════════════════════════════════ */
+        .birthday-card {
+            background: rgba(255, 240, 243, 0.45);
+            backdrop-filter: blur(15px);
+            border-radius: 30px;
+            padding: var(--space-12) var(--space-8);
+            margin: 0 auto;
+            max-width: 800px;
+            text-align: center;
+            border: 1.5px solid rgba(210, 150, 165, 0.3);
+            box-shadow: var(--shadow-soft);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .birthday-countdown-container {
+            display: none;
+            /* يتم التحكم به تماماً عبر الجافا سكربت */
+        }
+
+        .birthday-countdown-grid {
+            display: flex;
+            justify-content: center;
+            gap: var(--space-4);
+            flex-wrap: wrap;
+            margin-top: var(--space-6);
+        }
+
+        .birthday-countdown-item {
+            background: var(--white);
+            border-radius: 16px;
+            padding: var(--space-4) var(--space-3);
+            min-width: 85px;
+            box-shadow: 0 4px 15px rgba(194, 90, 115, 0.08);
+            border: 1px solid rgba(200, 140, 155, 0.15);
+        }
+
+        .birthday-countdown-number {
+            font-size: var(--text-lg);
+            font-weight: 900;
+            color: var(--rose-500);
+            display: block;
+        }
+
+        .birthday-countdown-label {
+            font-size: var(--text-xs);
+            color: #8a5a65;
+            font-weight: 600;
+            display: block;
+            margin-top: var(--space-1);
+        }
+
+        .birthday-celebration-container {
+            display: none;
+            /* يتم التحكم به تماماً عبر الجافا سكربت */
+        }
+
+        .birthday-celebration--active {
+            display: block;
+            animation: fadeInUp 0.8s ease forwards;
+        }
+
+        .birthday-box {
+            background: rgba(255, 255, 255, 0.7);
+            border-radius: 24px;
+            padding: var(--space-8) var(--space-6);
+            border: 2px dashed var(--rose-400);
+            cursor: pointer;
+            display: inline-block;
+            transition: var(--transition-base);
+            box-shadow: var(--shadow-soft);
+            max-width: 320px;
+            width: 100%;
+        }
+
+        .birthday-box:hover {
+            transform: scale(1.05);
+            box-shadow: var(--shadow-card);
+            background: var(--white);
+        }
+
+        .birthday-box__cake {
+            font-size: 4.5rem;
+            display: block;
+            animation: bounceEnvelope 2s ease-in-out infinite;
+        }
+
+        .birthday-box__title {
+            color: var(--rose-600);
+            font-weight: 800;
+            font-size: var(--text-base);
+            margin-top: var(--space-4);
+        }
+
+        .birthday-box__hint {
+            font-size: var(--text-xs);
+            color: #b0808d;
+            margin-top: var(--space-2);
+            font-weight: 600;
+            animation: pulseHint 2s ease-in-out infinite;
+        }
+
+        /* ═══════════════════════════════════════════════
+           Promises Section
+           ═══════════════════════════════════════════════ */
+        .promises-timeline {
+            max-width: 650px;
+            margin: 0 auto;
+            position: relative;
+            padding-right: 30px;
+        }
+
+        .promises-timeline::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            bottom: 0;
+            right: 8px;
+            width: 2px;
+            background: linear-gradient(180deg, var(--rose-300), var(--rose-500), var(--rose-300));
+            border-radius: 2px;
+        }
+
+        .promise-item {
+            position: relative;
+            padding: var(--space-6) var(--space-8) var(--space-6) var(--space-4);
+            margin-bottom: var(--space-4);
+            background: rgba(255, 255, 255, 0.5);
+            backdrop-filter: blur(15px);
+            border-radius: 20px;
+            border: 1px solid rgba(210, 150, 165, 0.25);
+            transition: var(--transition-base);
+            opacity: 0;
+            transform: translateX(30px);
+        }
+
+        .promise-item--visible {
+            opacity: 1;
+            transform: translateX(0);
+            transition: opacity 0.6s ease, transform 0.6s ease, box-shadow var(--transition-base);
+        }
+
+        .promise-item:hover {
+            transform: translateX(-5px);
+            box-shadow: var(--shadow-soft);
+            background: rgba(255, 255, 255, 0.75);
+        }
+
+        .promise-item::before {
+            content: '';
+            position: absolute;
+            right: -26px;
+            top: 50%;
+            transform: translateY(-50%);
+            width: 14px;
+            height: 14px;
+            border-radius: 50%;
+            background: var(--rose-500);
+            border: 3px solid var(--rose-100);
+            box-shadow: 0 0 10px rgba(194, 90, 115, 0.3);
+            transition: var(--transition-base);
+        }
+
+        .promise-item:hover::before {
+            transform: translateY(-50%) scale(1.3);
+            box-shadow: 0 0 20px rgba(194, 90, 115, 0.5);
+        }
+
+        .promise-item__emoji {
+            font-size: 1.8rem;
+            margin-bottom: var(--space-2);
+            display: block;
+        }
+
+        .promise-item__text {
+            color: #5a3540;
+            font-size: var(--text-sm);
+            line-height: 1.8;
+            font-weight: 500;
+        }
+
+        /* ═══════════════════════════════════════════════
+           Message Section (الرسالة الخاصة)
            ═══════════════════════════════════════════════ */
         .message-box {
-            background: rgba(255,255,255,0.55);
+            background: rgba(255, 255, 255, 0.55);
             backdrop-filter: blur(20px);
             border-radius: 28px;
             padding: var(--space-12) var(--space-8);
             max-width: 750px;
             margin: 0 auto;
             text-align: center;
-            border: 1.5px solid rgba(210,150,165,0.3);
+            border: 1.5px solid rgba(210, 150, 165, 0.3);
             box-shadow: var(--shadow-soft);
             transition: var(--transition-base);
             cursor: pointer;
@@ -852,12 +1366,14 @@
             content: '';
             position: absolute;
             inset: 0;
-            background: radial-gradient(ellipse at center, rgba(194,90,115,0.03) 0%, transparent 70%);
+            background: radial-gradient(ellipse at center, rgba(194, 90, 115, 0.03) 0%, transparent 70%);
             opacity: 0;
             transition: opacity 0.5s ease;
         }
 
-        .message-box:hover::before { opacity: 1; }
+        .message-box:hover::before {
+            opacity: 1;
+        }
 
         .message-box:hover {
             box-shadow: var(--shadow-card);
@@ -873,10 +1389,23 @@
         }
 
         @keyframes bounceEnvelope {
-            0%, 100% { transform: translateY(0); }
-            30% { transform: translateY(-20px); }
-            50% { transform: translateY(0); }
-            70% { transform: translateY(-10px); }
+
+            0%,
+            100% {
+                transform: translateY(0);
+            }
+
+            30% {
+                transform: translateY(-20px);
+            }
+
+            50% {
+                transform: translateY(0);
+            }
+
+            70% {
+                transform: translateY(-10px);
+            }
         }
 
         .message-box__title {
@@ -896,16 +1425,23 @@
         }
 
         @keyframes pulseHint {
-            0%, 100% { opacity: 0.5; }
-            50% { opacity: 1; }
+
+            0%,
+            100% {
+                opacity: 0.5;
+            }
+
+            50% {
+                opacity: 1;
+            }
         }
 
         .message-box__content {
             max-height: 0;
             overflow: hidden;
             transition: max-height 1s cubic-bezier(0.25, 0.46, 0.45, 0.94),
-                        opacity 0.8s ease 0.2s,
-                        margin 0.6s ease;
+                opacity 0.8s ease 0.2s,
+                margin 0.6s ease;
             opacity: 0;
             color: #5a3540;
             line-height: 2.2;
@@ -914,9 +1450,12 @@
         }
 
         .message-box--revealed .message-box__content {
-            max-height: 600px;
+            max-height: 1500px;
+            /* زيادة الطول الأقصى لضمان عدم اقتطاع الرسائل الطويلة */
             opacity: 1;
             margin-top: var(--space-6);
+            overflow: visible;
+            /* السماح بالتمدد الديناميكي الكامل وتفادي مشكلة القص */
         }
 
         .message-box--revealed .message-box__icon {
@@ -928,29 +1467,35 @@
            Secret Modal
            ═══════════════════════════════════════════════ */
         .modal-overlay {
-            position: fixed; inset: 0;
-            background: rgba(0,0,0,0.5);
+            position: fixed;
+            inset: 0;
+            background: rgba(0, 0, 0, 0.5);
             backdrop-filter: blur(8px);
             z-index: var(--z-modal);
             display: flex;
             align-items: center;
             justify-content: center;
-            opacity: 0; pointer-events: none;
+            opacity: 0;
+            pointer-events: none;
             transition: opacity var(--transition-base);
             padding: var(--space-4);
         }
 
-        .modal-overlay--active { opacity: 1; pointer-events: auto; }
+        .modal-overlay--active {
+            opacity: 1;
+            pointer-events: auto;
+        }
 
         .modal-box {
-            background: rgba(255,245,245,0.96);
+            background: rgba(255, 245, 245, 0.96);
             backdrop-filter: blur(25px);
             border-radius: 30px;
             padding: var(--space-8) var(--space-6);
-            max-width: 400px; width: 100%;
+            max-width: 400px;
+            width: 100%;
             text-align: center;
             border: 2px solid var(--rose-400);
-            box-shadow: 0 30px 60px rgba(140,60,80,0.4), 0 0 80px rgba(194,90,115,0.15);
+            box-shadow: 0 30px 60px rgba(140, 60, 80, 0.4), 0 0 80px rgba(194, 90, 115, 0.15);
             transform: scale(0.85) translateY(20px);
             transition: transform 0.5s cubic-bezier(0.34, 1.56, 0.64, 1);
         }
@@ -975,14 +1520,14 @@
             text-align: center;
             outline: none;
             transition: var(--transition-base);
-            background: rgba(255,255,255,0.7);
+            background: rgba(255, 255, 255, 0.7);
             margin-bottom: var(--space-4);
             color: var(--rose-700);
         }
 
         .modal-box__input:focus {
             border-color: var(--rose-500);
-            box-shadow: 0 0 0 4px rgba(200,100,130,0.15), 0 0 20px rgba(194,90,115,0.1);
+            box-shadow: 0 0 0 4px rgba(200, 100, 130, 0.15), 0 0 20px rgba(194, 90, 115, 0.1);
         }
 
         .modal-box__error {
@@ -1001,82 +1546,7 @@
         }
 
         /* ═══════════════════════════════════════════════
-           Promises Section
-           ═══════════════════════════════════════════════ */
-        .promises-timeline {
-            max-width: 650px;
-            margin: 0 auto;
-            position: relative;
-            padding-right: 30px;
-        }
-
-        .promises-timeline::before {
-            content: '';
-            position: absolute;
-            top: 0; bottom: 0; right: 8px;
-            width: 2px;
-            background: linear-gradient(180deg, var(--rose-300), var(--rose-500), var(--rose-300));
-            border-radius: 2px;
-        }
-
-        .promise-item {
-            position: relative;
-            padding: var(--space-6) var(--space-8) var(--space-6) var(--space-4);
-            margin-bottom: var(--space-4);
-            background: rgba(255,255,255,0.5);
-            backdrop-filter: blur(15px);
-            border-radius: 20px;
-            border: 1px solid rgba(210,150,165,0.25);
-            transition: var(--transition-base);
-            opacity: 0;
-            transform: translateX(30px);
-        }
-
-        .promise-item--visible {
-            opacity: 1;
-            transform: translateX(0);
-            transition: opacity 0.6s ease, transform 0.6s ease, box-shadow var(--transition-base);
-        }
-
-        .promise-item:hover {
-            transform: translateX(-5px);
-            box-shadow: var(--shadow-soft);
-            background: rgba(255,255,255,0.75);
-        }
-
-        .promise-item::before {
-            content: '';
-            position: absolute;
-            right: -26px; top: 50%;
-            transform: translateY(-50%);
-            width: 14px; height: 14px;
-            border-radius: 50%;
-            background: var(--rose-500);
-            border: 3px solid var(--rose-100);
-            box-shadow: 0 0 10px rgba(194,90,115,0.3);
-            transition: var(--transition-base);
-        }
-
-        .promise-item:hover::before {
-            transform: translateY(-50%) scale(1.3);
-            box-shadow: 0 0 20px rgba(194,90,115,0.5);
-        }
-
-        .promise-item__emoji {
-            font-size: 1.8rem;
-            margin-bottom: var(--space-2);
-            display: block;
-        }
-
-        .promise-item__text {
-            color: #5a3540;
-            font-size: var(--text-sm);
-            line-height: 1.8;
-            font-weight: 500;
-        }
-
-        /* ═══════════════════════════════════════════════
-           Whispers Section (جديد - بديل المعرض)
+           Whispers Section (بديل المعرض)
            ═══════════════════════════════════════════════ */
         .whisper-card {
             background: rgba(255, 255, 255, 0.55);
@@ -1130,27 +1600,29 @@
            ═══════════════════════════════════════════════ */
         .music-toggle {
             position: fixed;
-            bottom: 30px; right: 30px;
+            bottom: 30px;
+            right: 30px;
             z-index: var(--z-back-to-top);
-            width: 50px; height: 50px;
+            width: 50px;
+            height: 50px;
             border-radius: 50%;
-            background: rgba(255,255,255,0.7);
+            background: rgba(255, 255, 255, 0.7);
             backdrop-filter: blur(15px);
-            border: 1.5px solid rgba(200,140,155,0.4);
+            border: 1.5px solid rgba(200, 140, 155, 0.4);
             cursor: pointer;
             font-size: 1.4rem;
             display: flex;
             align-items: center;
             justify-content: center;
             transition: var(--transition-base);
-            box-shadow: 0 5px 20px rgba(160,90,110,0.15);
+            box-shadow: 0 5px 20px rgba(160, 90, 110, 0.15);
             color: var(--rose-500);
         }
 
         .music-toggle:hover {
             transform: scale(1.1);
-            box-shadow: 0 8px 30px rgba(160,90,110,0.25);
-            background: rgba(255,255,255,0.9);
+            box-shadow: 0 8px 30px rgba(160, 90, 110, 0.25);
+            background: rgba(255, 255, 255, 0.9);
         }
 
         .music-toggle--playing .music-bars {
@@ -1171,14 +1643,36 @@
             animation: musicBounce 0.8s ease-in-out infinite;
         }
 
-        .music-bar:nth-child(1) { height: 8px; animation-delay: 0s; }
-        .music-bar:nth-child(2) { height: 14px; animation-delay: 0.15s; }
-        .music-bar:nth-child(3) { height: 6px; animation-delay: 0.3s; }
-        .music-bar:nth-child(4) { height: 12px; animation-delay: 0.1s; }
+        .music-bar:nth-child(1) {
+            height: 8px;
+            animation-delay: 0s;
+        }
+
+        .music-bar:nth-child(2) {
+            height: 14px;
+            animation-delay: 0.15s;
+        }
+
+        .music-bar:nth-child(3) {
+            height: 6px;
+            animation-delay: 0.3s;
+        }
+
+        .music-bar:nth-child(4) {
+            height: 12px;
+            animation-delay: 0.1s;
+        }
 
         @keyframes musicBounce {
-            0%, 100% { transform: scaleY(0.4); }
-            50% { transform: scaleY(1); }
+
+            0%,
+            100% {
+                transform: scaleY(0.4);
+            }
+
+            50% {
+                transform: scaleY(1);
+            }
         }
 
         /* ═══════════════════════════════════════════════
@@ -1191,9 +1685,9 @@
             font-weight: 500;
             position: relative;
             z-index: var(--z-content);
-            border-top: 1px solid rgba(200,150,160,0.2);
+            border-top: 1px solid rgba(200, 150, 160, 0.2);
             margin-top: var(--space-8);
-            background: rgba(255,242,245,0.3);
+            background: rgba(255, 242, 245, 0.3);
         }
 
         .footer__heart {
@@ -1218,16 +1712,18 @@
            ═══════════════════════════════════════════════ */
         .back-to-top {
             position: fixed;
-            bottom: 30px; left: 30px;
+            bottom: 30px;
+            left: 30px;
             z-index: var(--z-back-to-top);
-            width: 50px; height: 50px;
+            width: 50px;
+            height: 50px;
             border-radius: 50%;
             background: linear-gradient(135deg, var(--rose-500), var(--rose-400));
             color: var(--white);
             border: none;
             cursor: pointer;
             font-size: 1.3rem;
-            box-shadow: 0 8px 25px rgba(180,80,110,0.4);
+            box-shadow: 0 8px 25px rgba(180, 80, 110, 0.4);
             transition: var(--transition-base);
             opacity: 0;
             transform: translateY(20px);
@@ -1246,23 +1742,43 @@
         .back-to-top:hover {
             background: linear-gradient(135deg, var(--rose-600), var(--rose-500));
             transform: translateY(-5px);
-            box-shadow: 0 14px 35px rgba(160,60,90,0.5);
+            box-shadow: 0 14px 35px rgba(160, 60, 90, 0.5);
         }
 
-        .back-to-top:focus-visible { outline: none; }
+        .back-to-top:focus-visible {
+            outline: none;
+        }
 
         /* ═══════════════════════════════════════════════
            Shake Animation
            ═══════════════════════════════════════════════ */
         @keyframes shake {
-            0%, 100% { transform: translateX(0); }
-            20% { transform: translateX(-8px); }
-            40% { transform: translateX(8px); }
-            60% { transform: translateX(-5px); }
-            80% { transform: translateX(5px); }
+
+            0%,
+            100% {
+                transform: translateX(0);
+            }
+
+            20% {
+                transform: translateX(-8px);
+            }
+
+            40% {
+                transform: translateX(8px);
+            }
+
+            60% {
+                transform: translateX(-5px);
+            }
+
+            80% {
+                transform: translateX(5px);
+            }
         }
 
-        .shake { animation: shake 0.4s ease; }
+        .shake {
+            animation: shake 0.4s ease;
+        }
 
         /* ═══════════════════════════════════════════════
            Confetti Hearts Animation
@@ -1275,13 +1791,27 @@
         }
 
         @keyframes confettiFall {
-            0% { transform: translateY(0) rotate(0deg) scale(1); opacity: 1; }
-            100% { transform: translateY(100vh) rotate(720deg) scale(0.3); opacity: 0; }
+            0% {
+                transform: translateY(0) rotate(0deg) scale(1);
+                opacity: 1;
+            }
+
+            100% {
+                transform: translateY(100vh) rotate(720deg) scale(0.3);
+                opacity: 0;
+            }
         }
 
         @keyframes confettiBurst {
-            0% { transform: translate(0, 0) rotate(0deg) scale(1); opacity: 1; }
-            100% { transform: translate(var(--tx), var(--ty)) rotate(var(--tr)) scale(0); opacity: 0; }
+            0% {
+                transform: translate(0, 0) rotate(0deg) scale(1);
+                opacity: 1;
+            }
+
+            100% {
+                transform: translate(var(--tx), var(--ty)) rotate(var(--tr)) scale(0);
+                opacity: 0;
+            }
         }
 
         /* ═══════════════════════════════════════════════
@@ -1290,50 +1820,104 @@
         @media (max-width: 768px) {
             .navbar__links {
                 position: fixed;
-                top: 0; right: -100%;
-                width: 75%; max-width: 320px;
+                top: 0;
+                right: -100%;
+                width: 75%;
+                max-width: 320px;
                 height: 100vh;
-                background: rgba(255,242,245,0.97);
+                background: rgba(255, 242, 245, 0.97);
                 backdrop-filter: blur(30px);
                 flex-direction: column;
                 justify-content: center;
                 gap: var(--space-8);
                 transition: right 0.5s ease;
-                box-shadow: -10px 0 40px rgba(140,60,80,0.2);
+                box-shadow: -10px 0 40px rgba(140, 60, 80, 0.2);
                 z-index: calc(var(--z-navbar) + 1);
                 padding: var(--space-8);
             }
 
-            .navbar__links--active { right: 0; }
-            .navbar__toggle { display: block; z-index: calc(var(--z-navbar) + 2); }
+            .navbar__links--active {
+                right: 0;
+            }
 
-            .counter-grid { grid-template-columns: repeat(2, 1fr); }
-            .hero__floating-heart { display: none; }
-            .promises-timeline { padding-right: 20px; }
-            .promises-timeline::before { right: 5px; }
-            .promise-item::before { right: -19px; width: 12px; height: 12px; }
-            .promise-item { padding-right: var(--space-6); }
+            .navbar__toggle {
+                display: block;
+                z-index: calc(var(--z-navbar) + 2);
+            }
 
-            .music-toggle { bottom: 20px; right: 20px; width: 44px; height: 44px; }
-            .back-to-top { bottom: 20px; left: 20px; width: 44px; height: 44px; }
+            .counter-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .hero__floating-heart {
+                display: none;
+            }
+
+            .promises-timeline {
+                padding-right: 20px;
+            }
+
+            .promises-timeline::before {
+                right: 5px;
+            }
+
+            .promise-item::before {
+                right: -19px;
+                width: 12px;
+                height: 12px;
+            }
+
+            .promise-item {
+                padding-right: var(--space-6);
+            }
+
+            .music-toggle {
+                bottom: 20px;
+                right: 20px;
+                width: 44px;
+                height: 44px;
+            }
+
+            .back-to-top {
+                bottom: 20px;
+                left: 20px;
+                width: 44px;
+                height: 44px;
+            }
         }
 
         @media (max-width: 400px) {
-            .counter-grid { gap: var(--space-3); }
-            .counter-item__number { font-size: 2rem; }
-            .btn { padding: 0.7rem 1.4rem; font-size: var(--text-xs); }
+            .counter-grid {
+                gap: var(--space-3);
+            }
+
+            .counter-item__number {
+                font-size: 2rem;
+            }
+
+            .btn {
+                padding: 0.7rem 1.4rem;
+                font-size: var(--text-xs);
+            }
         }
 
         @media (prefers-reduced-motion: reduce) {
-            *, *::before, *::after {
+
+            *,
+            *::before,
+            *::after {
                 animation-duration: 0.01ms !important;
                 animation-iteration-count: 1 !important;
                 transition-duration: 0.01ms !important;
             }
-            html { scroll-behavior: auto; }
+
+            html {
+                scroll-behavior: auto;
+            }
         }
     </style>
 </head>
+
 <body>
 
     <!-- ═══════════════════════════════════════════════
@@ -1375,11 +1959,14 @@
             <span class="navbar__logo-heart" aria-hidden="true">💚</span>
             <span>عصفورتي</span>
         </a>
-        <button class="navbar__toggle" id="navToggle" aria-label="فتح القائمة" aria-expanded="false" aria-controls="navLinks">☰</button>
+        <button class="navbar__toggle" id="navToggle" aria-label="فتح القائمة" aria-expanded="false"
+            aria-controls="navLinks">☰</button>
         <ul class="navbar__links" id="navLinks" role="menubar">
             <li role="none"><a href="#home" class="navbar__link" role="menuitem">الرئيسية</a></li>
             <li role="none"><a href="#quotes" class="navbar__link" role="menuitem">اقتباسات</a></li>
             <li role="none"><a href="#counter" class="navbar__link" role="menuitem">عداد الحب</a></li>
+            <li role="none"><a href="#open-when" class="navbar__link" role="menuitem">افتحي عندما</a></li>
+            <li role="none"><a href="#birthday" class="navbar__link" role="menuitem">ميلادكِ</a></li>
             <li role="none"><a href="#promises" class="navbar__link" role="menuitem">وعود</a></li>
             <li role="none"><a href="#message" class="navbar__link" role="menuitem">رسالة</a></li>
             <li role="none"><a href="#whispers" class="navbar__link" role="menuitem">همسات</a></li>
@@ -1401,8 +1988,10 @@
             <a href="#quotes" class="btn btn--outline">✨ تصفح الاقتباسات</a>
         </div>
         <span class="hero__floating-heart" style="top:15%; right:8%; animation-delay:0s;" aria-hidden="true">💖</span>
-        <span class="hero__floating-heart" style="top:25%; left:10%; animation-delay:1.5s; font-size:2rem;" aria-hidden="true">💗</span>
-        <span class="hero__floating-heart" style="bottom:20%; right:12%; animation-delay:3s; font-size:2.5rem;" aria-hidden="true">💝</span>
+        <span class="hero__floating-heart" style="top:25%; left:10%; animation-delay:1.5s; font-size:2rem;"
+            aria-hidden="true">💗</span>
+        <span class="hero__floating-heart" style="bottom:20%; right:12%; animation-delay:3s; font-size:2.5rem;"
+            aria-hidden="true">💝</span>
     </section>
 
     <!-- فاصل -->
@@ -1421,7 +2010,8 @@
                 <article class="quote-card" role="listitem">
                     <span class="quote-card__quote-mark" aria-hidden="true">"</span>
                     <span class="quote-card__icon" aria-hidden="true">🌹</span>
-                    <p class="quote-card__text">"الحب ليس مجرد نظرة، بل هو إحساس عميق يجعل القلب ينبض باسم من نحب في كل لحظة."</p>
+                    <p class="quote-card__text">"الحب ليس مجرد نظرة، بل هو إحساس عميق يجعل القلب ينبض باسم من نحب في كل
+                        لحظة."</p>
                     <span class="quote-card__author">— من القلب</span>
                 </article>
                 <article class="quote-card" role="listitem">
@@ -1433,25 +2023,36 @@
                 <article class="quote-card" role="listitem">
                     <span class="quote-card__quote-mark" aria-hidden="true">"</span>
                     <span class="quote-card__icon" aria-hidden="true">🕊️</span>
-                    <p class="quote-card__text">"في زحمة هذا العالم، وجودك هو ملاذي الآمن، وابتسامتك هي نوري في العتمة."</p>
+                    <p class="quote-card__text">"في زحمة هذا العالم، وجودك هو ملاذي الآمن، وابتسامتك هي نوري في العتمة."
+                    </p>
                     <span class="quote-card__author">— دائماً</span>
                 </article>
                 <article class="quote-card" role="listitem">
                     <span class="quote-card__quote-mark" aria-hidden="true">"</span>
                     <span class="quote-card__icon" aria-hidden="true">🌸</span>
-                    <p class="quote-card__text">"أحبك ليس لأنك مثالية، بل لأنك أنتِ بكل تفاصيلك، بضحكتك، بصمتك، بكل شيء فيك."</p>
+                    <p class="quote-card__text">"أحبك ليس لأنك مثالية، بل لأنك أنتِ بكل تفاصيلك، بضحكتك، بصمتك، بكل شيء
+                        فيك."</p>
                     <span class="quote-card__author">— للأبد</span>
                 </article>
                 <article class="quote-card" role="listitem">
                     <span class="quote-card__quote-mark" aria-hidden="true">"</span>
                     <span class="quote-card__icon" aria-hidden="true">💎</span>
-                    <p class="quote-card__text">"كل يوم معك هو صفحة جديدة في كتاب أجمل قصة حب، وأنا متشوق لقراءة كل الصفحات القادمة."</p>
+                    <p class="quote-card__text">"كل يوم معك هو صفحة جديدة في كتاب أجمل قصة حب، وأنا متشوق لقراءة كل
+                        الصفحات القادمة."</p>
+                    <span class="quote-card__author">— معك</span>
+                </article>
+                <article class="quote-card" role="listitem">
+                    <span class="quote-card__quote-mark" aria-hidden="true">"</span>
+                    <span class="quote-card__icon" aria-hidden="true">💎</span>
+                    <p class="quote-card__text">"كل يوم معك هو صفحة جديدة في كتاب أجمل قصة حب، وأنا متشوق لقراءة كل
+                        الصفحات القادمة."</p>
                     <span class="quote-card__author">— معك</span>
                 </article>
                 <article class="quote-card" role="listitem">
                     <span class="quote-card__quote-mark" aria-hidden="true">"</span>
                     <span class="quote-card__icon" aria-hidden="true">🌙</span>
-                    <p class="quote-card__text">"حين أنظر إليك، أرى كل الأحلام التي لم أحلم بها بعد، وكل الأمنيات التي تحققت."</p>
+                    <p class="quote-card__text">"حين أنظر إليك، أرى كل الأحلام التي لم أحلم بها بعد، وكل الأمنيات التي
+                        تحققت."</p>
                     <span class="quote-card__author">— حبيبتي</span>
                 </article>
             </div>
@@ -1473,23 +2074,121 @@
             <div class="counter-section" role="region" aria-label="عداد الوقت">
                 <div class="counter-grid" id="counterGrid">
                     <div class="counter-item">
-                        <span class="counter-item__number" id="days" aria-live="polite">0</span>
+                        <span class="counter-item__number" id="days" data-value="0" aria-live="polite">0</span>
                         <span class="counter-item__label">يوم</span>
                     </div>
                     <div class="counter-item">
-                        <span class="counter-item__number" id="hours" aria-live="polite">0</span>
+                        <span class="counter-item__number" id="hours" data-value="0" aria-live="polite">0</span>
                         <span class="counter-item__label">ساعة</span>
                     </div>
                     <div class="counter-item">
-                        <span class="counter-item__number" id="minutes" aria-live="polite">0</span>
+                        <span class="counter-item__number" id="minutes" data-value="0" aria-live="polite">0</span>
                         <span class="counter-item__label">دقيقة</span>
                     </div>
                     <div class="counter-item">
-                        <span class="counter-item__number" id="seconds" aria-live="polite">0</span>
+                        <span class="counter-item__number" id="seconds" data-value="0" aria-live="polite">0</span>
                         <span class="counter-item__label">ثانية</span>
                     </div>
                 </div>
                 <p class="counter-section__footer">💕 وكل لحظة تزداد فيها محبتي لكِ</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- فاصل -->
+    <div class="section-divider" aria-hidden="true"><span>✉️</span></div>
+
+    <!-- ═══════════════════════════════════════════════
+         Open When Section (افتحي عندما...)
+         ═══════════════════════════════════════════════ -->
+    <section class="section" id="open-when" aria-labelledby="open-when-title">
+        <div class="container">
+            <div class="section__header">
+                <h2 class="section__title" id="open-when-title">✉️ افتحي عندما...</h2>
+                <p class="section__subtitle">رسائل مغلقة تفتحينها في أوقاتكِ الخاصة</p>
+            </div>
+            <div class="open-when-grid" role="list">
+                <div class="open-when-card" data-target="sad" tabindex="0" role="button"
+                    aria-label="افتحي عندما تشعرين بالحزن">
+                    <span class="open-when-card__icon" aria-hidden="true">🌧️</span>
+                    <span class="open-when-card__title">تشعرين بالحزن</span>
+                </div>
+                <div class="open-when-card" data-target="miss" tabindex="0" role="button"
+                    aria-label="افتحي عندما تشتاقين إليّ">
+                    <span class="open-when-card__icon" aria-hidden="true">💭</span>
+                    <span class="open-when-card__title">تشتاقين إليّ</span>
+                </div>
+                <div class="open-when-card" data-target="motivation" tabindex="0" role="button"
+                    aria-label="افتحي عندما تحتاجين دافعاً">
+                    <span class="open-when-card__icon" aria-hidden="true">✨</span>
+                    <span class="open-when-card__title">تحتاجين دافعاً</span>
+                </div>
+                <div class="open-when-card" data-target="happy" tabindex="0" role="button"
+                    aria-label="افتحي عندما تكونين سعيدة">
+                    <span class="open-when-card__icon" aria-hidden="true">☀️</span>
+                    <span class="open-when-card__title">تكونين سعيدة</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- نافذة منبثقة تفاعلية مخصصة لرسائل افتحي عندما -->
+    <div class="open-when-modal" id="openWhenModal" role="dialog" aria-modal="true" aria-labelledby="openWhenModalTitle"
+        aria-hidden="true">
+        <div class="open-when-modal-box">
+            <h3 class="open-when-modal-title" id="openWhenModalTitle">✉️ عنوان الرسالة</h3>
+            <div class="open-when-modal-body" id="openWhenModalBody">محتوى الرسالة الخاصة...</div>
+            <button class="btn btn--primary" id="closeOpenWhenModal">أغلقي الرسالة 💚</button>
+        </div>
+    </div>
+
+    <!-- فاصل -->
+    <div class="section-divider" aria-hidden="true"><span>🎂</span></div>
+
+    <!-- ═══════════════════════════════════════════════
+         Birthday Section
+         ═══════════════════════════════════════════════ -->
+    <section class="section" id="birthday" aria-labelledby="birthday-title">
+        <div class="container">
+            <div class="section__header">
+                <h2 class="section__title" id="birthday-title">🌸 ميلاد زهرتي</h2>
+                <p class="section__subtitle">اليوم الأجمل في السنة الذي أشرقتِ فيه على عالمي</p>
+            </div>
+            <div class="birthday-card">
+                <!-- حالة 1: العداد التنازلي لميلادها (22 أغسطس) -->
+                <div class="birthday-countdown-container" id="birthdayCountdownSection">
+                    <p class="birthday-countdown-title"
+                        style="font-weight: 700; color: var(--rose-600); font-size: var(--text-base);">⏳ الوقت المتبقي
+                        لنحتفل بميلادكِ (22/8):</p>
+                    <div class="birthday-countdown-grid">
+                        <div class="birthday-countdown-item">
+                            <span class="birthday-countdown-number" id="bdayDays">0</span>
+                            <span class="birthday-countdown-label">يوم</span>
+                        </div>
+                        <div class="birthday-countdown-item">
+                            <span class="birthday-countdown-number" id="bdayHours">0</span>
+                            <span class="birthday-countdown-label">ساعة</span>
+                        </div>
+                        <div class="birthday-countdown-item">
+                            <span class="birthday-countdown-number" id="bdayMinutes">0</span>
+                            <span class="birthday-countdown-label">دقيقة</span>
+                        </div>
+                        <div class="birthday-countdown-item">
+                            <span class="birthday-countdown-number" id="bdaySeconds">0</span>
+                            <span class="birthday-countdown-label">ثانية</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- حالة 2: يوم الميلاد الفعلي (22 أغسطس) -->
+                <div class="birthday-celebration-container" id="birthdayCelebrationSection">
+                    <div class="birthday-box" id="birthdayBox" role="button" tabindex="0"
+                        aria-label="افتحي هدية عيد ميلادك">
+                        <span class="birthday-box__cake" aria-hidden="true">🎂</span>
+                        <h3 class="birthday-box__title">🎉 اليوم يوم ميلادكِ الجميل!</h3>
+                        <p class="birthday-box__hint">👆 انقري هنا لفتح هديتكِ الخاصة</p>
+                    </div>
+                </div>
             </div>
         </div>
     </section>
@@ -1509,23 +2208,28 @@
             <div class="promises-timeline">
                 <div class="promise-item">
                     <span class="promise-item__emoji" aria-hidden="true">🛡️</span>
-                    <p class="promise-item__text">أعدكِ أن أكون درعكِ الواقي في كل الأوقات، وأحميكِ من كل ما يزعجكِ أو يؤذيكِ.</p>
+                    <p class="promise-item__text">أعدكِ أن أكون درعكِ الواقي في كل الأوقات، وأحميكِ من كل ما يزعجكِ أو
+                        يؤذيكِ.</p>
                 </div>
                 <div class="promise-item">
                     <span class="promise-item__emoji" aria-hidden="true">👂</span>
-                    <p class="promise-item__text">أعدكِ أن أستمع لكِ دائماً، حتى حين لا أتفهم كل شيء، سأحاول لأنكِ تستحقين ذلك.</p>
+                    <p class="promise-item__text">أعدكِ أن أستمع لكِ دائماً، حتى حين لا أتفهم كل شيء، سأحاول لأنكِ
+                        تستحقين ذلك.</p>
                 </div>
                 <div class="promise-item">
                     <span class="promise-item__emoji" aria-hidden="true">🌻</span>
-                    <p class="promise-item__text">أعدكِ أن أزرع البسمة على وجهكِ كل يوم، وأن أكون سبب سعادتكِ قبل أي شيء.</p>
+                    <p class="promise-item__text">أعدكِ أن أزرع البسمة على وجهكِ كل يوم، وأن أكون سبب سعادتكِ قبل أي
+                        شيء.</p>
                 </div>
                 <div class="promise-item">
                     <span class="promise-item__emoji" aria-hidden="true">🤝</span>
-                    <p class="promise-item__text">أعدكِ أن أمشي بجانبكِ في كل مراحل الحياة، في السراء والضراء، بلا تردد.</p>
+                    <p class="promise-item__text">أعدكِ أن أمشي بجانبكِ في كل مراحل الحياة, في السراء والضراء، بلا تردد.
+                    </p>
                 </div>
                 <div class="promise-item">
                     <span class="promise-item__emoji" aria-hidden="true">🌍</span>
-                    <p class="promise-item__text">أعدكِ أن أجعلكِ تشعرين بأنكِ أجمل إنسانة في هذا العالم، لأنكِ فعلاً كذلك.</p>
+                    <p class="promise-item__text">أعدكِ أن أجعلكِ تشعرين بأنكِ أجمل إنسانة في هذا العالم، لأنكِ فعلاً
+                        كذلك.</p>
                 </div>
                 <div class="promise-item">
                     <span class="promise-item__emoji" aria-hidden="true">∞</span>
@@ -1557,11 +2261,14 @@
                     <br><br>
                     حبيبتي زهرة،
                     <br>
-                    كلما حاولتُ صياغة مشاعري في كلمات، أجد أن لغة البشر أضيق من أن تتسع لما ينبض به صدري لكِ. أنتِ لستِ مجرد شخص عابر في حياتي، بل أنتِ الحياة نفسها وقد أُعيد ترتيب فصولها لتصبح أكثر رقة وجمالاً.
+                    كلما حاولتُ صياغة مشاعري في كلمات، أجد أن لغة البشر أضيق من أن تتسع لما ينبض به صدري لكِ. أنتِ لستِ
+                    مجرد شخص عابر في حياتي، بل أنتِ الحياة نفسها وقد أُعيد ترتيب فصولها لتصبح أكثر رقة وجمالاً.
                     <br><br>
-                    في عيونكِ أرى سلاماً فقدته طويلاً، وفي صوتكِ أسمع طمأنينة تجعل كل مخاوف الدنيا تتبخر. أشكر الأقدار في كل صباح ومساء لأنها قادت خطاي إليكِ، وجعلتكِ رفيقة قلبي ونبض روحي.
+                    في عيونكِ أرى سلاماً فقدته طويلاً، وفي صوتكِ أسمع طمأنينة تجعل كل مخاوف الدنيا تتبخر. أشكر الأقدار
+                    في كل صباح ومساء لأنها قادت خطاي إليكِ، وجعلتكِ رفيقة قلبي ونبض روحي.
                     <br><br>
-                    أعدكِ أن أحافظ على هذه الابتسامة التي تنير وجهكِ، وأن أظل دائماً السند الذي لا يميل، والقلب الذي يرى في سعادتكِ غايته الكبرى في هذه الدنيا.
+                    أعدكِ أن أحافظ على هذه الابتسامة التي تنير وجهكِ، وأن أظل دائماً السند الذي لا يميل، والقلب الذي يرى
+                    في سعادتكِ غايته الكبرى في هذه الدنيا.
                     <br><br>
                     <strong>أحبكِ اليوم، وغداً، وإلى نهاية العمر ❤️🌹</strong>
                 </div>
@@ -1575,10 +2282,12 @@
     <!-- ═══════════════════════════════════════════════
          Secret Modal
          ═══════════════════════════════════════════════ -->
-    <div class="modal-overlay" id="secretModal" role="dialog" aria-modal="true" aria-labelledby="modal-title" aria-hidden="true">
+    <div class="modal-overlay" id="secretModal" role="dialog" aria-modal="true" aria-labelledby="modal-title"
+        aria-hidden="true">
         <div class="modal-box">
             <h3 class="modal-box__title" id="modal-title">🔐 أدخل كلمة السر</h3>
-            <input type="password" id="secretInput" class="modal-box__input" placeholder="اكتبي الرمز السري..." autocomplete="off" aria-label="كلمة السر" aria-describedby="secretError">
+            <input type="password" id="secretInput" class="modal-box__input" placeholder="اكتبي الرمز السري..."
+                autocomplete="off" aria-label="كلمة السر" aria-describedby="secretError">
             <div class="modal-box__error" id="secretError" role="alert" aria-live="assertive"></div>
             <div class="modal-box__buttons">
                 <button class="btn btn--primary" id="submitSecret">💝 فتح الرسالة</button>
@@ -1633,13 +2342,14 @@
     </button>
 
     <!-- Real Background Audio -->
-    <audio id="bgMusic" loop preload="none" data-src="https://upload.wikimedia.org/wikipedia/commons/e/e1/Chopin_Nocturne_Op._9_No._2_in_E-flat_major_performed_by_Donald_Betts.mp3"></audio>
+    <audio id="bgMusic" loop preload="none"
+        data-src="https://upload.wikimedia.org/wikipedia/commons/e/e1/Chopin_Nocturne_Op._9_No._2_in_E-flat_major_performed_by_Donald_Betts.mp3"></audio>
 
     <!-- ═══════════════════════════════════════════════
          JavaScript
          ═══════════════════════════════════════════════ -->
     <script>
-        (function() {
+        (function () {
             'use strict';
 
             const CONFIG = {
@@ -1684,7 +2394,19 @@
                     hours: document.getElementById('hours'),
                     minutes: document.getElementById('minutes'),
                     seconds: document.getElementById('seconds')
-                }
+                },
+                openWhenCards: document.querySelectorAll('.open-when-card'),
+                openWhenModal: document.getElementById('openWhenModal'),
+                openWhenModalTitle: document.getElementById('openWhenModalTitle'),
+                openWhenModalBody: document.getElementById('openWhenModalBody'),
+                closeOpenWhenModal: document.getElementById('closeOpenWhenModal'),
+                birthdayCountdownSection: document.getElementById('birthdayCountdownSection'),
+                birthdayCelebrationSection: document.getElementById('birthdayCelebrationSection'),
+                birthdayBox: document.getElementById('birthdayBox'),
+                bdayDays: document.getElementById('bdayDays'),
+                bdayHours: document.getElementById('bdayHours'),
+                bdayMinutes: document.getElementById('bdayMinutes'),
+                bdaySeconds: document.getElementById('bdaySeconds')
             };
 
             /* ═══════════════════════════════════════════
@@ -1749,20 +2471,19 @@
             const CursorTrail = {
                 trails: [],
                 lastX: 0, lastY: 0,
-                isTouch: false,
 
                 init() {
-                    window.addEventListener('touchstart', () => { this.isTouch = true; }, { once: true });
-                    if (this.isTouch) return;
+                    const isTouch = 'ontouchstart' in window || navigator.maxTouchPoints > 0;
+                    if (isTouch) return;
 
                     document.addEventListener('mousemove', (e) => {
-                        const dx = e.clientX - this.lastX;
-                        const dy = e.clientY - this.lastY;
+                        const dx = e.clientX - CursorTrail.lastX;
+                        const dy = e.clientY - CursorTrail.lastY;
                         const dist = Math.sqrt(dx * dx + dy * dy);
                         if (dist < 30) return;
-                        this.lastX = e.clientX;
-                        this.lastY = e.clientY;
-                        this.spawn(e.clientX, e.clientY);
+                        CursorTrail.lastX = e.clientX;
+                        CursorTrail.lastY = e.clientY;
+                        CursorTrail.spawn(e.clientX, e.clientY);
                     });
 
                     for (let i = 0; i < CONFIG.cursorTrailLength; i++) {
@@ -1771,14 +2492,14 @@
                         el.textContent = CONFIG.cursorTrailEmojis[i % CONFIG.cursorTrailEmojis.length];
                         el.style.fontSize = (0.6 + Math.random() * 0.5) + 'rem';
                         document.body.appendChild(el);
-                        this.trails.push(el);
+                        CursorTrail.trails.push(el);
                     }
                 },
 
                 spawn(x, y) {
-                    const trail = this.trails.shift();
+                    const trail = CursorTrail.trails.shift();
                     if (!trail) return;
-                    this.trails.push(trail);
+                    CursorTrail.trails.push(trail);
 
                     trail.style.left = x + 'px';
                     trail.style.top = y + 'px';
@@ -1860,31 +2581,34 @@
             };
 
             /* ═══════════════════════════════════════════
-               Secret Message
+               Secret Message (الرسالة الخاصة)
                ═══════════════════════════════════════════ */
             const SecretMessage = {
                 init() {
-                    DOM.messageBox.addEventListener('click', this.handleClick.bind(this));
+                    DOM.messageBox.addEventListener('click', () => SecretMessage.handleClick());
                     DOM.messageBox.addEventListener('keydown', (e) => {
-                        if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); this.handleClick(); }
+                        if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); SecretMessage.handleClick(); }
                     });
-                    DOM.submitSecret.addEventListener('click', this.checkSecret.bind(this));
-                    DOM.closeModal.addEventListener('click', this.closeModal.bind(this));
+                    DOM.hiddenMessage.addEventListener('click', (e) => {
+                        e.stopPropagation();
+                    });
+                    DOM.submitSecret.addEventListener('click', () => SecretMessage.checkSecret());
+                    DOM.closeModal.addEventListener('click', () => SecretMessage.closeModal());
                     DOM.secretInput.addEventListener('keypress', (e) => {
-                        if (e.key === 'Enter') this.checkSecret();
+                        if (e.key === 'Enter') SecretMessage.checkSecret();
                     });
                     DOM.secretModal.addEventListener('click', (e) => {
-                        if (e.target === DOM.secretModal) this.closeModal();
+                        if (e.target === DOM.secretModal) SecretMessage.closeModal();
                     });
                     document.addEventListener('keydown', (e) => {
-                        if (e.key === 'Escape' && DOM.secretModal.classList.contains('modal-overlay--active')) this.closeModal();
+                        if (e.key === 'Escape' && DOM.secretModal.classList.contains('modal-overlay--active')) SecretMessage.closeModal();
                     });
                 },
                 handleClick() {
                     if (DOM.messageBox.classList.contains('message-box--revealed')) {
-                        this.closeMessage();
+                        SecretMessage.closeMessage();
                     } else {
-                        this.openModal();
+                        SecretMessage.openModal();
                     }
                 },
                 openModal() {
@@ -1901,8 +2625,8 @@
                 checkSecret() {
                     const entered = DOM.secretInput.value.trim();
                     if (entered === CONFIG.secretCode) {
-                        this.revealMessage();
-                        this.closeModal();
+                        SecretMessage.revealMessage();
+                        SecretMessage.closeModal();
                     } else {
                         DOM.secretError.textContent = '❌ كلمة السر غير صحيحة، حاولي مجدداً';
                         DOM.secretInput.classList.add('shake');
@@ -1929,8 +2653,8 @@
                ═══════════════════════════════════════════ */
             const LoveCounter = {
                 init() {
-                    this.update();
-                    setInterval(() => this.update(), 1000);
+                    LoveCounter.update();
+                    setInterval(() => LoveCounter.update(), 1000);
                 },
                 update() {
                     const now = new Date();
@@ -1939,14 +2663,15 @@
                     const totalMinutes = Math.floor(totalSeconds / 60);
                     const totalHours = Math.floor(totalMinutes / 60);
                     const totalDays = Math.floor(totalHours / 24);
-                    this.animateNumber(DOM.counters.days, totalDays);
-                    this.animateNumber(DOM.counters.hours, totalHours % 24);
-                    this.animateNumber(DOM.counters.minutes, totalMinutes % 60);
-                    this.animateNumber(DOM.counters.seconds, totalSeconds % 60);
+                    LoveCounter.animateNumber(DOM.counters.days, totalDays);
+                    LoveCounter.animateNumber(DOM.counters.hours, totalHours % 24);
+                    LoveCounter.animateNumber(DOM.counters.minutes, totalMinutes % 60);
+                    LoveCounter.animateNumber(DOM.counters.seconds, totalSeconds % 60);
                 },
                 animateNumber(element, newValue) {
-                    const currentValue = parseInt(element.textContent.replace(/,/g, '')) || 0;
+                    const currentValue = parseInt(element.getAttribute('data-value')) || 0;
                     if (currentValue === newValue) return;
+                    element.setAttribute('data-value', newValue);
                     const duration = 400;
                     const startTime = performance.now();
                     const startValue = currentValue;
@@ -1959,6 +2684,136 @@
                         if (progress < 1) requestAnimationFrame(step);
                     };
                     requestAnimationFrame(step);
+                }
+            };
+
+            /* ═══════════════════════════════════════════
+               Open When Section (افتحي عندما...)
+               ═══════════════════════════════════════════ */
+            const OpenWhen = {
+                data: {
+                    sad: {
+                        title: "🌧️ عندما تشعرين بالحزن",
+                        body: "حبيبتي زهرة، يؤلمني جداً أن أعرف أن الحزن قد مس قلبكِ الرقيق. أريدكِ أن تتذكري دائماً أن الغيوم لا تدوم، وأن ابتسامتكِ هي أثمن ما أملك في هذه الدنيا.\n\nخذي نفساً عميقاً، وتذكري أنني هنا دائماً بجانبكِ، أحمل عنكِ كل ما يثقل روحكِ. أحبكِ في كل حالاتكِ، وابتسامتكِ ستعود لتشرق قريباً 💚"
+                    },
+                    miss: {
+                        title: "💭 عندما تشتاقين إليّ",
+                        body: "إذا كنتِ تقرأين هذه الكلمات لأن الشوق قد غلبكِ، فاعلمي أنني أشتاق إليكِ في كل ثانية أضعاف ما تشعرين به. المسافة لا يمكنها أن تباعد بين قلبين ينبضان معاً.\n\nتذكري دوماً أننا تحت نفس السماء، وأن قلبي يلتف حولكِ في هذه اللحظة بالذات كحضن دافئ. لستِ وحدكِ أبداً، وأنا معكِ دائماً بفكري وروحي 💚"
+                    },
+                    motivation: {
+                        title: "✨ عندما تحتاجين دافعاً",
+                        body: "إلى شجاعتي وزهرتي القوية... في بعض الأيام نشعر بأن الطريق طويل وصعب، لكنني أريدكِ أن تنظري إلى الخلف لترى كم قطعتِ من خطوات رائعة.\n\nأنتِ إنسانة ذكية، طموحة، وتحملين في داخلكِ قوة مذهلة تستطيع هزيمة أي عائق. أنا فخور جداً بكِ وبكل ما تفعلينه، وسأكون دائماً أكبر مشجع لكِ في هذا العالم. انطلقي يا زهرتي الجميلة، فالقمة تليق بكِ 💚"
+                    },
+                    happy: {
+                        title: "☀️ عندما تكونين سعيدة",
+                        body: "ما أجمل هذه اللحظة! سعادتكِ هي العيد الحقيقي لقلبي، وضحكتكِ هي الضوء الذي ينير عالمي الصغير.\n\nأريد من هذه اللحظات السعيدة أن تُحفر في ذاكرتكِ، وأن تبتسمي دائماً لأن وجهكِ الجميل لم يُخلق إلا ليكون سعيداً ومبتسماً. دامت الضحكة تفارق ثغركِ، ودام الفرح رفيقاً لخطواتكِ يا زهرتي النادرة 💚"
+                    },
+                    birthday: {
+                        title: "🎂 عيد ميلاد سعيد يا زهرتي النادرة",
+                        body: "كل عام وأنتِ لقلبي مصدر الفرح والنور ❤️\n\nحبيبتي وزهرتي النادرة زهرة،\nاليوم هو يوم ميلادكِ الجميل، اليوم الذي جئتِ فيه لتجعلي هذا العالم مكاناً ألطف وأجمل بوجودكِ فيه. لا يمكنني التعبير عن مدى امتناني للأيام التي جمعتني بكِ وجعلتكِ تنيرين عتمة حياتي.\n\nفي هذا اليوم المميز، أتمنى لكِ حياة مليئة بالفرح والسلام الذي تزرعينه في قلوب من حولكِ. أعدكِ أن أكون دائماً بجانبكِ، نحتفل معاً بكل سنة قادمة، وأن أظل أحبكِ أكثر في كل عام جديد.\n\nأتمنى أن تظل ابتسامتكِ الجميلة تشرق على وجهكِ دائماً.\nعيد ميلاد سعيد يا نبض قلبي وحلوتي الصغيرة 💚🎈"
+                    }
+                },
+                init() {
+                    DOM.openWhenCards.forEach(card => {
+                        card.addEventListener('click', () => {
+                            OpenWhen.showModal(card.dataset.target);
+                        });
+                        card.addEventListener('keydown', (e) => {
+                            if (e.key === 'Enter' || e.key === ' ') {
+                                e.preventDefault();
+                                OpenWhen.showModal(card.dataset.target);
+                            }
+                        });
+                    });
+
+                    DOM.closeOpenWhenModal.addEventListener('click', () => OpenWhen.hideModal());
+                    DOM.openWhenModal.addEventListener('click', (e) => {
+                        if (e.target === DOM.openWhenModal) OpenWhen.hideModal();
+                    });
+                    document.addEventListener('keydown', (e) => {
+                        if (e.key === 'Escape' && DOM.openWhenModal.classList.contains('open-when-modal--active')) {
+                            OpenWhen.hideModal();
+                        }
+                    });
+
+                    if (DOM.birthdayBox) {
+                        DOM.birthdayBox.addEventListener('click', () => {
+                            OpenWhen.showModal('birthday');
+                            Effects.confettiBurst(DOM.birthdayBox);
+                        });
+                    }
+                },
+                showModal(id) {
+                    const item = OpenWhen.data[id];
+                    if (!item) return;
+                    DOM.openWhenModalTitle.textContent = item.title;
+                    DOM.openWhenModalBody.textContent = item.body;
+                    DOM.openWhenModal.classList.add('open-when-modal--active');
+                    DOM.openWhenModal.setAttribute('aria-hidden', 'false');
+                },
+                hideModal() {
+                    DOM.openWhenModal.classList.remove('open-when-modal--active');
+                    DOM.openWhenModal.setAttribute('aria-hidden', 'true');
+                }
+            };
+
+            /* ═══════════════════════════════════════════
+               Birthday Countdown Logic (22 August)
+               ═══════════════════════════════════════════ */
+            const Birthday = {
+                countdownInterval: null,
+
+                init() {
+                    Birthday.check();
+                    // التحقق دورياً كل دقيقة للتأكد من تاريخ اليوم والتحويل
+                    setInterval(() => Birthday.check(), 60000);
+                },
+
+                check() {
+                    const now = new Date();
+                    const month = now.getMonth(); // أغسطس هو رقم 7 (0-indexed)
+                    const date = now.getDate();
+
+                    if (month === 7 && date === 22) {
+                        DOM.birthdayCountdownSection.style.display = 'none';
+                        DOM.birthdayCelebrationSection.style.display = 'block';
+                        DOM.birthdayCelebrationSection.classList.add('birthday-celebration--active');
+                        if (Birthday.countdownInterval) {
+                            clearInterval(Birthday.countdownInterval);
+                            Birthday.countdownInterval = null;
+                        }
+                    } else {
+                        DOM.birthdayCountdownSection.style.display = 'block';
+                        DOM.birthdayCelebrationSection.style.display = 'none';
+                        DOM.birthdayCelebrationSection.classList.remove('birthday-celebration--active');
+                        Birthday.updateCountdown();
+                        if (!Birthday.countdownInterval) {
+                            Birthday.countdownInterval = setInterval(() => Birthday.updateCountdown(), 1000);
+                        }
+                    }
+                },
+
+                updateCountdown() {
+                    const now = new Date();
+                    let currentYear = now.getFullYear();
+                    // استخدام ترتيب المواليد الفعلي 22 أغسطس
+                    let bday = new Date(currentYear, 7, 22, 0, 0, 0);
+
+                    // إذا انتهى التاريخ الحالي في السنة الحالية، ننتقل للسنة القادمة
+                    if (now > bday) {
+                        bday = new Date(currentYear + 1, 7, 22, 0, 0, 0);
+                    }
+
+                    const diff = bday - now;
+                    const days = Math.floor(diff / (1000 * 60 * 60 * 24));
+                    const hours = Math.floor((diff % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+                    const minutes = Math.floor((diff % (1000 * 60 * 60)) / (1000 * 60));
+                    const seconds = Math.floor((diff % (1000 * 60)) / 1000);
+
+                    DOM.bdayDays.textContent = days.toLocaleString('ar-SA');
+                    DOM.bdayHours.textContent = hours.toLocaleString('ar-SA');
+                    DOM.bdayMinutes.textContent = minutes.toLocaleString('ar-SA');
+                    DOM.bdaySeconds.textContent = seconds.toLocaleString('ar-SA');
                 }
             };
 
@@ -1979,19 +2834,19 @@
                 pool: [],
 
                 init() {
-                    this.types.forEach(type => {
-                        for (let i = 0; i < type.weight; i++) this.pool.push(type);
+                    Particles.types.forEach(type => {
+                        for (let i = 0; i < type.weight; i++) Particles.pool.push(type);
                     });
                     for (let i = 0; i < CONFIG.particleCount; i++) {
-                        setTimeout(() => this.create(), i * CONFIG.spawnDelay);
+                        setTimeout(() => Particles.create(), i * CONFIG.spawnDelay);
                     }
                     setInterval(() => {
-                        if (DOM.particlesContainer.children.length < CONFIG.maxParticles) this.create();
+                        if (DOM.particlesContainer.children.length < CONFIG.maxParticles) Particles.create();
                     }, CONFIG.particleInterval);
                 },
 
                 create() {
-                    const type = this.pool[Math.floor(Math.random() * this.pool.length)];
+                    const type = Particles.pool[Math.floor(Math.random() * Particles.pool.length)];
                     const particle = document.createElement('span');
                     particle.textContent = type.emoji;
                     particle.className = 'particle ' + type.class;
@@ -2006,7 +2861,7 @@
             };
 
             /* ═══════════════════════════════════════════
-               Whispers Generator (جديد بديل المعرض)
+               Whispers Generator
                ═══════════════════════════════════════════ */
             const Whispers = {
                 messages: [
@@ -2022,25 +2877,33 @@
                     "مكانكِ في قلبي محميٌّ بالوعود والإخلاص الذي لا يتزعزع أبداً... 🤝"
                 ],
                 currentIndex: -1,
+                isTransitioning: false,
 
                 init() {
                     if (!DOM.nextWhisperBtn || !DOM.whisperText) return;
 
                     DOM.nextWhisperBtn.addEventListener('click', () => {
+                        if (Whispers.isTransitioning) return;
+                        Whispers.isTransitioning = true;
+
                         DOM.whisperText.classList.add('fade-out');
 
                         setTimeout(() => {
                             let nextIndex;
                             do {
-                                nextIndex = Math.floor(Math.random() * this.messages.length);
-                            } while (nextIndex === this.currentIndex && this.messages.length > 1);
+                                nextIndex = Math.floor(Math.random() * Whispers.messages.length);
+                            } while (nextIndex === Whispers.currentIndex && Whispers.messages.length > 1);
 
-                            this.currentIndex = nextIndex;
-                            DOM.whisperText.textContent = this.messages[this.currentIndex];
+                            Whispers.currentIndex = nextIndex;
+                            DOM.whisperText.textContent = Whispers.messages[Whispers.currentIndex];
                             DOM.whisperText.classList.remove('fade-out');
 
                             // تأثير الاحتفال البصري على الكرت
                             Effects.confettiBurst(DOM.whisperCard);
+
+                            setTimeout(() => {
+                                Whispers.isTransitioning = false;
+                            }, 300);
                         }, 300);
                     });
                 }
@@ -2051,9 +2914,9 @@
                ═══════════════════════════════════════════ */
             const Effects = {
                 init() {
-                    this.initClickHearts();
-                    this.initScrollReveal();
-                    this.initMusicToggle();
+                    Effects.initClickHearts();
+                    Effects.initScrollReveal();
+                    Effects.initMusicToggle();
                 },
 
                 /* انفجار كونفيتي درامي */
@@ -2090,7 +2953,8 @@
                         if (e.target.closest('button') || e.target.closest('a') ||
                             e.target.closest('#messageBox') || e.target.closest('.navbar__links') ||
                             e.target.closest('.navbar__toggle') || e.target.closest('#secretModal') ||
-                            e.target.closest('.music-toggle')) return;
+                            e.target.closest('.music-toggle') || e.target.closest('.open-when-card') ||
+                            e.target.closest('.birthday-box')) return;
 
                         const emojis = ['💚', '✨', '💚'];
                         const heart = document.createElement('span');
@@ -2137,6 +3001,17 @@
                         promiseObserver.observe(item);
                     });
 
+                    const openWhenObserver = new IntersectionObserver((entries) => {
+                        entries.forEach(entry => {
+                            if (entry.isIntersecting) entry.target.classList.add('open-when-card--visible');
+                        });
+                    }, observerOptions);
+
+                    document.querySelectorAll('.open-when-card').forEach((card, i) => {
+                        card.style.transitionDelay = (i * 0.08) + 's';
+                        openWhenObserver.observe(card);
+                    });
+
                     const whispersObserver = new IntersectionObserver((entries) => {
                         entries.forEach(entry => {
                             if (entry.isIntersecting) entry.target.classList.add('whisper-card--visible');
@@ -2146,7 +3021,7 @@
                     if (DOM.whisperCard) whispersObserver.observe(DOM.whisperCard);
                 },
 
-                /* زر الموسيقى بشكل حقيقي */
+                /* زر تشغيل الموسيقى الخلفية */
                 initMusicToggle() {
                     let playing = false;
 
@@ -2159,12 +3034,11 @@
                         DOM.musicToggle.setAttribute('aria-label', playing ? 'إيقاف الموسيقى' : 'تشغيل الموسيقى');
 
                         if (playing) {
-                            // تحميل مصدر الصوت عند أول نقرة فقط
                             if (!DOM.bgMusic.src) {
                                 DOM.bgMusic.src = DOM.bgMusic.dataset.src;
                             }
                             DOM.bgMusic.play().catch(err => {
-                                console.log("حماية المتصفح من التشغيل التلقائي مفعلة:", err);
+                                console.log("حماية المتصفح مفعلة:", err);
                                 playing = false;
                                 DOM.musicToggle.classList.remove('music-toggle--playing');
                                 DOM.musicIcon.style.display = 'inline';
@@ -2182,6 +3056,7 @@
             const HeroParallax = {
                 init() {
                     const hero = document.getElementById('home');
+                    if (!hero) return;
                     const hearts = hero.querySelectorAll('.hero__floating-heart');
                     window.addEventListener('scroll', () => {
                         const scrollY = window.scrollY;
@@ -2195,7 +3070,7 @@
             };
 
             /* ═══════════════════════════════════════════
-               Init
+               Initialization (تشغيل النظام)
                ═══════════════════════════════════════════ */
             function init() {
                 Loading.init();
@@ -2205,6 +3080,8 @@
                 Ripple.init();
                 SecretMessage.init();
                 LoveCounter.init();
+                OpenWhen.init();
+                Birthday.init();
                 Particles.init();
                 Whispers.init();
                 Effects.init();
@@ -2223,4 +3100,5 @@
         })();
     </script>
 </body>
+
 </html>
