@@ -854,12 +854,13 @@
             box-shadow: 0 8px 32px rgba(160, 90, 110, 0.06);
             opacity: 0;
             transform: translateY(40px);
+            transition: opacity 0.6s ease, transform 0.6s ease, box-shadow var(--transition-base), border-color var(--transition-base), background var(--transition-base);
+
         }
 
         .quote-card--visible {
             opacity: 1;
             transform: translateY(0);
-            transition: opacity 0.6s ease, transform 0.6s ease, box-shadow var(--transition-base), border-color var(--transition-base), background var(--transition-base);
         }
 
         .quote-card::before {
@@ -1070,12 +1071,13 @@
             overflow: hidden;
             opacity: 0;
             transform: translateY(40px);
+            transition: opacity 0.6s ease, transform 0.6s ease, box-shadow var(--transition-base), border-color var(--transition-base), background var(--transition-base);
+
         }
 
         .open-when-card--visible {
             opacity: 1;
             transform: translateY(0);
-            transition: opacity 0.6s ease, transform 0.6s ease, box-shadow var(--transition-base), border-color var(--transition-base), background var(--transition-base);
         }
 
         .open-when-card:hover {
@@ -1956,8 +1958,8 @@
          ═══════════════════════════════════════════════ -->
     <nav class="navbar" id="navbar" role="navigation" aria-label="التنقل الرئيسي">
         <a href="#home" class="navbar__logo" aria-label="العودة للرئيسية">
-            <span class="navbar__logo-heart" aria-hidden="true">💚</span>
-            <span>عصفورتي</span>
+            <span class="navbar__logo-heart" aria-hidden="true"> 💚 </span>
+            <span> ميكاتو </span>
         </a>
         <button class="navbar__toggle" id="navToggle" aria-label="فتح القائمة" aria-expanded="false"
             aria-controls="navLinks">☰</button>
@@ -2033,13 +2035,6 @@
                     <p class="quote-card__text">"أحبك ليس لأنك مثالية، بل لأنك أنتِ بكل تفاصيلك، بضحكتك، بصمتك، بكل شيء
                         فيك."</p>
                     <span class="quote-card__author">— للأبد</span>
-                </article>
-                <article class="quote-card" role="listitem">
-                    <span class="quote-card__quote-mark" aria-hidden="true">"</span>
-                    <span class="quote-card__icon" aria-hidden="true">💎</span>
-                    <p class="quote-card__text">"كل يوم معك هو صفحة جديدة في كتاب أجمل قصة حب، وأنا متشوق لقراءة كل
-                        الصفحات القادمة."</p>
-                    <span class="quote-card__author">— معك</span>
                 </article>
                 <article class="quote-card" role="listitem">
                     <span class="quote-card__quote-mark" aria-hidden="true">"</span>
@@ -2320,7 +2315,7 @@
     <footer class="footer" role="contentinfo">
         <p>صُنع بكل <span class="footer__heart" aria-hidden="true">💚</span> لعيونها </p>
         <p class="footer__text">🌹 زهرتي تستحق أجمل شيء 🌹</p>
-        <p class="footer__copyright">© 2026 - موقع عصفورتي | كل حقوق القلب لها محفوظة</p>
+        <p class="footer__copyright">© 2026 - موقع ميكاتو | كل حقوق القلب لها محفوظة</p>
     </footer>
 
     <!-- ═══════════════════════════════════════════════
