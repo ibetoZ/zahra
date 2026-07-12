@@ -3,13 +3,13 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0">
-    <meta name="description" content="موقع رومانسي مخصص لزهرتي - أجمل ما حدث في حياتي">
+    <meta name="description" content="موقع مخصص لأجمل قلب في الدنيا">
     <meta name="theme-color" content="#c25a73">
     <meta name="author" content="ibeto">
-    <meta property="og:title" content="زهرتي | أحبك">
-    <meta property="og:description" content="موقع رومانسي مخصص لأجمل قلب في الدنيا">
+    <meta property="og:title" content="زهرتي | ميكاتو">
+    <meta property="og:description" content="موقع مخصص لأجمل قلب في الدنيا">
     <meta property="og:type" content="website">
-    <title>❤️ زهرتي | أحبك</title>
+    <title> ❤️ زهرتي | ميكاتو </title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@400;500;700;800;900&display=swap" rel="stylesheet">
@@ -1609,9 +1609,9 @@
          Footer
          ═══════════════════════════════════════════════ -->
     <footer class="footer" role="contentinfo">
-        <p>صُنع بكل <span class="footer__heart" aria-hidden="true">💚</span> لعيونها</p>
+        <p>صُنع بكل <span class="footer__heart" aria-hidden="true">💚</span> لعيونها </p>
         <p class="footer__text">🌹 زهرتي تستحق أجمل شيء 🌹</p>
-        <p class="footer__copyright">© 2025 - موقع عصفورتي | كل حقوق القلب لها محفوظة</p>
+        <p class="footer__copyright">© 2026 - موقع عصفورتي | كل حقوق القلب لها محفوظة</p>
     </footer>
 
     <!-- ═══════════════════════════════════════════════
@@ -1633,7 +1633,7 @@
     </button>
 
     <!-- Real Background Audio -->
-    <audio id="bgMusic" loop src="https://upload.wikimedia.org/wikipedia/commons/e/e1/Chopin_Nocturne_Op._9_No._2_in_E-flat_major_performed_by_Donald_Betts.mp3"></audio>
+    <audio id="bgMusic" loop preload="none" data-src="https://upload.wikimedia.org/wikipedia/commons/e/e1/Chopin_Nocturne_Op._9_No._2_in_E-flat_major_performed_by_Donald_Betts.mp3"></audio>
 
     <!-- ═══════════════════════════════════════════════
          JavaScript
@@ -2159,6 +2159,10 @@
                         DOM.musicToggle.setAttribute('aria-label', playing ? 'إيقاف الموسيقى' : 'تشغيل الموسيقى');
 
                         if (playing) {
+                            // تحميل مصدر الصوت عند أول نقرة فقط
+                            if (!DOM.bgMusic.src) {
+                                DOM.bgMusic.src = DOM.bgMusic.dataset.src;
+                            }
                             DOM.bgMusic.play().catch(err => {
                                 console.log("حماية المتصفح من التشغيل التلقائي مفعلة:", err);
                                 playing = false;
