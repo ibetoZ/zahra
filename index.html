@@ -113,6 +113,127 @@
             position: relative;
             line-height: 1.6;
             -webkit-font-smoothing: antialiased;
+            transition: background 0.6s ease, color 0.6s ease;
+        }
+
+        /* ═══════════════════════════════════════════════
+           Night Mode (Starry Night)
+           ═══════════════════════════════════════════════ */
+        body.night-mode {
+            background: linear-gradient(170deg, #0f0c29 0%, #302b63 50%, #24243e 100%);
+            color: #e0e0e0;
+        }
+
+        body.night-mode .navbar {
+            background: rgba(15, 12, 41, 0.7);
+            border-bottom-color: rgba(255, 255, 255, 0.1);
+        }
+
+        body.night-mode .navbar--scrolled {
+            background: rgba(15, 12, 41, 0.95);
+            box-shadow: 0 4px 30px rgba(0, 0, 0, 0.3);
+        }
+
+        body.night-mode .navbar__logo,
+        body.night-mode .navbar__link {
+            color: #ffb3c6;
+        }
+
+        body.night-mode .section__title {
+            color: #ffb3c6;
+        }
+
+        body.night-mode .section__subtitle {
+            color: #c1c1e3;
+        }
+
+        body.night-mode .quote-card,
+        body.night-mode .open-when-card,
+        body.night-mode .whisper-card,
+        body.night-mode .message-box,
+        body.night-mode .birthday-card,
+        body.night-mode .counter-section {
+            background: rgba(48, 43, 99, 0.6);
+            border-color: rgba(232, 160, 180, 0.3);
+            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.3);
+        }
+
+        body.night-mode .counter-item {
+            background: rgba(255, 255, 255, 0.1);
+            border-color: rgba(255, 255, 255, 0.1);
+        }
+
+        body.night-mode .counter-item__number {
+            color: #ff8fa3;
+        }
+
+        body.night-mode .quote-card__text,
+        body.night-mode .promise-item__text,
+        body.night-mode .message-box__content,
+        body.night-mode .whisper-card__text,
+        body.night-mode .counter-section__footer,
+        body.night-mode .footer__text {
+            color: #e0e0e0;
+        }
+
+        body.night-mode .promise-item {
+            background: rgba(48, 43, 99, 0.7);
+        }
+
+        body.night-mode .modal-box,
+        body.night-mode .open-when-modal-box {
+            background: rgba(30, 25, 60, 0.95);
+        }
+
+        body.night-mode .modal-box__input {
+            background: rgba(255, 255, 255, 0.1);
+            color: #fff;
+        }
+
+        body.night-mode .section-divider span {
+            background: linear-gradient(170deg, #0f0c29, #302b63, #24243e);
+        }
+
+        body.night-mode .footer {
+            background: rgba(15, 12, 41, 0.5);
+            border-top-color: rgba(255, 255, 255, 0.1);
+        }
+
+        body.night-mode .bg-orb {
+            opacity: 0.1;
+        }
+
+        .stars-container {
+            position: fixed;
+            inset: 0;
+            pointer-events: none;
+            z-index: 0;
+            display: none;
+        }
+
+        body.night-mode .stars-container {
+            display: block;
+        }
+
+        .star {
+            position: absolute;
+            background: white;
+            border-radius: 50%;
+            animation: twinkle 3s infinite ease-in-out;
+        }
+
+        @keyframes twinkle {
+
+            0%,
+            100% {
+                opacity: 0.3;
+                transform: scale(1);
+            }
+
+            50% {
+                opacity: 1;
+                transform: scale(1.5);
+            }
         }
 
         /* ═══════════════════════════════════════════════
@@ -396,6 +517,7 @@
             align-items: center;
             gap: var(--space-2);
             transition: var(--transition-base);
+            cursor: pointer;
         }
 
         .navbar__logo:hover {
@@ -847,15 +969,13 @@
             border-radius: 24px;
             padding: var(--space-8) var(--space-6);
             text-align: center;
-            transition: var(--transition-base);
+            transition: opacity 0.6s ease, transform 0.6s ease, box-shadow var(--transition-base), border-color var(--transition-base), background var(--transition-base);
             cursor: default;
             position: relative;
             overflow: hidden;
             box-shadow: 0 8px 32px rgba(160, 90, 110, 0.06);
             opacity: 0;
             transform: translateY(40px);
-            transition: opacity 0.6s ease, transform 0.6s ease, box-shadow var(--transition-base), border-color var(--transition-base), background var(--transition-base);
-
         }
 
         .quote-card--visible {
@@ -1065,14 +1185,12 @@
             padding: var(--space-8) var(--space-4);
             text-align: center;
             cursor: pointer;
-            transition: var(--transition-base);
+            transition: opacity 0.6s ease, transform 0.6s ease, box-shadow var(--transition-base), border-color var(--transition-base), background var(--transition-base);
             box-shadow: 0 8px 32px rgba(160, 90, 110, 0.06);
             position: relative;
             overflow: hidden;
             opacity: 0;
             transform: translateY(40px);
-            transition: opacity 0.6s ease, transform 0.6s ease, box-shadow var(--transition-base), border-color var(--transition-base), background var(--transition-base);
-
         }
 
         .open-when-card--visible {
@@ -1453,11 +1571,9 @@
 
         .message-box--revealed .message-box__content {
             max-height: 1500px;
-            /* زيادة الطول الأقصى لضمان عدم اقتطاع الرسائل الطويلة */
             opacity: 1;
             margin-top: var(--space-6);
             overflow: visible;
-            /* السماح بالتمدد الديناميكي الكامل وتفادي مشكلة القص */
         }
 
         .message-box--revealed .message-box__icon {
@@ -1548,7 +1664,7 @@
         }
 
         /* ═══════════════════════════════════════════════
-           Whispers Section (بديل المعرض)
+           Whispers Section
            ═══════════════════════════════════════════════ */
         .whisper-card {
             background: rgba(255, 255, 255, 0.55);
@@ -1598,12 +1714,97 @@
         }
 
         /* ═══════════════════════════════════════════════
-           Floating Music Toggle
+           Scratch Cards Section (لماذا أحبكِ)
            ═══════════════════════════════════════════════ */
-        .music-toggle {
+        .scratch-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: var(--space-6);
+            max-width: 900px;
+            margin: 0 auto;
+        }
+
+        .scratch-card-container {
+            position: relative;
+            border-radius: 24px;
+            overflow: hidden;
+            background: rgba(255, 255, 255, 0.75);
+            border: 1.5px solid var(--rose-300);
+            height: 220px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: var(--space-6);
+            text-align: center;
+            box-shadow: var(--shadow-soft);
+        }
+
+        .scratch-card-text {
+            font-size: var(--text-base);
+            font-weight: 700;
+            color: var(--rose-600);
+            line-height: 1.8;
+            z-index: 1;
+            padding: var(--space-4);
+        }
+
+        .scratch-canvas {
+            position: absolute;
+            inset: 0;
+            width: 100%;
+            height: 100%;
+            cursor: grab;
+            z-index: 2;
+            touch-action: none;
+        }
+
+        /* ═══════════════════════════════════════════════
+           Easter Egg Overlay
+           ═══════════════════════════════════════════════ */
+        .easter-egg-overlay {
+            position: fixed;
+            inset: 0;
+            background: rgba(0, 0, 0, 0.85);
+            backdrop-filter: blur(10px);
+            z-index: 4000;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-direction: column;
+            gap: var(--space-6);
+            opacity: 0;
+            pointer-events: none;
+            transition: opacity 0.5s ease;
+            padding: var(--space-4);
+            text-align: center;
+        }
+
+        .easter-egg-overlay--active {
+            opacity: 1;
+            pointer-events: auto;
+        }
+
+        .easter-egg-heart {
+            font-size: 8rem;
+            animation: heartbeat 1s infinite;
+            filter: drop-shadow(0 0 20px rgba(255, 100, 130, 0.8));
+        }
+
+        .easter-egg-text {
+            font-size: var(--text-xl);
+            font-weight: 800;
+            color: #fff;
+            line-height: 1.6;
+            text-shadow: 0 0 10px rgba(232, 160, 180, 0.5);
+            max-width: 600px;
+        }
+
+        /* ═══════════════════════════════════════════════
+           Floating Buttons (Music, Theme, Back to Top)
+           ═══════════════════════════════════════════════ */
+        .floating-btn {
             position: fixed;
             bottom: 30px;
-            right: 30px;
             z-index: var(--z-back-to-top);
             width: 50px;
             height: 50px;
@@ -1621,10 +1822,41 @@
             color: var(--rose-500);
         }
 
-        .music-toggle:hover {
+        body.night-mode .floating-btn {
+            background: rgba(48, 43, 99, 0.8);
+            border-color: rgba(255, 255, 255, 0.2);
+            color: #ffb3c6;
+        }
+
+        .floating-btn:hover {
             transform: scale(1.1);
             box-shadow: 0 8px 30px rgba(160, 90, 110, 0.25);
             background: rgba(255, 255, 255, 0.9);
+        }
+
+        .music-toggle {
+            right: 30px;
+        }
+
+        .back-to-top-btn {
+            left: 30px;
+            background: linear-gradient(135deg, var(--rose-500), var(--rose-400));
+            color: var(--white);
+            border: none;
+            box-shadow: 0 8px 25px rgba(180, 80, 110, 0.4);
+            opacity: 0;
+            transform: translateY(20px);
+            pointer-events: none;
+        }
+
+        .back-to-top-btn--visible {
+            opacity: 1;
+            transform: translateY(0);
+            pointer-events: auto;
+        }
+
+        .theme-toggle {
+            left: 90px;
         }
 
         .music-toggle--playing .music-bars {
@@ -1690,6 +1922,7 @@
             border-top: 1px solid rgba(200, 150, 160, 0.2);
             margin-top: var(--space-8);
             background: rgba(255, 242, 245, 0.3);
+            transition: var(--transition-base);
         }
 
         .footer__heart {
@@ -1707,48 +1940,6 @@
             margin-top: var(--space-3);
             font-size: var(--text-xs);
             opacity: 0.7;
-        }
-
-        /* ═══════════════════════════════════════════════
-           Back to Top
-           ═══════════════════════════════════════════════ */
-        .back-to-top {
-            position: fixed;
-            bottom: 30px;
-            left: 30px;
-            z-index: var(--z-back-to-top);
-            width: 50px;
-            height: 50px;
-            border-radius: 50%;
-            background: linear-gradient(135deg, var(--rose-500), var(--rose-400));
-            color: var(--white);
-            border: none;
-            cursor: pointer;
-            font-size: 1.3rem;
-            box-shadow: 0 8px 25px rgba(180, 80, 110, 0.4);
-            transition: var(--transition-base);
-            opacity: 0;
-            transform: translateY(20px);
-            pointer-events: none;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-        }
-
-        .back-to-top--visible {
-            opacity: 1;
-            transform: translateY(0);
-            pointer-events: auto;
-        }
-
-        .back-to-top:hover {
-            background: linear-gradient(135deg, var(--rose-600), var(--rose-500));
-            transform: translateY(-5px);
-            box-shadow: 0 14px 35px rgba(160, 60, 90, 0.5);
-        }
-
-        .back-to-top:focus-visible {
-            outline: none;
         }
 
         /* ═══════════════════════════════════════════════
@@ -1873,18 +2064,25 @@
                 padding-right: var(--space-6);
             }
 
-            .music-toggle {
+            .music-toggle,
+            .back-to-top-btn,
+            .theme-toggle {
                 bottom: 20px;
-                right: 20px;
                 width: 44px;
                 height: 44px;
+                font-size: 1.1rem;
             }
 
-            .back-to-top {
-                bottom: 20px;
+            .music-toggle {
+                right: 20px;
+            }
+
+            .back-to-top-btn {
                 left: 20px;
-                width: 44px;
-                height: 44px;
+            }
+
+            .theme-toggle {
+                left: 74px;
             }
         }
 
@@ -1939,7 +2137,7 @@
     <div class="scroll-progress" id="scrollProgress" aria-hidden="true"></div>
 
     <!-- ═══════════════════════════════════════════════
-         Background Glowing Orbs
+         Background Glowing Orbs & Stars
          ═══════════════════════════════════════════════ -->
     <div class="bg-orbs" aria-hidden="true">
         <div class="bg-orb"></div>
@@ -1947,6 +2145,7 @@
         <div class="bg-orb"></div>
         <div class="bg-orb"></div>
     </div>
+    <div class="stars-container" id="starsContainer" aria-hidden="true"></div>
 
     <!-- ═══════════════════════════════════════════════
          Background Particles
@@ -1957,7 +2156,7 @@
          Navigation
          ═══════════════════════════════════════════════ -->
     <nav class="navbar" id="navbar" role="navigation" aria-label="التنقل الرئيسي">
-        <a href="#home" class="navbar__logo" aria-label="العودة للرئيسية">
+        <a href="#home" class="navbar__logo" id="logoLink" aria-label="العودة للرئيسية">
             <span class="navbar__logo-heart" aria-hidden="true"> 💚 </span>
             <span> ميكاتو </span>
         </a>
@@ -1970,6 +2169,7 @@
             <li role="none"><a href="#open-when" class="navbar__link" role="menuitem">افتحي عندما</a></li>
             <li role="none"><a href="#birthday" class="navbar__link" role="menuitem">ميلادكِ</a></li>
             <li role="none"><a href="#promises" class="navbar__link" role="menuitem">وعود</a></li>
+            <li role="none"><a href="#scratch" class="navbar__link" role="menuitem">لماذا أحبكِ</a></li>
             <li role="none"><a href="#message" class="navbar__link" role="menuitem">رسالة</a></li>
             <li role="none"><a href="#whispers" class="navbar__link" role="menuitem">همسات</a></li>
         </ul>
@@ -2150,7 +2350,6 @@
                 <p class="section__subtitle">اليوم الأجمل في السنة الذي أشرقتِ فيه على عالمي</p>
             </div>
             <div class="birthday-card">
-                <!-- حالة 1: العداد التنازلي لميلادها (22 أغسطس) -->
                 <div class="birthday-countdown-container" id="birthdayCountdownSection">
                     <p class="birthday-countdown-title"
                         style="font-weight: 700; color: var(--rose-600); font-size: var(--text-base);">⏳ الوقت المتبقي
@@ -2175,7 +2374,6 @@
                     </div>
                 </div>
 
-                <!-- حالة 2: يوم الميلاد الفعلي (22 أغسطس) -->
                 <div class="birthday-celebration-container" id="birthdayCelebrationSection">
                     <div class="birthday-box" id="birthdayBox" role="button" tabindex="0"
                         aria-label="افتحي هدية عيد ميلادك">
@@ -2229,6 +2427,35 @@
                 <div class="promise-item">
                     <span class="promise-item__emoji" aria-hidden="true">∞</span>
                     <p class="promise-item__text">أعدكِ بحب لا ينتهي، وإخلاص لا يتزعزع، وقلب لا يعرف غير اسمكِ.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- فاصل -->
+    <div class="section-divider" aria-hidden="true"><span> scratches </span></div>
+
+    <!-- ═══════════════════════════════════════════════
+         Scratch Cards Section (لماذا أحبكِ)
+         ═══════════════════════════════════════════════ -->
+    <section class="section" id="scratch" aria-labelledby="scratch-title">
+        <div class="container">
+            <div class="section__header">
+                <h2 class="section__title" id="scratch-title">لماذا أحبكِ؟</h2>
+                <p class="section__subtitle">احكي البطاقة بأصابعك لتكتشفي الأسباب المخفية</p>
+            </div>
+            <div class="scratch-grid">
+                <div class="scratch-card-container">
+                    <div class="scratch-card-text">لأن ضحكتكِ تداوي قلبي وتجعل يومي أجمل 💕</div>
+                    <canvas class="scratch-canvas" data-scratch></canvas>
+                </div>
+                <div class="scratch-card-container">
+                    <div class="scratch-card-text">لأنكِ تفهمينني بنظرة واحدة، وتسمعين صمتكِ في داخلي 🌸</div>
+                    <canvas class="scratch-canvas" data-scratch></canvas>
+                </div>
+                <div class="scratch-card-container">
+                    <div class="scratch-card-text">لأن وجودكِ بجانبي هو أكبر نعمة وأجمل هدية من القدر 💖</div>
+                    <canvas class="scratch-canvas" data-scratch></canvas>
                 </div>
             </div>
         </div>
@@ -2292,7 +2519,7 @@
     </div>
 
     <!-- ═══════════════════════════════════════════════
-         Whispers Section (بديل المعرض)
+         Whispers Section
          ═══════════════════════════════════════════════ -->
     <section class="section" id="whispers" aria-labelledby="whispers-title">
         <div class="container">
@@ -2310,6 +2537,14 @@
     </section>
 
     <!-- ═══════════════════════════════════════════════
+         Easter Egg Overlay
+         ═══════════════════════════════════════════════ -->
+    <div class="easter-egg-overlay" id="easterEggOverlay">
+        <div class="easter-egg-heart">💚</div>
+        <div class="easter-egg-text">أنتِ كنزي الذي لا يُقدر بثمن، شكراً لوجودكِ في حياتي يا زهرتي 💕</div>
+    </div>
+
+    <!-- ═══════════════════════════════════════════════
          Footer
          ═══════════════════════════════════════════════ -->
     <footer class="footer" role="contentinfo">
@@ -2319,14 +2554,13 @@
     </footer>
 
     <!-- ═══════════════════════════════════════════════
-         Back to Top
+         Floating Buttons
          ═══════════════════════════════════════════════ -->
-    <button class="back-to-top" id="backToTop" aria-label="العودة للأعلى" title="العودة للأعلى">↑</button>
-
-    <!-- ═══════════════════════════════════════════════
-         Music Toggle
-         ═══════════════════════════════════════════════ -->
-    <button class="music-toggle" id="musicToggle" aria-label="تشغيل الموسيقى" title="تشغيل الموسيقى">
+    <button class="floating-btn back-to-top-btn" id="backToTop" aria-label="العودة للأعلى"
+        title="العودة للأعلى">↑</button>
+    <button class="floating-btn theme-toggle" id="themeToggle" aria-label="تبديل الوضع الليلي"
+        title="وضع النجوم">🌙</button>
+    <button class="floating-btn music-toggle" id="musicToggle" aria-label="تشغيل الموسيقى" title="تشغيل الموسيقى">
         <span id="musicIcon">🎵</span>
         <span class="music-bars">
             <span class="music-bar"></span>
@@ -2401,7 +2635,12 @@
                 bdayDays: document.getElementById('bdayDays'),
                 bdayHours: document.getElementById('bdayHours'),
                 bdayMinutes: document.getElementById('bdayMinutes'),
-                bdaySeconds: document.getElementById('bdaySeconds')
+                bdaySeconds: document.getElementById('bdaySeconds'),
+                scratchCanvases: document.querySelectorAll('[data-scratch]'),
+                themeToggle: document.getElementById('themeToggle'),
+                logoLink: document.getElementById('logoLink'),
+                easterEggOverlay: document.getElementById('easterEggOverlay'),
+                starsContainer: document.getElementById('starsContainer')
             };
 
             /* ═══════════════════════════════════════════
@@ -2550,7 +2789,7 @@
                 handleScroll() {
                     const scrollY = window.scrollY;
                     DOM.navbar.classList.toggle('navbar--scrolled', scrollY > 60);
-                    DOM.backToTop.classList.toggle('back-to-top--visible', scrollY > 500);
+                    DOM.backToTop.classList.toggle('back-to-top-btn--visible', scrollY > 500);
                 }
             };
 
@@ -2576,7 +2815,7 @@
             };
 
             /* ═══════════════════════════════════════════
-               Secret Message (الرسالة الخاصة)
+               Secret Message
                ═══════════════════════════════════════════ */
             const SecretMessage = {
                 init() {
@@ -2683,7 +2922,7 @@
             };
 
             /* ═══════════════════════════════════════════
-               Open When Section (افتحي عندما...)
+               Open When Section
                ═══════════════════════════════════════════ */
             const OpenWhen = {
                 data: {
@@ -2760,13 +2999,12 @@
 
                 init() {
                     Birthday.check();
-                    // التحقق دورياً كل دقيقة للتأكد من تاريخ اليوم والتحويل
                     setInterval(() => Birthday.check(), 60000);
                 },
 
                 check() {
                     const now = new Date();
-                    const month = now.getMonth(); // أغسطس هو رقم 7 (0-indexed)
+                    const month = now.getMonth();
                     const date = now.getDate();
 
                     if (month === 7 && date === 22) {
@@ -2791,10 +3029,8 @@
                 updateCountdown() {
                     const now = new Date();
                     let currentYear = now.getFullYear();
-                    // استخدام ترتيب المواليد الفعلي 22 أغسطس
                     let bday = new Date(currentYear, 7, 22, 0, 0, 0);
 
-                    // إذا انتهى التاريخ الحالي في السنة الحالية، ننتقل للسنة القادمة
                     if (now > bday) {
                         bday = new Date(currentYear + 1, 7, 22, 0, 0, 0);
                     }
@@ -2813,7 +3049,7 @@
             };
 
             /* ═══════════════════════════════════════════
-               Background Particles
+               Background Particles & Stars
                ═══════════════════════════════════════════ */
             const Particles = {
                 types: [
@@ -2838,6 +3074,19 @@
                     setInterval(() => {
                         if (DOM.particlesContainer.children.length < CONFIG.maxParticles) Particles.create();
                     }, CONFIG.particleInterval);
+
+                    // Generate Stars
+                    for (let i = 0; i < 50; i++) {
+                        const star = document.createElement('div');
+                        star.className = 'star';
+                        const size = Math.random() * 3 + 1;
+                        star.style.width = size + 'px';
+                        star.style.height = size + 'px';
+                        star.style.left = Math.random() * 100 + '%';
+                        star.style.top = Math.random() * 100 + '%';
+                        star.style.animationDelay = Math.random() * 3 + 's';
+                        DOM.starsContainer.appendChild(star);
+                    }
                 },
 
                 create() {
@@ -2893,7 +3142,6 @@
                             DOM.whisperText.textContent = Whispers.messages[Whispers.currentIndex];
                             DOM.whisperText.classList.remove('fade-out');
 
-                            // تأثير الاحتفال البصري على الكرت
                             Effects.confettiBurst(DOM.whisperCard);
 
                             setTimeout(() => {
@@ -2901,6 +3149,109 @@
                             }, 300);
                         }, 300);
                     });
+                }
+            };
+
+            /* ═══════════════════════════════════════════
+               Scratch Cards Logic
+               ═══════════════════════════════════════════ */
+            const ScratchCards = {
+                init() {
+                    DOM.scratchCanvases.forEach(canvas => {
+                        const ctx = canvas.getContext('2d');
+
+                        // Set canvas size based on parent
+                        const setCanvasSize = () => {
+                            canvas.width = canvas.offsetWidth;
+                            canvas.height = canvas.offsetHeight;
+                            ctx.fillStyle = '#b0b0b0';
+                            ctx.fillRect(0, 0, canvas.width, canvas.height);
+
+                            // Add text "احك هنا"
+                            ctx.fillStyle = '#888';
+                            ctx.font = 'bold 18px Tajawal';
+                            ctx.textAlign = 'center';
+                            ctx.fillText('احك هنا ✨', canvas.width / 2, canvas.height / 2);
+                        };
+
+                        setCanvasSize();
+                        window.addEventListener('resize', setCanvasSize);
+
+                        let isDrawing = false;
+
+                        const scratch = (e) => {
+                            if (!isDrawing) return;
+                            const rect = canvas.getBoundingClientRect();
+                            const x = (e.clientX || e.touches[0].clientX) - rect.left;
+                            const y = (e.clientY || e.touches[0].clientY) - rect.top;
+
+                            ctx.globalCompositeOperation = 'destination-out';
+                            ctx.beginPath();
+                            ctx.arc(x, y, 25, 0, Math.PI * 2);
+                            ctx.fill();
+                        };
+
+                        canvas.addEventListener('mousedown', (e) => { isDrawing = true; scratch(e); });
+                        canvas.addEventListener('mousemove', scratch);
+                        canvas.addEventListener('mouseup', () => isDrawing = false);
+                        canvas.addEventListener('mouseleave', () => isDrawing = false);
+
+                        canvas.addEventListener('touchstart', (e) => { e.preventDefault(); isDrawing = true; scratch(e); });
+                        canvas.addEventListener('touchmove', (e) => { e.preventDefault(); scratch(e); });
+                        canvas.addEventListener('touchend', () => isDrawing = false);
+                    });
+                }
+            };
+
+            /* ═══════════════════════════════════════════
+               Theme Toggle (Night Mode)
+               ═══════════════════════════════════════════ */
+            const ThemeToggle = {
+                init() {
+                    DOM.themeToggle.addEventListener('click', () => {
+                        document.body.classList.toggle('night-mode');
+                        const isNight = document.body.classList.contains('night-mode');
+                        DOM.themeToggle.textContent = isNight ? '☀️' : '🌙';
+                        DOM.themeToggle.setAttribute('aria-label', isNight ? 'تبديل للوضع النهاري' : 'تبديل للوضع الليلي');
+                    });
+                }
+            };
+
+            /* ═══════════════════════════════════════════
+               Easter Egg (Logo Secret)
+               ═══════════════════════════════════════════ */
+            const EasterEgg = {
+                clicks: 0,
+                lastClick: 0,
+
+                init() {
+                    DOM.logoLink.addEventListener('click', (e) => {
+                        const now = Date.now();
+                        if (now - this.lastClick < 500) {
+                            this.clicks++;
+                        } else {
+                            this.clicks = 1;
+                        }
+                        this.lastClick = now;
+
+                        if (this.clicks >= 5) {
+                            e.preventDefault();
+                            this.trigger();
+                            this.clicks = 0;
+                        }
+                    });
+
+                    DOM.easterEggOverlay.addEventListener('click', () => {
+                        DOM.easterEggOverlay.classList.remove('easter-egg-overlay--active');
+                    });
+                },
+
+                trigger() {
+                    DOM.easterEggOverlay.classList.add('easter-egg-overlay--active');
+                    Effects.confettiBurst(DOM.easterEggOverlay);
+                    setTimeout(() => {
+                        DOM.easterEggOverlay.classList.remove('easter-egg-overlay--active');
+                    }, 5000);
                 }
             };
 
@@ -2914,7 +3265,6 @@
                     Effects.initMusicToggle();
                 },
 
-                /* انفجار كونفيتي درامي */
                 confettiBurst(element) {
                     const rect = element.getBoundingClientRect();
                     const cx = rect.left + rect.width / 2;
@@ -2942,14 +3292,14 @@
                     }
                 },
 
-                /* قلوب عند النقر */
                 initClickHearts() {
                     document.addEventListener('click', (e) => {
                         if (e.target.closest('button') || e.target.closest('a') ||
                             e.target.closest('#messageBox') || e.target.closest('.navbar__links') ||
                             e.target.closest('.navbar__toggle') || e.target.closest('#secretModal') ||
                             e.target.closest('.music-toggle') || e.target.closest('.open-when-card') ||
-                            e.target.closest('.birthday-box')) return;
+                            e.target.closest('.birthday-box') || e.target.closest('.scratch-canvas') ||
+                            e.target.closest('.theme-toggle')) return;
 
                         const emojis = ['💚', '✨', '💚'];
                         const heart = document.createElement('span');
@@ -2970,7 +3320,6 @@
                     });
                 },
 
-                /* Scroll Reveal */
                 initScrollReveal() {
                     const observerOptions = { threshold: 0.15, rootMargin: '0px 0px -60px 0px' };
 
@@ -3016,7 +3365,6 @@
                     if (DOM.whisperCard) whispersObserver.observe(DOM.whisperCard);
                 },
 
-                /* زر تشغيل الموسيقى الخلفية */
                 initMusicToggle() {
                     let playing = false;
 
@@ -3079,6 +3427,9 @@
                 Birthday.init();
                 Particles.init();
                 Whispers.init();
+                ScratchCards.init();
+                ThemeToggle.init();
+                EasterEgg.init();
                 Effects.init();
                 CursorTrail.init();
                 HeroParallax.init();
